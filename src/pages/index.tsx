@@ -4,7 +4,7 @@ export default function Home() {
 	return (
 		<>
 			{/* Page specific SEO */}
-			{/* <Head>
+			<Head>
 				<title>Anastasia Guletsky Kelly</title>
 				<meta
 					name="description"
@@ -15,7 +15,7 @@ export default function Home() {
 					content="width=device-width, initial-scale=1"
 				/>
 				<link rel="icon" href="/favicon.ico" />
-			</Head> */}
+			</Head>
 			<main>page content</main>
 		</>
 	);
