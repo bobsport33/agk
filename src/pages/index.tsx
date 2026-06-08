@@ -5,7 +5,7 @@ import DisplayCards from "@/modules/DisplayCard/Index";
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
-	grid-auto-rows: 220px;
+	grid-auto-rows: 100px;
 	gap: 1.25rem;
 
 	@media (max-width: 900px) {
@@ -37,54 +37,54 @@ export default function Home() {
 			link: "/harley-davidson",
 			imageUrl: "/assets/HD-logo-folio 2.png",
 			colStart: 1,
-			colEnd: 3,
+			colEnd: 5,
 			rowStart: 1,
-			rowEnd: 3
+			rowEnd: 4
 		},
 		{
 			client: "City of Chicago",
 			link: "/city-of-chicago",
 			imageUrl: "/assets/chi-logo-folio-1.png",
-			colStart: 3,
-			colEnd: 4,
+			colStart: 8,
+			colEnd: 13,
 			rowStart: 1,
-			rowEnd: 2
+			rowEnd: 6
 		},
 		{
 			client: "Cox Communications",
 			link: "/cox-communications",
 			imageUrl: "/assets/cox-logo-folio-1.png",
-			colStart: 4,
-			colEnd: 5,
+			colStart: 5,
+			colEnd: 8,
 			rowStart: 1,
-			rowEnd: 3
+			rowEnd: 5
 		},
 		{
 			client: "Thunder Valley",
 			link: "/assets/thunder-valley",
 			imageUrl: "/assets/TVCR cover photo logo.png",
-			colStart: 3,
-			colEnd: 4,
-			rowStart: 2,
-			rowEnd: 3
+			colStart: 1,
+			colEnd: 5,
+			rowStart: 4,
+			rowEnd: 8
 		},
 		{
 			client: "Recent Web Projects",
 			link: "/recent-web-projects",
 			imageUrl: "/assets/Capture.png",
-			colStart: 1,
-			colEnd: 3,
-			rowStart: 3,
-			rowEnd: 4
+			colStart: 8,
+			colEnd: 13,
+			rowStart: 6,
+			rowEnd: 8
 		},
 		{
 			client: "Converse",
 			link: "/converse",
-			imageUrl: "/assets/converseLogo.png",
-			colStart: 3,
-			colEnd: 5,
-			rowStart: 3,
-			rowEnd: 4
+			imageUrl: "/assets/converseLogo.avif",
+			colStart: 5,
+			colEnd: 8,
+			rowStart: 5,
+			rowEnd: 8
 		}
 	];
 

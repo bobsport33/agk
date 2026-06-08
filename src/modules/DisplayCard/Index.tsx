@@ -30,16 +30,11 @@ const Card = styled(Link)`
 		box-shadow 200ms ease;
 
 	&:hover {
-		transform: translateY(-4px);
 		box-shadow: var(--shadow-lift);
 	}
 
 	&:hover .card__image {
 		transform: scale(1.03);
-	}
-
-	&:hover .card__title {
-		transform: translateY(-2px);
 	}
 `;
 
