@@ -43,7 +43,7 @@
 	--accent-900: #3d2232;
 	--accent-1000: #24131d;
 
-	--padding: 0 24px;
+	--padding: 0 36px;
 }
 
 html,
@@ -58,6 +58,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	padding: var(--padding);
 }
 
 * {

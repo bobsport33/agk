@@ -168,6 +168,92 @@ const ResumeCont = styled.div`
 		color: var(--neutral-900);
 	}
 
+	.resume__background {
+		margin-top: 5rem;
+		padding-top: 5rem;
+
+		border-top: 1px solid var(--neutral-300);
+	}
+
+	.resume__backgroundHeading {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 900;
+		margin-bottom: 3rem;
+
+		color: var(--neutral-1000);
+	}
+
+	.resume__infoGrid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 2rem;
+		margin-bottom: 4rem;
+	}
+
+	.resume__infoCard {
+		padding: 2rem;
+
+		background: var(--neutral-100);
+
+		border-radius: 24px;
+
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+	}
+
+	.resume__infoTitle {
+		font-size: 0.85rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+
+		color: var(--primary-700);
+
+		margin-bottom: 1rem;
+	}
+
+	.resume__infoContent {
+		line-height: 1.8;
+		color: var(--neutral-900);
+	}
+
+	.resume__skills {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.resume__skillTitle {
+		font-size: 1.5rem;
+	}
+
+	.resume__skill {
+		padding: 0.85rem 1.25rem;
+
+		background: var(--primary-100);
+
+		border: 1px solid var(--primary-300);
+
+		border-radius: 999px;
+
+		font-weight: 700;
+
+		color: var(--primary-900);
+
+		transition: all 0.2s ease;
+	}
+
+	.resume__skill:hover {
+		transform: translateY(-2px);
+
+		background: var(--primary-200);
+	}
+
+	.resume__skillList {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
 	@media (max-width: 768px) {
 		padding: 4rem 1.25rem;
 
@@ -410,6 +496,42 @@ const Resume = () => {
 						ChiCitySports.com, Second City Training Center, Arc
 						Worldwide, Illini Athletics
 					</div>
+				</div>
+			</div>
+			<div className="resume__infoGrid">
+				<div className="resume__infoCard">
+					<div className="resume__infoTitle">Education</div>
+
+					<div className="resume__infoContent">
+						<strong>University of Illinois Urbana-Champaign</strong>
+						<br />
+						Advertising, Sociology
+						<br />
+						Graduated 2012
+					</div>
+				</div>
+
+				<div className="resume__infoCard">
+					<div className="resume__infoTitle">Training</div>
+
+					<div className="resume__infoContent">
+						ADA Web Compliance
+						<br />
+						The Refinery Manager Leadership Training
+						<br />
+						Second City Training Center: Sketch Writing & Improv
+					</div>
+				</div>
+			</div>
+			<div className="resume__skills">
+				<h3 className="resume__skillTitle">Skills</h3>
+				<div className="resume__skillList">
+					<div className="resume__skill">Brand Voice Builder</div>
+					<div className="resume__skill">Buzzword Decoder</div>
+					<div className="resume__skill">Grammar Guru</div>
+					<div className="resume__skill">Team Talent Gardener</div>
+					<div className="resume__skill">Meeting Energy Reviver</div>
+					<div className="resume__skill">#1 Karaoke Partner</div>
 				</div>
 			</div>
 		</ResumeCont>
