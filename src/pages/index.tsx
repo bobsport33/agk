@@ -63,9 +63,9 @@ export default function Home() {
 			client: "Thunder Valley",
 			link: "/assets/thunder-valley",
 			imageUrl: "/assets/TVCR cover photo logo.png",
-			colStart: 1,
-			colEnd: 5,
-			rowStart: 4,
+			colStart: 5,
+			colEnd: 8,
+			rowStart: 5,
 			rowEnd: 8
 		},
 		{
@@ -81,9 +81,9 @@ export default function Home() {
 			client: "Converse",
 			link: "/converse",
 			imageUrl: "/assets/converseLogo.avif",
-			colStart: 5,
-			colEnd: 8,
-			rowStart: 5,
+			colStart: 1,
+			colEnd: 5,
+			rowStart: 4,
 			rowEnd: 8
 		}
 	];
