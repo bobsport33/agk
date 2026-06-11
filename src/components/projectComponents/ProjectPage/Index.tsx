@@ -9,6 +9,7 @@ const Page = styled("section")`
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	margin-top: 25px;
 `;
 
 const ProjectPage = ({ children }: PageProps) => {

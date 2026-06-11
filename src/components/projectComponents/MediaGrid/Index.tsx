@@ -1,165 +1,128 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-type MediaRatio = "wide" | "tall" | "square";
 type MediaType = "image" | "video";
 
 interface MediaItem {
-	src: string;
 	type: MediaType;
-	ratio?: MediaRatio;
+	src: string;
 	alt?: string;
+	poster?: string;
 }
 
 interface MediaGridProps {
-	items: MediaItem[];
+	title?: string;
+	media: MediaItem[];
 }
 
-const MediaGridStyled = styled.div`
-	display: grid;
-	gap: 0.75rem;
-	border-radius: 24px;
-	overflow: hidden;
+const MediaGridStyled = styled.section`
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 
-	/* 1 item */
-	&.media-grid--1 {
-		grid-template-columns: 1fr;
-
-		.media-grid__item {
-			aspect-ratio: 16 / 9;
-		}
-	}
-
-	/* 2 items: even split */
-	&.media-grid--2 {
-		grid-template-columns: 1fr 1fr;
-
-		.media-grid__item {
-			aspect-ratio: 4 / 3;
-		}
-	}
-
-	/* 3 items: large left, two stacked right */
-	&.media-grid--3 {
-		grid-template-columns: 2fr 1fr;
-		grid-template-rows: 1fr 1fr;
-
-		.media-grid__item:first-of-type {
-			grid-row: span 2;
-			aspect-ratio: unset;
+	.media-grid {
+		&__header {
+			margin-bottom: 0.5rem;
 		}
 
-		.media-grid__item:not(:first-of-type) {
-			aspect-ratio: 4 / 3;
+		&__title {
+			margin: 0;
+			font-size: 1.75rem;
+			font-weight: 700;
+			color: var(--neutral-1000);
+			position: relative;
+			display: inline-block;
+
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: -0.4rem;
+				width: 2.5rem;
+				height: 3px;
+				background: var(--primary-500);
+				border-radius: 999px;
+			}
 		}
-	}
 
-	/* 4 items: large banner top, three below */
-	&.media-grid--4 {
-		grid-template-columns: repeat(3, 1fr);
-
-		.media-grid__item:first-of-type {
-			grid-column: span 3;
-			aspect-ratio: 21 / 9;
+		&__grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 0.75rem;
 		}
 
-		.media-grid__item:not(:first-of-type) {
+		&__item {
+			position: relative;
 			aspect-ratio: 1 / 1;
-		}
-	}
+			overflow: hidden;
+			border-radius: 14px;
 
-	/* 5+ items */
-	&.media-grid--many {
-		grid-template-columns: repeat(3, 1fr);
-
-		.media-grid__item {
-			aspect-ratio: 4 / 3;
+			background: var(--neutral-200);
+			border: 1px solid var(--neutral-300);
 		}
 
-		.media-grid__item:first-of-type {
-			grid-column: span 2;
-			aspect-ratio: 16 / 9;
-		}
-	}
-
-	.media-grid__item {
-		width: 100%;
-		overflow: hidden;
-		background: var(--neutral-300);
-		position: relative;
-
-		img,
-		video {
+		&__image,
+		&__video {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
 			display: block;
-			transition: transform 0.5s ease;
-		}
-
-		/* Gradient overlay on hover */
-		&::after {
-			content: "";
-			position: absolute;
-			inset: 0;
-			background: linear-gradient(
-				to top,
-				rgba(31, 27, 27, 0.35),
-				transparent
-			);
-			opacity: 0;
-			transition: opacity 0.3s ease;
-		}
-
-		&:hover img,
-		&:hover video {
-			transform: scale(1.05);
-		}
-
-		&:hover::after {
-			opacity: 1;
 		}
 	}
 
-	@media (max-width: 768px) {
-		&.media-grid--2,
-		&.media-grid--3,
-		&.media-grid--4,
-		&.media-grid--many {
-			grid-template-columns: 1fr;
+	@media (max-width: 900px) {
+		.media-grid {
+			&__grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+	}
 
-			.media-grid__item,
-			.media-grid__item:first-of-type {
-				grid-column: unset;
-				grid-row: unset;
-				aspect-ratio: 16 / 9;
+	@media (max-width: 600px) {
+		.media-grid {
+			&__grid {
+				grid-template-columns: 1fr;
 			}
 		}
 	}
 `;
 
-const getLayoutClass = (count: number): string => {
-	if (count <= 4) return `media-grid--${count}`;
-	return "media-grid--many";
-};
-
-const MediaGrid: React.FC<MediaGridProps> = ({ items = [] }) => {
+export default function MediaGrid({ title, media }: MediaGridProps) {
 	return (
-		<MediaGridStyled className={getLayoutClass(items.length)}>
-			{items.map((item, i) => (
-				<div
-					key={i}
-					className={`media-grid__item media-grid__item--${item.ratio ?? "wide"}`}
-				>
-					{item.type === "video" ? (
-						<video src={item.src} autoPlay muted loop playsInline />
-					) : (
-						<img src={item.src} alt={item.alt ?? ""} />
-					)}
-				</div>
-			))}
+		<MediaGridStyled>
+			{title && (
+				<header className="media-grid__header">
+					<h2 className="media-grid__title">{title}</h2>
+				</header>
+			)}
+
+			<div className="media-grid__grid">
+				{media.map((item, index) => (
+					<div
+						key={`${item.src}-${index}`}
+						className="media-grid__item"
+					>
+						{item.type === "image" ? (
+							<img
+								className="media-grid__image"
+								src={item.src}
+								alt={item.alt || ""}
+								loading="lazy"
+							/>
+						) : (
+							<video
+								className="media-grid__video"
+								src={item.src}
+								poster={item.poster}
+								muted
+								loop
+								playsInline
+								controls
+							/>
+						)}
+					</div>
+				))}
+			</div>
 		</MediaGridStyled>
 	);
-};
-
-export default MediaGrid;
+}

@@ -25,16 +25,27 @@ const sectionContent = [
 
 const media = [
 	{
+		type: "image",
 		src: "/images/hd-hero.jpg",
-		type: "image" as const,
-		ratio: "wide" as const,
-		alt: "Harley 2024 Launch"
+		alt: "Harley 2024 Launch",
+		size: "large"
 	},
 	{
+		type: "image",
 		src: "/images/hd-detail.jpg",
-		type: "image" as const,
-		ratio: "square" as const,
 		alt: "Bike detail"
+	},
+	{
+		type: "video",
+		src: "/videos/launch.mp4",
+		poster: "/images/video-poster.jpg",
+		size: "wide"
+	},
+	{
+		type: "image",
+		src: "/images/rider.jpg",
+		alt: "Rider",
+		size: "small"
 	}
 ];
 
@@ -42,11 +53,10 @@ const HarleyDavidson: React.FC = () => {
 	return (
 		<ProjectPage>
 			<NumberedContentSection
-				title="Model Year 2024 Launch"
-				subtitle='"Ride Into a New Era"'
-				sectionContent={sectionContent}
+				title="Model Year 2024 Launch: Ride Into a New Era"
+				content={sectionContent}
 			/>
-			<MediaGrid items={media} />
+			<MediaGrid media={media} />
 		</ProjectPage>
 	);
 };

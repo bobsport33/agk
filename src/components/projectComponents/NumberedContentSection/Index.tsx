@@ -1,191 +1,196 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-interface SectionContent {
+interface SectionItem {
 	label: string;
 	body: string;
 }
 
-interface NumberedContentSectionProps {
+interface NumberedContentProps {
 	title?: string;
-	subtitle?: string;
-	sectionContent: SectionContent[];
+	content: SectionItem[];
 }
 
-const NumberedContentSectionStyled = styled.div`
+const NumberedContentStyled = styled.section`
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	gap: 1rem;
 
-	.numbered-content-section__header {
-		margin-bottom: 1rem;
-	}
-
-	.numbered-content-section__title {
-		font-size: clamp(2.5rem, 5vw, 4.5rem);
-		font-weight: 900;
-		line-height: 1.05;
-		letter-spacing: -0.04em;
-		color: var(--neutral-1000);
-	}
-
-	.numbered-content-section__subtitle {
-		font-size: 1.1rem;
-		font-style: italic;
-		font-weight: 500;
-		color: var(--primary-600);
-		margin-top: 0.5rem;
-	}
-
-	/* Section card */
-	.numbered-content-section__section {
-		display: grid;
-		grid-template-columns: 140px 1fr;
-		align-items: start;
-		background: var(--neutral-100);
-		border-radius: 24px;
-		border-left: 8px solid var(--primary-500);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-		overflow: hidden;
-		transition:
-			transform 0.2s ease,
-			box-shadow 0.2s ease;
-
-		&:hover {
-			transform: translateY(-4px);
-			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+	.numbered-content {
+		&__header {
+			margin-bottom: 1rem;
 		}
 
-		/* Alternate border colors per card */
-		&:nth-of-type(2) {
-			border-left-color: var(--secondary-500);
+		&__title {
+			margin: 0;
+			font-size: clamp(1.75rem, 4vw, 3rem);
+			font-weight: 700;
+			line-height: 1.1;
+			color: var(--neutral-1000);
 
-			.numbered-content-section__number {
-				color: var(--secondary-500);
-			}
+			position: relative;
+			display: inline-block;
 
-			.numbered-content-section__label {
-				color: var(--secondary-700);
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: -0.5rem;
+
+				width: 3rem;
+				height: 3px;
+
+				border-radius: 999px;
+				background: var(--primary-500);
 			}
 		}
 
-		&:nth-of-type(3) {
-			border-left-color: var(--accent-500);
+		&__item {
+			position: relative;
 
-			.numbered-content-section__number {
-				color: var(--accent-500);
-			}
+			display: grid;
+			grid-template-columns: 90px 1fr;
+			gap: 1.25rem;
 
-			.numbered-content-section__label {
-				color: var(--accent-700);
+			padding: 1.5rem 1.75rem;
+
+			border-radius: 18px;
+
+			background: linear-gradient(
+				135deg,
+				rgba(255, 255, 255, 0.75),
+				rgba(255, 255, 255, 0.45)
+			);
+
+			border: 1px solid var(--neutral-300);
+
+			box-shadow:
+				0 4px 12px rgba(0, 0, 0, 0.03),
+				0 1px 2px rgba(0, 0, 0, 0.04);
+
+			overflow: hidden;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				width: 4px;
+				height: 100%;
+
+				background: linear-gradient(
+					to bottom,
+					var(--primary-500),
+					var(--secondary-500)
+				);
 			}
 		}
 
-		&:nth-of-type(4) {
-			border-left-color: var(--primary-700);
+		&__number {
+			font-size: clamp(2.75rem, 5vw, 4rem);
+			font-weight: 800;
+			line-height: 0.9;
 
-			.numbered-content-section__number {
-				color: var(--primary-700);
-			}
+			color: var(--primary-500);
 
-			.numbered-content-section__label {
-				color: var(--primary-800);
+			opacity: 0.9;
+		}
+
+		&__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 0.5rem;
+		}
+
+		&__label {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.75rem;
+
+			font-size: 0.7rem;
+			font-weight: 700;
+
+			text-transform: uppercase;
+			letter-spacing: 0.18em;
+
+			color: var(--secondary-700);
+
+			&::after {
+				content: "";
+				width: 32px;
+				height: 1px;
+				background: var(--secondary-500);
 			}
 		}
-	}
 
-	/* Left panel */
-	.numbered-content-section__left {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: flex-start;
-		gap: 0.25rem;
-		padding: 2rem 1.5rem;
-		height: 100%;
-		border-right: 1px solid var(--neutral-300);
-	}
+		&__body {
+			margin: 0;
 
-	.numbered-content-section__number {
-		font-size: clamp(2.5rem, 4vw, 3.5rem);
-		font-weight: 900;
-		line-height: 1;
-		letter-spacing: -0.04em;
-		color: var(--primary-500);
-	}
+			font-size: clamp(0.95rem, 1vw, 1.05rem);
+			line-height: 1.65;
 
-	.numbered-content-section__label {
-		font-size: 0.75rem;
-		font-weight: 800;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: var(--primary-700);
-	}
+			color: var(--neutral-900);
 
-	/* Right panel */
-	.numbered-content-section__right {
-		padding: 2rem;
-	}
-
-	.numbered-content-section__body {
-		font-size: 1rem;
-		line-height: 1.85;
-		color: var(--neutral-900);
+			max-width: 65ch;
+		}
 	}
 
 	@media (max-width: 768px) {
-		.numbered-content-section__section {
-			grid-template-columns: 1fr;
-		}
+		.numbered-content {
+			&__header {
+				margin-bottom: 0.75rem;
+			}
 
-		.numbered-content-section__left {
-			flex-direction: row;
-			align-items: center;
-			gap: 1rem;
-			border-right: none;
-			border-bottom: 1px solid var(--neutral-300);
-			padding: 1.25rem 1.5rem;
+			&__item {
+				grid-template-columns: 1fr;
+				gap: 0.75rem;
+
+				padding: 1.25rem;
+			}
+
+			&__number {
+				font-size: 3rem;
+			}
+
+			&__body {
+				max-width: 100%;
+			}
 		}
 	}
 `;
 
-const NumberedContentSection: React.FC<NumberedContentSectionProps> = ({
+export default function NumberedContent({
 	title,
-	subtitle,
-	sectionContent = []
-}) => {
+	content
+}: NumberedContentProps) {
 	return (
-		<NumberedContentSectionStyled>
-			<div className="numbered-content-section__header">
-				{title && (
-					<h1 className="numbered-content-section__title">{title}</h1>
-				)}
-				{subtitle && (
-					<p className="numbered-content-section__subtitle">
-						{subtitle}
-					</p>
-				)}
-			</div>
+		<NumberedContentStyled>
+			{title && (
+				<header className="numbered-content__header">
+					<h2 className="numbered-content__title">{title}</h2>
+				</header>
+			)}
 
-			{sectionContent.map((section, i) => (
-				<div key={i} className="numbered-content-section__section">
-					<div className="numbered-content-section__left">
-						<span className="numbered-content-section__number">
-							{String(i + 1).padStart(2, "0")}
-						</span>
-						<span className="numbered-content-section__label">
-							{section.label}
-						</span>
+			{content.map((item, index) => (
+				<div
+					key={`${item.label}-${index}`}
+					className="numbered-content__item"
+				>
+					<div className="numbered-content__number">
+						{String(index + 1).padStart(2, "0")}
 					</div>
-					<div className="numbered-content-section__right">
-						<p className="numbered-content-section__body">
-							{section.body}
-						</p>
+
+					<div className="numbered-content__content">
+						<div className="numbered-content__label">
+							{item.label}
+						</div>
+
+						<p className="numbered-content__body">{item.body}</p>
 					</div>
 				</div>
 			))}
-		</NumberedContentSectionStyled>
+		</NumberedContentStyled>
 	);
-};
-
-export default NumberedContentSection;
+}
