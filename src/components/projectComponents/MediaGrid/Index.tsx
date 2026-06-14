@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styled from "@emotion/styled";
 
@@ -47,7 +48,7 @@ const MediaGridStyled = styled.section`
 
 		&__grid {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(4, 1fr);
 			gap: 0.75rem;
 		}
 
@@ -67,6 +68,14 @@ const MediaGridStyled = styled.section`
 			height: 100%;
 			object-fit: cover;
 			display: block;
+		}
+	}
+
+	@media (max-width: 1600px) {
+		.media-grid {
+			&__grid {
+				grid-template-columns: repeat(3, 1fr);
+			}
 		}
 	}
 
@@ -113,7 +122,6 @@ export default function MediaGrid({ title, media }: MediaGridProps) {
 							<video
 								className="media-grid__video"
 								src={item.src}
-								poster={item.poster}
 								muted
 								loop
 								playsInline

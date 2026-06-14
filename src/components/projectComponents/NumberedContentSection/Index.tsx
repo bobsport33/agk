@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styled from "@emotion/styled";
 
@@ -6,9 +7,15 @@ interface SectionItem {
 	body: string;
 }
 
+interface ImageItem {
+	src: string;
+	alt?: string;
+}
+
 interface NumberedContentProps {
 	title?: string;
 	content: SectionItem[];
+	images?: ImageItem[];
 }
 
 const NumberedContentStyled = styled.section`
@@ -43,6 +50,56 @@ const NumberedContentStyled = styled.section`
 				border-radius: 999px;
 				background: var(--primary-500);
 			}
+		}
+
+		&__container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			gap: 20px;
+		}
+
+		&__content-container {
+			flex: 2;
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+		}
+
+		&__image-container,
+		&__gallery {
+			flex: 0 0 35%;
+			max-width: 500px;
+			align-self: flex-start;
+		}
+
+		&__image {
+			width: 100%;
+			max-height: 600px;
+			object-fit: contain;
+			border-radius: 14px;
+			display: block;
+		}
+
+		&__gallery {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 12px;
+		}
+
+		&__gallery-image {
+			width: 100%;
+			aspect-ratio: 1;
+			object-fit: cover;
+
+			border-radius: 12px;
+
+			border: 1px solid var(--neutral-300);
+
+			box-shadow:
+				0 4px 12px rgba(0, 0, 0, 0.03),
+				0 1px 2px rgba(0, 0, 0, 0.04);
 		}
 
 		&__item {
@@ -139,14 +196,20 @@ const NumberedContentStyled = styled.section`
 
 	@media (max-width: 768px) {
 		.numbered-content {
-			&__header {
-				margin-bottom: 0.75rem;
+			&__container {
+				flex-direction: column;
+			}
+
+			&__image-container,
+			&__gallery {
+				flex: none;
+				width: 100%;
+				max-width: 100%;
 			}
 
 			&__item {
 				grid-template-columns: 1fr;
 				gap: 0.75rem;
-
 				padding: 1.25rem;
 			}
 
@@ -163,34 +226,66 @@ const NumberedContentStyled = styled.section`
 
 export default function NumberedContent({
 	title,
-	content
+	content,
+	images = []
 }: NumberedContentProps) {
+	const hasImages = images.length > 0;
+	const isGallery = images.length > 1;
+
 	return (
 		<NumberedContentStyled>
 			{title && (
-				<header className="numbered-content__header">
+				<div className="numbered-content__header">
 					<h2 className="numbered-content__title">{title}</h2>
-				</header>
+				</div>
 			)}
 
-			{content.map((item, index) => (
-				<div
-					key={`${item.label}-${index}`}
-					className="numbered-content__item"
-				>
-					<div className="numbered-content__number">
-						{String(index + 1).padStart(2, "0")}
-					</div>
+			<div className="numbered-content__container">
+				<div className="numbered-content__content-container">
+					{content.map((item, index) => (
+						<div
+							key={`${item.label}-${index}`}
+							className="numbered-content__item"
+						>
+							<div className="numbered-content__number">
+								{String(index + 1).padStart(2, "0")}
+							</div>
 
-					<div className="numbered-content__content">
-						<div className="numbered-content__label">
-							{item.label}
+							<div className="numbered-content__content">
+								<div className="numbered-content__label">
+									{item.label}
+								</div>
+
+								<p className="numbered-content__body">
+									{item.body}
+								</p>
+							</div>
 						</div>
-
-						<p className="numbered-content__body">{item.body}</p>
-					</div>
+					))}
 				</div>
-			))}
+
+				{hasImages &&
+					(isGallery ? (
+						<div className="numbered-content__gallery">
+							{images.map((image, index) => (
+								<img
+									key={`${image.src}-${index}`}
+									className="numbered-content__gallery-image"
+									src={image.src}
+									alt={image.alt || ""}
+								/>
+							))}
+						</div>
+					) : (
+						<div className="numbered-content__image-container">
+							<img
+								className="numbered-content__image"
+								src={images[0].src}
+								alt={images[0].alt || ""}
+							/>
+						</div>
+					))}
+			</div>
 		</NumberedContentStyled>
 	);
 }

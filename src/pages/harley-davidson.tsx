@@ -23,29 +23,38 @@ const sectionContent = [
 	}
 ];
 
-const media = [
+const media: {
+	type: "image" | "video";
+	src: string;
+	alt?: string;
+	poster?: string;
+}[] = [
 	{
-		type: "image",
-		src: "/images/hd-hero.jpg",
-		alt: "Harley 2024 Launch",
-		size: "large"
-	},
-	{
-		type: "image",
-		src: "/images/hd-detail.jpg",
-		alt: "Bike detail"
+		type: "video",
+		src: "/assets/Harley/MY24_Tier2_FLHX_Meta_InFeed_Video_1x1_15s_RequestQuote_USEN.mp4"
 	},
 	{
 		type: "video",
-		src: "/videos/launch.mp4",
-		poster: "/images/video-poster.jpg",
-		size: "wide"
+		src: "assets/Harley/MY24_Tier2_RA1250SE_Meta_InFeed_Video_1x1_15s_TestRide_USEN.mp4"
+	},
+	{
+		type: "video",
+		src: "assets/Harley/MY24_Tier2_RH975S_Meta_InFeed_Video_1x1_15s_TestRide_USEN.mp4"
 	},
 	{
 		type: "image",
-		src: "/images/rider.jpg",
-		alt: "Rider",
-		size: "small"
+		src: "assets/Harley/2024HDMY/1x1_Frame2_CA.jpg",
+		alt: "Harley 2024 Launch"
+	},
+	{
+		type: "image",
+		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.25.52 PM.png",
+		alt: "Bike detail"
+	},
+	{
+		type: "image",
+		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.20 PM.png",
+		alt: "Rider"
 	}
 ];
 
@@ -55,6 +64,7 @@ const HarleyDavidson: React.FC = () => {
 			<NumberedContentSection
 				title="Model Year 2024 Launch: Ride Into a New Era"
 				content={sectionContent}
+				images={[{ src: "/assets/Harley/2024HDMY/1x1_Frame3_CA.jpg" }]}
 			/>
 			<MediaGrid media={media} />
 		</ProjectPage>

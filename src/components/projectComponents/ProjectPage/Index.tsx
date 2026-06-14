@@ -8,7 +8,7 @@ interface PageProps {
 const Page = styled("section")`
 	display: flex;
 	flex-direction: column;
-	gap: 20px;
+	gap: 40px;
 	margin-top: 25px;
 `;
 
