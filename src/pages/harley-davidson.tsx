@@ -2,6 +2,7 @@ import React from "react";
 import MediaGrid from "@/components/projectComponents/MediaGrid/Index";
 import NumberedContentSection from "@/components/projectComponents/NumberedContentSection/Index";
 import ProjectPage from "@/components/projectComponents/ProjectPage/Index";
+import PageTitle from "@/components/projectComponents/PageTitle/Index";
 
 const sectionContent = [
 	{
@@ -61,6 +62,7 @@ const media: {
 const HarleyDavidson: React.FC = () => {
 	return (
 		<ProjectPage>
+			<PageTitle title="Harley Davidson" />
 			<NumberedContentSection
 				title="Model Year 2024 Launch: Ride Into a New Era"
 				content={sectionContent}

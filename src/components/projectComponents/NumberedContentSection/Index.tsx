@@ -22,6 +22,7 @@ const NumberedContentStyled = styled.section`
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
+	align-items: center;
 
 	.numbered-content {
 		&__header {
@@ -34,7 +35,7 @@ const NumberedContentStyled = styled.section`
 			font-weight: 700;
 			line-height: 1.1;
 			color: var(--neutral-1000);
-
+			text-align: center;
 			position: relative;
 			display: inline-block;
 
