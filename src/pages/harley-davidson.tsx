@@ -23,6 +23,21 @@ const sectionContent = [
            the massive lineup of digital assets. One platform. Twelve bikes. Zero identity crises.`
 	}
 ];
+const sectionContent2 = [
+	{
+		label: "brief",
+		body: `Harley was showing up in inboxes but saying nothing. Product-forward, promo-heavy, and completely disconnected from the brand people actually love.
+`
+	},
+	{
+		label: "approach",
+		body: `We recentered the CRM content strategy around freedom; not as a tagline, but as a storytelling lens. Every send asked: how does this product, this moment, this offer connect to why riders ride?`
+	},
+	{
+		label: "wins",
+		body: `The emails started sounding like Harley again. CTR improved, sales lift followed, and the CRM practice moved forward with soul.`
+	}
+];
 
 const media: {
 	type: "image" | "video";
@@ -56,7 +71,22 @@ const media: {
 		type: "image",
 		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.20 PM.png",
 		alt: "Rider"
+	},
+	{
+		type: "image",
+		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.57 PM.png",
+		alt: "Rider"
+	},
+	{
+		type: "image",
+		src: "assets/Harley/2024HDMY/MY24_T2New_RA1250SE_Programmatic_Static_1200x1200_TestRide_USEN.jpg",
+		alt: "Rider"
 	}
+	// {
+	// 	type: "image",
+	// 	src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.25.52 PM.png",
+	// 	alt: "Rider"
+	// }
 ];
 
 const HarleyDavidson: React.FC = () => {
@@ -69,6 +99,10 @@ const HarleyDavidson: React.FC = () => {
 				images={[{ src: "/assets/Harley/2024HDMY/1x1_Frame3_CA.jpg" }]}
 			/>
 			<MediaGrid media={media} />
+			<NumberedContentSection
+				title="Brand Email/CRM"
+				content={sectionContent2}
+			/>
 		</ProjectPage>
 	);
 };
