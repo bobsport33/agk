@@ -102,6 +102,13 @@ const HarleyDavidson: React.FC = () => {
 			<NumberedContentSection
 				title="Brand Email/CRM"
 				content={sectionContent2}
+				images={[
+					{ src: "assets/Harley/email/HD Flex email.png" },
+					{ src: "assets/Harley/email/HD helmet month email.png" },
+					{ src: "assets/Harley/email/HD road glide limited.png" },
+					{ src: "assets/Harley/email/HD visa 2.png" },
+					{ src: "assets/Harley/email/HD visa.png" }
+				]}
 			/>
 		</ProjectPage>
 	);

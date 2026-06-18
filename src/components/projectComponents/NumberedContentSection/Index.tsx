@@ -16,6 +16,7 @@ interface NumberedContentProps {
 	title?: string;
 	content: SectionItem[];
 	images?: ImageItem[];
+	reverse?: boolean;
 }
 
 const NumberedContentStyled = styled.section`
@@ -59,6 +60,10 @@ const NumberedContentStyled = styled.section`
 			justify-content: center;
 			align-items: center;
 			gap: 20px;
+
+			&--reverse {
+				flex-direction: row-reverse;
+			}
 		}
 
 		&__content-container {
@@ -72,7 +77,6 @@ const NumberedContentStyled = styled.section`
 		&__gallery {
 			flex: 0 0 35%;
 			max-width: 500px;
-			align-self: flex-start;
 		}
 
 		&__image {
@@ -228,7 +232,8 @@ const NumberedContentStyled = styled.section`
 export default function NumberedContent({
 	title,
 	content,
-	images = []
+	images = [],
+	reverse = false
 }: NumberedContentProps) {
 	const hasImages = images.length > 0;
 	const isGallery = images.length > 1;
@@ -241,7 +246,13 @@ export default function NumberedContent({
 				</div>
 			)}
 
-			<div className="numbered-content__container">
+			<div
+				className={
+					reverse
+						? "numbered-content__container numbered-content__container--reverse"
+						: "numbered-content__container"
+				}
+			>
 				<div className="numbered-content__content-container">
 					{content.map((item, index) => (
 						<div
