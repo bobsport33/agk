@@ -5,7 +5,7 @@ import DisplayCards from "@/modules/DisplayCard/Index";
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
-	grid-auto-rows: 135px;
+	grid-auto-rows: 100px;
 	gap: 1.25rem;
 
 	@media (max-width: 900px) {
