@@ -73,7 +73,7 @@ const ThunderValley = () => {
 	return (
 		<ProjectPage>
 			<PageTitle title="Thunder Valley" />
-			<NumberedContentSection
+			{/* <NumberedContentSection
 				title={"Social Copy & Tone Guidelines"}
 				content={sectionContent}
 				images={[
@@ -82,13 +82,7 @@ const ThunderValley = () => {
 					}
 				]}
 			/>
-			<MediaGrid media={media} />
-			<NumberedContentSection
-				title="Cox Mobile: Brand Launch"
-				content={sectionContent2}
-				images={[{ src: "assets/cox/cox-lamb.png" }]}
-			/>
-			<MediaGrid media={media2} />
+			<MediaGrid media={media} /> */}
 		</ProjectPage>
 	);
 };

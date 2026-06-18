@@ -1,7 +1,9 @@
+ignoredBuiltDependencies:
+  - sharp
 minimumReleaseAge: 10080
-trustPolicy: no-downgrade
 onlyBuiltDependencies:
-    - core-js
-    - esbuild
-    - unrs-resolver
+  - core-js
+  - esbuild
+  - unrs-resolver
 strictDepBuilds: true
+trustPolicy: no-downgrade

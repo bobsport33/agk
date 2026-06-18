@@ -7,15 +7,15 @@ import PageTitle from "@/components/projectComponents/PageTitle/Index";
 const sectionContent = [
 	{
 		label: "brief",
-		body: `Cox needed more than a campaign. They needed a brand: new tagline, new voice and a new face to put it all together.`
+		body: `Converse speaks to everyone from NBA players to toddlers to fashion kids in Tokyo. The challenge: make it all sound like the same brand without making it all sound the same.`
 	},
 	{
 		label: "approach",
-		body: `"A Step Ahead" became the platform, and Iris became the proof of it. We didn't just create a spokesperson; we built a character whose whole existence embodied the idea. The "Who Is Iris" work gave her a world, a personality, and a reason to stick around.`
+		body: `We developed a voice framework flexible enough to stretch across audiences: same DNA, different dial settings. Basketball gets heat. Kids get joy. Platform fashion gets edge. But the attitude underneath? Always Converse.`
 	},
 	{
 		label: "wins",
-		body: `Brand scores went up. And Cox finally had something they hadn't had before: a spokesperson who connects, informs and inspires.`
+		body: `Consistent brand voice across social content for three distinct product lines—without losing what makes each one resonate with its own crowd.`
 	}
 ];
 const sectionContent2 = [
