@@ -7,20 +7,20 @@ import PageTitle from "@/components/projectComponents/PageTitle/Index";
 const sectionContent = [
 	{
 		label: "brief",
-		body: `Thunder Valley was known as a casino. The reality was so much more: world-class dining, entertainment, a full resort experience. The brand needed to catch up to what the place actually was.`
+		body: `Converse speaks to everyone from NBA players to toddlers to fashion kids in Tokyo. The challenge: make it all sound like the same brand without making it all sound the same.`
 	},
 	{
 		label: "approach",
-		body: ` "Live Out Loud" reframed Thunder Valley as a destination for people who show up fully. The campaign ran across TV, radio, social, print and outdoor--all built around the idea that this is a place to be seen, heard and celebrated.`
+		body: `We developed a voice framework flexible enough to stretch across audiences: same DNA, different dial settings. Basketball gets heat. Kids get joy. Platform fashion gets edge. But the attitude underneath? Always Converse.`
 	},
 	{
 		label: "wins",
-		body: `The TVCR brand transformed from casino to destination, with resort bookings increasing 60% in one year.`
+		body: `Consistent brand voice across social content for three distinct product lines—without losing what makes each one resonate with its own crowd.`
 	}
 ];
 
 const media: {
-	type: "image" | "video";
+	type: "image" | "video" | "youtube";
 	src: string;
 	alt?: string;
 	poster?: string;
@@ -72,13 +72,23 @@ const media: {
 const ThunderValley = () => {
 	return (
 		<ProjectPage>
-			<PageTitle title="Thunder Valley Casino Resport" />
+			<PageTitle title="Thunder Valley" />
 			<NumberedContentSection
-				title="Live Out Loud"
+				title={"Social Copy & Tone Guidelines"}
 				content={sectionContent}
-				images={[{ src: "/assets/Harley/2024HDMY/1x1_Frame3_CA.jpg" }]}
+				images={[
+					{
+						src: "/assets/converse/Screen Shot 2019-07-18 at 1.23.13 PM.png"
+					}
+				]}
 			/>
-			<MediaGrid media={media} />\
+			<MediaGrid media={media} />
+			<NumberedContentSection
+				title="Cox Mobile: Brand Launch"
+				content={sectionContent2}
+				images={[{ src: "assets/cox/cox-lamb.png" }]}
+			/>
+			<MediaGrid media={media2} />
 		</ProjectPage>
 	);
 };
