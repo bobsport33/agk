@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styled from "@emotion/styled";
+import NextImage from "next/image";
 import FeaturedMedia from "@/components/projectComponents/FeaturedMedia/Index";
 import ImageLightbox from "@/components/projectComponents/ImageLightbox/Index";
+import { media } from "@/styles/breakpoints";
 
 interface SectionItem {
 	label: string;
@@ -22,6 +24,8 @@ interface NumberedContentProps {
 	images?: ImageItem[];
 	reverse?: boolean;
 }
+
+const normalizeImageSrc = (src: string) => src.startsWith("/") ? src : `/${src}`;
 
 const NumberedContentStyled = styled.section`
 	display: flex;
@@ -85,18 +89,19 @@ const NumberedContentStyled = styled.section`
 			gap: 12px;
 		}
 
-		&__gallery-image {
+		&__gallery-trigger {
 			width: 100%;
 			aspect-ratio: 1;
-			object-fit: cover;
-
 			border-radius: var(--media-radius);
-
 			border: 1px solid var(--neutral-300);
-
 			box-shadow:
 				0 4px 12px rgba(0, 0, 0, 0.03),
 				0 1px 2px rgba(0, 0, 0, 0.04);
+		}
+
+		&__gallery-image {
+			object-fit: cover;
+			border-radius: var(--media-radius);
 		}
 
 		&__item {
@@ -152,7 +157,7 @@ const NumberedContentStyled = styled.section`
 		}
 	}
 
-	@media (max-width: 900px) {
+	${media.tablet} {
 		.numbered-content {
 			&__content-container {
 				grid-template-columns: 1fr;
@@ -194,13 +199,23 @@ const NumberedContentStyled = styled.section`
 		}
 	}
 
-	@media (max-width: 520px) {
+	${media.mobile} {
 		.numbered-content__item {
-			grid-template-columns: 64px 1fr;
+			grid-template-columns: 46px 1fr;
+			gap: 0.6rem;
+			padding: 1rem 0;
 		}
 
 		.numbered-content__gallery {
 			grid-template-columns: 1fr;
+		}
+
+		.numbered-content__number {
+			font-size: 2.2rem;
+		}
+
+		.numbered-content__title {
+			font-size: clamp(1.45rem, 7vw, 1.85rem);
 		}
 	}
 `;
@@ -258,22 +273,31 @@ export default function NumberedContent({
 						<FeaturedMedia images={images} />
 					) : isGallery ? (
 						<div className="numbered-content__gallery">
-							{images.map((image, index) => (
-								<ImageLightbox key={`${image.src}-${index}`} src={image.src} alt={image.alt}>
-									<img
+							{images.map((image, index) => {
+								const normalizedSrc = normalizeImageSrc(image.src);
+
+								return <ImageLightbox
+									key={`${image.src}-${index}`}
+									src={normalizedSrc}
+									alt={image.alt}
+									className="numbered-content__gallery-trigger"
+								>
+									<NextImage
 										className="numbered-content__gallery-image"
-										src={image.src}
+										src={normalizedSrc}
 										alt={image.alt || ""}
+										fill
+										sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 1024px) calc(50vw - 42px), 33vw"
 									/>
-								</ImageLightbox>
-							))}
+								</ImageLightbox>;
+							})}
 						</div>
 					) : (
 						<div className="numbered-content__image-container">
-							<ImageLightbox src={images[0].src} alt={images[0].alt}>
+							<ImageLightbox src={normalizeImageSrc(images[0].src)} alt={images[0].alt}>
 								<img
 									className="numbered-content__image"
-									src={images[0].src}
+									src={normalizeImageSrc(images[0].src)}
 									alt={images[0].alt || ""}
 								/>
 							</ImageLightbox>

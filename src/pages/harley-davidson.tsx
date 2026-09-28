@@ -48,36 +48,36 @@ const media: {
 	{
 		type: "video",
 		src: "/assets/Harley/MY24_Tier2_FLHX_Meta_InFeed_Video_1x1_15s_RequestQuote_USEN.mp4",
-		poster: "/assets/Harley/2024HDMY/1x1_Frame2_CA.jpg"
+		poster: "/assets/Harley/2024HDMY/1x1_Frame2_CA.webp"
 	},
 	{
 		type: "video",
 		src: "/assets/Harley/MY24_Tier2_RA1250SE_Meta_InFeed_Video_1x1_15s_TestRide_USEN.mp4",
-		poster: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.57 PM.png"
+		poster: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.57 PM.webp"
 	},
 	{
 		type: "video",
 		src: "/assets/Harley/MY24_Tier2_RH975S_Meta_InFeed_Video_1x1_15s_TestRide_USEN.mp4",
-		poster: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.20 PM.png"
+		poster: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.20 PM.webp"
 	},
 	{
 		type: "image",
-		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.20 PM.png",
+		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.20 PM.webp",
 		alt: "Rider"
 	},
 	{
 		type: "image",
-		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.57 PM.png",
+		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.57 PM.webp",
 		alt: "Rider"
 	},
 	{
 		type: "image",
-		src: "assets/Harley/2024HDMY/MY24_T2New_RA1250SE_Programmatic_Static_1200x1200_TestRide_USEN.jpg",
+		src: "assets/Harley/2024HDMY/MY24_T2New_RA1250SE_Programmatic_Static_1200x1200_TestRide_USEN.webp",
 		alt: "Rider"
 	}
 	// {
 	// 	type: "image",
-	// 	src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.25.52 PM.png",
+	// 	src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.25.52 PM.webp",
 	// 	alt: "Rider"
 	// }
 ];
@@ -91,17 +91,17 @@ const HarleyDavidson: React.FC = () => {
 				content={sectionContent}
 				images={[
 					{
-						src: "/assets/Harley/2024HDMY/1x1_Frame3_CA.jpg",
+						src: "/assets/Harley/2024HDMY/1x1_Frame3_CA.webp",
 						alt: "Harley-Davidson 2024 Street Glide launch",
 						background: "#000"
 					},
 					{
-						src: "/assets/Harley/2024HDMY/1x1_Frame2_CA.jpg",
+						src: "/assets/Harley/2024HDMY/1x1_Frame2_CA.webp",
 						alt: "Harley 2024 Launch",
 						background: "#000"
 					},
 					{
-						src: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.25.52 PM.png",
+						src: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.25.52 PM.webp",
 						alt: "Bike detail",
 						background: "#000"
 					}
@@ -112,11 +112,11 @@ const HarleyDavidson: React.FC = () => {
 				title="Brand Email/CRM"
 				content={sectionContent2}
 				images={[
-					{ src: "assets/Harley/email/HD Flex email.png" },
-					{ src: "assets/Harley/email/HD helmet month email.png" },
-					{ src: "assets/Harley/email/HD road glide limited.png" },
-					{ src: "assets/Harley/email/HD visa 2.png" },
-					{ src: "assets/Harley/email/HD visa.png" }
+					{ src: "assets/Harley/email/HD Flex email.webp" },
+					{ src: "assets/Harley/email/HD helmet month email.webp" },
+					{ src: "assets/Harley/email/HD road glide limited.webp" },
+					{ src: "assets/Harley/email/HD visa 2.webp" },
+					{ src: "assets/Harley/email/HD visa.webp" }
 				]}
 			/>
 		</ProjectPage>

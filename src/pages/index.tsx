@@ -1,19 +1,34 @@
 import Head from "next/head";
 import styled from "@emotion/styled";
 import DisplayCards from "@/modules/DisplayCard/Index";
+import { media } from "@/styles/breakpoints";
 
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
-	grid-auto-rows: 100px;
-	gap: 1.25rem;
+	grid-template-rows: repeat(7, minmax(0, 1fr));
+	gap: clamp(0.875rem, 1.4vw, 1.25rem);
+	width: min(100%, calc((100vh - 125px) * 1.732));
 	max-width: 1420px;
-	margin: 30px auto 80px;
+	aspect-ratio: 1.732;
+	margin: 30px auto 18px;
 
-	@media (max-width: 900px) {
-		grid-template-columns: 1fr;
-		grid-auto-rows: 280px;
+	${media.tablet} {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-rows: none;
+		grid-auto-rows: auto;
+		gap: 1.25rem;
+		width: 100%;
+		aspect-ratio: auto;
 		margin-top: 24px;
+		margin-bottom: 80px;
+	}
+
+	${media.mobile} {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+		margin-top: 18px;
+		margin-bottom: 48px;
 	}
 `;
 
@@ -27,9 +42,10 @@ const GridItem = styled.div<{
 
 	grid-row: ${({ rowStart, rowEnd }) => `${rowStart} / ${rowEnd}`};
 
-	@media (max-width: 900px) {
+	${media.tablet} {
 		grid-column: auto;
 		grid-row: auto;
+		aspect-ratio: 1;
 	}
 `;
 
@@ -38,7 +54,7 @@ export default function Home() {
 		{
 			client: "Harley Davidson",
 			link: "/harley-davidson",
-			imageUrl: "/assets/HD-logo-folio 2.png",
+			imageUrl: "/assets/HD-logo-folio 2.webp",
 			colStart: 1,
 			colEnd: 5,
 			rowStart: 1,
@@ -47,16 +63,16 @@ export default function Home() {
 		{
 			client: "City of Chicago",
 			link: "/city-of-chicago",
-			imageUrl: "/assets/chi-logo-folio-1.png",
+			imageUrl: "/assets/chi-logo-folio-1.webp",
 			colStart: 8,
 			colEnd: 13,
 			rowStart: 1,
-			rowEnd: 6
+			rowEnd: 5
 		},
 		{
 			client: "Cox Communications",
 			link: "/cox-communications",
-			imageUrl: "/assets/cox-logo-folio-1.png",
+			imageUrl: "/assets/cox-logo-folio-1.webp",
 			colStart: 5,
 			colEnd: 8,
 			rowStart: 1,
@@ -65,7 +81,7 @@ export default function Home() {
 		{
 			client: "Thunder Valley",
 			link: "/thunder-valley",
-			imageUrl: "/assets/TVCR cover photo logo.png",
+			imageUrl: "/assets/TVCR cover photo logo.webp",
 			colStart: 5,
 			colEnd: 8,
 			rowStart: 5,
@@ -74,10 +90,10 @@ export default function Home() {
 		{
 			client: "Recent Web Projects",
 			link: "/recent-web-projects",
-			imageUrl: "/assets/Capture.png",
+			imageUrl: "/assets/Capture.webp",
 			colStart: 8,
 			colEnd: 13,
-			rowStart: 6,
+			rowStart: 5,
 			rowEnd: 8
 		},
 		{
@@ -108,7 +124,7 @@ export default function Home() {
 			</Head>
 			<main>
 				<Grid>
-					{cards.map((card) => (
+					{cards.map((card, index) => (
 						<GridItem
 							key={card.client}
 							colStart={card.colStart}
@@ -120,6 +136,7 @@ export default function Home() {
 								client={card.client}
 								link={card.link}
 								imageUrl={card.imageUrl}
+								priority={index < 3}
 							/>
 						</GridItem>
 					))}

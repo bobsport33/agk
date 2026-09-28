@@ -27,51 +27,51 @@ const media: {
 }[] = [
 	{
 		type: "image",
-		src: "/assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_23.jpg"
+		src: "/assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_23.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_25.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_25.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_08.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_08.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_05.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_05.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_27.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_27.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_33.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_33.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_30.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_30.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_32.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_32.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/lori waaoht.jpg"
+		src: "assets/chicago/lori waaoht.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_04.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_04.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_34.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_34.webp"
 	},
 	{
 		type: "image",
-		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_20.jpg"
+		src: "assets/chicago/-OneHomeTeam_BeSafeCHI_COVID-19_July15_Page_20.webp"
 	}
 ];
 

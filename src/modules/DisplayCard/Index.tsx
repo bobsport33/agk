@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
+import NextImage from "next/image";
 
 interface CardProps {
 	client: string;
 	imageUrl: string;
 	link: string;
+	priority?: boolean;
 }
 
 const Card = styled(Link)`
@@ -52,9 +54,7 @@ const ImageContainer = styled.div`
 	overflow: hidden;
 `;
 
-const Image = styled.img`
-	width: 100%;
-	height: 100%;
+const CardImage = styled(NextImage)`
 	object-fit: cover;
 	display: block;
 
@@ -89,11 +89,18 @@ const Title = styled.div`
 	transition: transform 200ms ease;
 `;
 
-const DisplayCard = ({ client, imageUrl, link }: CardProps) => {
+const DisplayCard = ({ client, imageUrl, link, priority = false }: CardProps) => {
 	return (
 		<Card href={link}>
 			<ImageContainer>
-				<Image className="card__image" src={imageUrl} alt={client} />
+				<CardImage
+					className="card__image"
+					src={imageUrl}
+					alt={client}
+					fill
+					priority={priority}
+					sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 1024px) calc(50vw - 34px), 42vw"
+				/>
 
 				<Overlay>
 					<Title className="card__title">{client}</Title>

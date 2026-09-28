@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import styled from "@emotion/styled";
 
 import { Button } from "@/components/Button/Index";
+import { media } from "@/styles/breakpoints";
 // ── Zod Schema ──
 const contactSchema = z.object({
 	name: z.string().min(1, "Name is required"),
@@ -36,7 +37,7 @@ const ContactWrapper = styled.section`
 		border-radius: 10px;
 		padding: 3rem;
 
-		@media (max-width: 1024px) {
+		${media.tablet} {
 			grid-template-columns: 1fr;
 			gap: 2.5rem;
 			padding: 2rem;
@@ -51,7 +52,7 @@ const ContactWrapper = styled.section`
 		position: sticky;
 		top: 2rem;
 
-		@media (max-width: 768px) {
+		${media.tablet} {
 			position: static;
 		}
 	}
@@ -86,7 +87,7 @@ const ContactWrapper = styled.section`
 		padding: 2.5rem;
 		border: 1px solid var(--neutral-300);
 
-		@media (max-width: 1024px) {
+		${media.tablet} {
 			padding: 1.5rem;
 		}
 	}
@@ -210,6 +211,32 @@ const ContactWrapper = styled.section`
 		line-height: 1.75;
 		color: var(--neutral-700);
 		max-width: 320px;
+	}
+
+	${media.tablet} {
+		max-width: 100%;
+		margin: 24px auto 48px;
+	}
+
+	${media.mobile} {
+		margin-top: 18px;
+
+		& .contact__inner {
+			gap: 1.5rem;
+			padding: 1.25rem;
+		}
+
+		& .contact__formWrapper {
+			padding: 1rem;
+		}
+
+		& .contact__form {
+			gap: 1.15rem;
+		}
+
+		& .contact__submitWrapper button {
+			width: 100%;
+		}
 	}
 `;
 

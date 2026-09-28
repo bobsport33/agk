@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { media } from "@/styles/breakpoints";
 
 const ResumeCont = styled.div`
 	width: min(86%, 1100px);
@@ -237,9 +238,13 @@ const ResumeCont = styled.div`
 		gap: 1rem;
 	}
 
-	@media (max-width: 768px) {
+	${media.tablet} {
+		width: min(94%, 900px);
+	}
+
+	${media.mobile} {
 		width: 100%;
-		padding: 3rem 0;
+		padding: 2.25rem 0;
 
 		&::before {
 			left: 18px;
@@ -247,7 +252,7 @@ const ResumeCont = styled.div`
 
 		.resume__item {
 			margin-left: 2rem;
-			padding: 1.5rem;
+			padding: 1.15rem;
 		}
 
 		.resume__item::before {
@@ -261,6 +266,26 @@ const ResumeCont = styled.div`
 
 		.resume__infoGrid {
 			grid-template-columns: 1fr;
+		}
+
+		.resume__heading {
+			margin-bottom: 2rem;
+		}
+
+		.resume__company {
+			font-size: 1.4rem;
+		}
+
+		.resume__infoCard {
+			padding: 1.15rem;
+		}
+
+		.resume__skillList {
+			gap: 0.65rem;
+		}
+
+		.resume__skill {
+			padding: 0.7rem 1rem;
 		}
 	}
 `;

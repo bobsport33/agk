@@ -1,7 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styled from "@emotion/styled";
+import NextImage from "next/image";
 import ImageLightbox from "@/components/projectComponents/ImageLightbox/Index";
+import { media } from "@/styles/breakpoints";
 
 interface FeaturedImage {
 	src: string;
@@ -41,7 +42,7 @@ const FeaturedMediaStyled = styled.div`
 		}
 	}
 
-	@media (max-width: 700px) {
+	${media.tablet} {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		grid-template-rows: auto;
 		height: auto;
@@ -56,6 +57,16 @@ const FeaturedMediaStyled = styled.div`
 			aspect-ratio: 16 / 10;
 		}
 	}
+
+	${media.mobile} {
+		grid-template-columns: 1fr;
+
+		.featured-media__item,
+		.featured-media__item:first-of-type {
+			grid-column: auto;
+			aspect-ratio: 4 / 3;
+		}
+	}
 `;
 
 export default function FeaturedMedia({ images }: FeaturedMediaProps) {
@@ -68,11 +79,13 @@ export default function FeaturedMedia({ images }: FeaturedMediaProps) {
 					style={image.background ? { background: image.background } : undefined}
 				>
 					<ImageLightbox src={image.src} alt={image.alt}>
-						<img
+						<NextImage
 							className={`featured-media__image${image.fit === "cover" ? " featured-media__image--cover" : ""}`}
 							src={image.src}
 							alt={image.alt || ""}
-							loading="lazy"
+							fill
+							priority={index === 0}
+							sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 1024px) calc(50vw - 42px), 50vw"
 						/>
 					</ImageLightbox>
 				</div>

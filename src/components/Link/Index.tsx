@@ -3,6 +3,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
+import { media } from "@/styles/breakpoints";
 
 interface LinkProps {
 	text: string;
@@ -41,7 +42,11 @@ const LinkCont = styled(NextLink)`
 		width: 100%;
 	}
 
-	@media (max-width: 600px) {
+	${media.tablet} {
+		font-size: 1.2rem;
+	}
+
+	${media.mobile} {
 		font-size: 0.95rem;
 	}
 `;

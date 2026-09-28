@@ -2,6 +2,7 @@
 import React, { MouseEvent, ReactNode, SyntheticEvent, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import styled from "@emotion/styled";
+import { media } from "@/styles/breakpoints";
 
 interface ImageLightboxProps {
 	src: string;
@@ -128,7 +129,7 @@ const Overlay = styled.div`
 		}
 	}
 
-	@media (max-width: 520px) {
+	${media.mobile} {
 		.project-lightbox {
 			&__viewport {
 				inset: 4.75rem 0.75rem 0.75rem;
@@ -140,6 +141,24 @@ const Overlay = styled.div`
 
 			&__close {
 				right: 0.75rem;
+			}
+		}
+	}
+
+	${media.compact} {
+		.project-lightbox {
+			&__toolbar {
+				left: 0.75rem;
+				transform: none;
+			}
+
+			&__control {
+				min-width: 2.1rem;
+				padding-inline: 0.5rem;
+			}
+
+			&__zoom-level {
+				min-width: 3rem;
 			}
 		}
 	}

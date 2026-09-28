@@ -42,7 +42,7 @@ const media: {
 	{
 		type: "video",
 		src: "/assets/cox/cox-video.mp4",
-		poster: "/assets/cox/cox-bilboard.png"
+		poster: "/assets/cox/cox-bilboard.webp"
 	}
 
 	// {
@@ -61,7 +61,7 @@ const media2: {
 }[] = [
 	{
 		type: "image",
-		src: "/assets/cox/cox-lamb.png",
+		src: "/assets/cox/cox-lamb.webp",
 		alt: "Cox Mobile campaign",
 		shape: "landscape",
 		position: "top-left"
@@ -75,7 +75,7 @@ const media2: {
 	{
 		type: "video",
 		src: "/assets/cox/cox-video-2.mp4",
-		poster: "/assets/cox/cox-lamb.png",
+		poster: "/assets/cox/cox-lamb.webp",
 		shape: "landscape"
 	}
 ];
@@ -89,12 +89,12 @@ const CoxCommunications = () => {
 				content={sectionContent}
 				images={[
 					{
-						src: "/assets/cox/cox-bilboard.png",
+						src: "/assets/cox/cox-bilboard.webp",
 						alt: "Cox billboard",
 						fit: "contain"
 					},
-					{ src: "/assets/cox/Cox_edited.jpg", alt: "Cox connected home experience" },
-					{ src: "/assets/cox/IMG_186C83E7901C-1_edited.jpg", alt: "Cox connected home interface" }
+					{ src: "/assets/cox/Cox_edited.webp", alt: "Cox connected home experience" },
+					{ src: "/assets/cox/IMG_186C83E7901C-1_edited.webp", alt: "Cox connected home interface" }
 				]}
 			/>
 			<MediaGrid media={media} />

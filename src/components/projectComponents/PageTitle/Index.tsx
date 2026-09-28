@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { media } from "@/styles/breakpoints";
 
 interface PageTitleProps {
 	title: string;
@@ -65,14 +66,27 @@ const PageTitleStyled = styled.section`
 		}
 	}
 
-	@media (max-width: 768px) {
+	${media.tablet} {
+		margin-top: 1.5rem;
+
+		.page-title__title {
+			font-size: clamp(2.1rem, 6vw, 3rem);
+		}
+	}
+
+	${media.mobile} {
+		gap: 0.75rem;
+		margin-top: 1rem;
+
 		.page-title {
 			&__title {
-				font-size: 2rem;
+				font-size: clamp(1.85rem, 9vw, 2.35rem);
+				line-height: 1.08;
 			}
 
 			&__subtitle {
-				font-size: 1rem;
+				font-size: 0.95rem;
+				line-height: 1.5;
 			}
 		}
 	}

@@ -41,58 +41,58 @@ const media: {
 }[] = [
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-07-18 at 1.23.13 PM.png",
+		src: "/assets/converse/Screen Shot 2019-07-18 at 1.23.13 PM.webp",
 		alt: "Converse social campaign"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.24.57 AM.png",
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.24.57 AM.webp",
 		alt: "Converse social campaign"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-07-30 at 4.19.20 PM.png",
+		src: "/assets/converse/Screen Shot 2019-07-30 at 4.19.20 PM.webp",
 		alt: "Converse social campaign"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.27.53 AM.png"
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.27.53 AM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-07-18 at 1.25.14 PM.png"
+		src: "/assets/converse/Screen Shot 2019-07-18 at 1.25.14 PM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-07-18 at 1.25.27 PM.png"
+		src: "/assets/converse/Screen Shot 2019-07-18 at 1.25.27 PM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.29.56 AM.png"
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.29.56 AM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.26.26 AM.png"
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.26.26 AM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.26.08 AM.png"
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.26.08 AM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.29.30 AM.png"
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.29.30 AM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.30.53 AM.png"
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.30.53 AM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.31.06 AM.png"
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.31.06 AM.webp"
 	},
 	{
 		type: "image",
-		src: "/assets/converse/Screen Shot 2019-08-20 at 11.24.34 AM.png"
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.24.34 AM.webp"
 	}
 ];
 

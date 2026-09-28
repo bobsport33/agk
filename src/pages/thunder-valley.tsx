@@ -6,6 +6,7 @@ import NumberedContentSection from "@/components/projectComponents/NumberedConte
 import ProjectPage from "@/components/projectComponents/ProjectPage/Index";
 import PageTitle from "@/components/projectComponents/PageTitle/Index";
 import ImageLightbox from "@/components/projectComponents/ImageLightbox/Index";
+import { media } from "@/styles/breakpoints";
 
 const sectionContent = [
 	{
@@ -54,7 +55,7 @@ const campaign: {
 	alt: string;
 }[] = [
 	{
-		src: "/assets/TVCR cover photo logo.png",
+		src: "/assets/TVCR cover photo logo.webp",
 		alt: "Thunder Valley Casino Resort"
 	},
 	{
@@ -66,15 +67,15 @@ const campaign: {
 		alt: "Thunder Rewards OOH, 2014"
 	},
 	{
-		src: "/assets/thunder-valley/brand-panorama.jpg",
+		src: "/assets/thunder-valley/brand-panorama.webp",
 		alt: "Thunder Valley Brand OOH, 2016"
 	},
 	{
-		src: "/assets/thunder-valley/dining-ooh.jpg",
+		src: "/assets/thunder-valley/dining-ooh.webp",
 		alt: "Thunder Cafe Dining OOH, 2016"
 	},
 	{
-		src: "/assets/thunder-valley/dining-ooh-wide.jpg",
+		src: "/assets/thunder-valley/dining-ooh-wide.webp",
 		alt: "Thunder Cafe Dining OOH, 2016"
 	}
 ];
@@ -96,7 +97,7 @@ const Radio = styled.section`
 		width: 100%;
 	}
 
-	@media (max-width: 700px) {
+	${media.tablet} {
 		grid-template-columns: 1fr;
 		gap: 1rem;
 	}
@@ -131,7 +132,7 @@ const CampaignGallery = styled.section`
 		}
 	}
 
-	@media (max-width: 640px) {
+	${media.mobile} {
 		.campaign-gallery__row--lead,
 		.campaign-gallery__row--dining {
 			grid-template-columns: 1fr;

@@ -45,13 +45,22 @@
 	--shadow-soft: 0 8px 30px rgba(31, 27, 27, 0.06);
 	--shadow-lift: 0 18px 44px rgba(31, 27, 27, 0.12);
 	--media-radius: 12px;
+	--content-max: 1420px;
+	--page-gutter: 36px;
+	--section-gap: clamp(1.5rem, 3vw, 2.75rem);
 
-	--padding: 0 36px;
+	--padding: 0 var(--page-gutter);
+}
+
+@media (max-width: 1024px) {
+	:root {
+		--page-gutter: 24px;
+	}
 }
 
 @media (max-width: 640px) {
 	:root {
-		--padding: 0 18px;
+		--page-gutter: 18px;
 	}
 }
 

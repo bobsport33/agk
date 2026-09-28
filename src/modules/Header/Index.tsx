@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import Link from "@/components/Link/Index";
+import { media } from "@/styles/breakpoints";
 
 const HeaderCont = styled.div`
 	height: 65px;
@@ -25,7 +26,13 @@ const HeaderCont = styled.div`
 		}
 	}
 
-	@media (max-width: 600px) {
+	${media.tablet} {
+		.header__links {
+			gap: 20px;
+		}
+	}
+
+	${media.mobile} {
 		height: 58px;
 
 		.header {
@@ -34,7 +41,7 @@ const HeaderCont = styled.div`
 			}
 
 			&__links {
-				gap: 14px;
+				gap: 12px;
 				align-items: center;
 			}
 		}

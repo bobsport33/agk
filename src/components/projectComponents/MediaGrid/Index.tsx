@@ -1,7 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import styled from "@emotion/styled";
+import NextImage from "next/image";
 import ImageLightbox from "@/components/projectComponents/ImageLightbox/Index";
+import { media as responsiveMedia } from "@/styles/breakpoints";
 
 type MediaType = "image" | "video" | "youtube";
 
@@ -131,13 +132,13 @@ const MediaGridStyled = styled.section`
 		}
 	}
 
-	@media (max-width: 1600px) {
+	${responsiveMedia.wide} {
 		.media-grid__grid--default {
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 
-	@media (max-width: 900px) {
+	${responsiveMedia.tablet} {
 		.media-grid__grid--default,
 		.media-grid__grid--2,
 		.media-grid__grid--columns-3,
@@ -146,7 +147,7 @@ const MediaGridStyled = styled.section`
 		}
 	}
 
-	@media (max-width: 600px) {
+	${responsiveMedia.mobile} {
 		.media-grid__grid,
 		.media-grid__grid--default,
 		.media-grid__grid--2,
@@ -161,6 +162,11 @@ const MediaGridStyled = styled.section`
 		.media-grid__item--single,
 		.media-grid__item--wide {
 			aspect-ratio: 16 / 9;
+			grid-column: auto;
+		}
+
+		.media-grid__item--portrait {
+			aspect-ratio: 4 / 5;
 		}
 	}
 `;
@@ -193,6 +199,12 @@ function getYoutubeEmbedUrl(url: string) {
 }
 
 export default function MediaGrid({ title, media, columns }: MediaGridProps) {
+	const imageSizes = columns === 4
+		? "(max-width: 640px) calc(100vw - 36px), (max-width: 1024px) calc(50vw - 42px), 25vw"
+		: columns === 3
+			? "(max-width: 640px) calc(100vw - 36px), (max-width: 1024px) calc(50vw - 42px), 34vw"
+			: "(max-width: 640px) calc(100vw - 36px), (max-width: 1024px) calc(50vw - 42px), 50vw";
+
 	const gridClass = columns
 		? `media-grid__grid media-grid__grid--columns-${columns}`
 		: media.length === 1
@@ -211,6 +223,7 @@ export default function MediaGrid({ title, media, columns }: MediaGridProps) {
 
 			<div className={gridClass}>
 				{media.map((item, index) => {
+					const normalizedSrc = item.src.startsWith("/") ? item.src : `/${item.src}`;
 					const sizeClass =
 						media.length === 1
 							? "media-grid__item--single"
@@ -226,12 +239,14 @@ export default function MediaGrid({ title, media, columns }: MediaGridProps) {
 					return (
 						<div key={`${item.src}-${index}`} className={itemClass}>
 							{item.type === "image" && (
-								<ImageLightbox src={item.src} alt={item.alt}>
-									<img
+								<ImageLightbox src={normalizedSrc} alt={item.alt}>
+									<NextImage
 									className={`media-grid__image${item.fit === "contain" ? " media-grid__image--contain" : ""}${item.position === "top-left" ? " media-grid__image--top-left" : ""}`}
-										src={item.src}
+										src={normalizedSrc}
 										alt={item.alt || ""}
-										loading="lazy"
+										fill
+										priority={index === 0}
+										sizes={imageSizes}
 									/>
 								</ImageLightbox>
 							)}

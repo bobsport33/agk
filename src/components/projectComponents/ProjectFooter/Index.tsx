@@ -1,6 +1,7 @@
 import NextLink from "next/link";
 import { useRouter } from "next/router";
 import styled from "@emotion/styled";
+import { media } from "@/styles/breakpoints";
 
 const projectOrder = [
 	{ href: "/harley-davidson", name: "Harley-Davidson" },
@@ -44,9 +45,11 @@ const Footer = styled.nav`
 		}
 	}
 
-	@media (max-width: 480px) {
+	${media.mobile} {
+		flex-direction: column;
+
 		a {
-			flex: 1;
+			width: 100%;
 			padding-inline: 0.85rem;
 		}
 	}
