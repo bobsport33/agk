@@ -56,16 +56,27 @@ const media2: {
 	src: string;
 	alt?: string;
 	poster?: string;
+	shape?: "landscape";
+	position?: "top-left";
 }[] = [
+	{
+		type: "image",
+		src: "/assets/cox/cox-lamb.png",
+		alt: "Cox Mobile campaign",
+		shape: "landscape",
+		position: "top-left"
+	},
 	{
 		type: "youtube",
 		src: "https://www.youtube.com/watch?v=65OVFamsypA&t=2s",
-		alt: "Rider"
+		alt: "Rider",
+		shape: "landscape"
 	},
 	{
 		type: "video",
 		src: "/assets/cox/cox-video-2.mp4",
-		poster: "/assets/cox/cox-lamb.png"
+		poster: "/assets/cox/cox-lamb.png",
+		shape: "landscape"
 	}
 ];
 
@@ -90,9 +101,8 @@ const CoxCommunications = () => {
 			<NumberedContentSection
 				title="Cox Mobile: Brand Launch"
 				content={sectionContent2}
-				images={[{ src: "assets/cox/cox-lamb.png" }]}
 			/>
-			<MediaGrid media={media2} />
+			<MediaGrid media={media2} columns={3} />
 		</ProjectPage>
 	);
 };

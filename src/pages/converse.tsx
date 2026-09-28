@@ -41,6 +41,21 @@ const media: {
 }[] = [
 	{
 		type: "image",
+		src: "/assets/converse/Screen Shot 2019-07-18 at 1.23.13 PM.png",
+		alt: "Converse social campaign"
+	},
+	{
+		type: "image",
+		src: "/assets/converse/Screen Shot 2019-08-20 at 11.24.57 AM.png",
+		alt: "Converse social campaign"
+	},
+	{
+		type: "image",
+		src: "/assets/converse/Screen Shot 2019-07-30 at 4.19.20 PM.png",
+		alt: "Converse social campaign"
+	},
+	{
+		type: "image",
 		src: "/assets/converse/Screen Shot 2019-08-20 at 11.27.53 AM.png"
 	},
 	{
@@ -88,20 +103,6 @@ const Converse = () => {
 			<NumberedContentSection
 				title={"'A Step Ahead' Brand Evolution"}
 				content={sectionContent}
-				images={[
-					{
-						src: "/assets/converse/Screen Shot 2019-07-18 at 1.23.13 PM.png",
-						alt: "Converse social campaign"
-					},
-					{
-						src: "/assets/converse/Screen Shot 2019-08-20 at 11.24.57 AM.png",
-						alt: "Converse social campaign"
-					},
-					{
-						src: "/assets/converse/Screen Shot 2019-07-30 at 4.19.20 PM.png",
-						alt: "Converse social campaign"
-					}
-				]}
 			/>
 			<MediaGrid media={media} />
 		</ProjectPage>

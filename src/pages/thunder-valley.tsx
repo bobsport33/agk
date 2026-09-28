@@ -103,26 +103,24 @@ const Radio = styled.section`
 `;
 
 const CampaignGallery = styled.section`
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	align-items: center;
+	display: grid;
+	gap: 0.75rem;
+	width: 100%;
 
 	.campaign-gallery {
-		&__cover {
-			width: min(100%, 440px);
-		}
-
-		&__pair {
+		&__row {
 			display: grid;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-			gap: 1rem;
-			width: min(100%, 980px);
+			gap: 0.75rem;
+			width: 100%;
 			align-items: start;
 		}
 
-		&__wide {
-			width: min(100%, 980px);
+		&__row--lead {
+			grid-template-columns: minmax(0, 1.07fr) minmax(0, 1.33fr);
+		}
+
+		&__row--dining {
+			grid-template-columns: minmax(0, 1.98fr) minmax(0, 1.85fr);
 		}
 
 		&__image {
@@ -134,7 +132,8 @@ const CampaignGallery = styled.section`
 	}
 
 	@media (max-width: 640px) {
-		.campaign-gallery__pair {
+		.campaign-gallery__row--lead,
+		.campaign-gallery__row--dining {
 			grid-template-columns: 1fr;
 		}
 	}
@@ -154,25 +153,25 @@ const ThunderValley = () => {
 			</Radio>
 			<MediaGrid title="Thunder Valley Casino Resort - TV" media={films} columns={2} />
 			<CampaignGallery>
-				<div className="campaign-gallery__cover">
-					<ImageLightbox src={campaign[0].src} alt={campaign[0].alt}>
-						<img className="campaign-gallery__image" src={campaign[0].src} alt={campaign[0].alt} loading="lazy" />
-					</ImageLightbox>
-				</div>
-				<div className="campaign-gallery__pair">
-					{campaign.slice(1, 3).map((image) => (
+				<div className="campaign-gallery__row campaign-gallery__row--lead">
+					{campaign.slice(0, 2).map((image) => (
 						<ImageLightbox key={image.src} src={image.src} alt={image.alt}>
 							<img className="campaign-gallery__image" src={image.src} alt={image.alt} loading="lazy" />
 						</ImageLightbox>
 					))}
 				</div>
-				{campaign.slice(3).map((image) => (
-					<div className="campaign-gallery__wide" key={image.src}>
-						<ImageLightbox src={image.src} alt={image.alt}>
+				{campaign.slice(2, 4).map((image) => (
+					<ImageLightbox key={image.src} src={image.src} alt={image.alt}>
+						<img className="campaign-gallery__image" src={image.src} alt={image.alt} loading="lazy" />
+					</ImageLightbox>
+				))}
+				<div className="campaign-gallery__row campaign-gallery__row--dining">
+					{campaign.slice(4).map((image) => (
+						<ImageLightbox key={image.src} src={image.src} alt={image.alt}>
 							<img className="campaign-gallery__image" src={image.src} alt={image.alt} loading="lazy" />
 						</ImageLightbox>
-					</div>
-				))}
+					))}
+				</div>
 			</CampaignGallery>
 		</ProjectPage>
 	);

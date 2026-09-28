@@ -10,8 +10,9 @@ interface MediaItem {
 	src: string;
 	alt?: string;
 	poster?: string;
-	shape?: "square" | "wide" | "portrait";
+	shape?: "square" | "wide" | "portrait" | "landscape";
 	fit?: "cover" | "contain";
+	position?: "center" | "top-left";
 }
 
 interface MediaGridProps {
@@ -95,6 +96,10 @@ const MediaGridStyled = styled.section`
 			aspect-ratio: 4 / 5;
 		}
 
+		&__item--landscape {
+			aspect-ratio: 16 / 9;
+		}
+
 		&__item--video-format {
 			aspect-ratio: 16 / 9;
 		}
@@ -115,6 +120,10 @@ const MediaGridStyled = styled.section`
 		&__image--contain {
 			object-fit: contain;
 			padding: 0.75rem;
+		}
+
+		&__image--top-left {
+			object-position: left top;
 		}
 
 		&__iframe {
@@ -219,7 +228,7 @@ export default function MediaGrid({ title, media, columns }: MediaGridProps) {
 							{item.type === "image" && (
 								<ImageLightbox src={item.src} alt={item.alt}>
 									<img
-										className={`media-grid__image${item.fit === "contain" ? " media-grid__image--contain" : ""}`}
+									className={`media-grid__image${item.fit === "contain" ? " media-grid__image--contain" : ""}${item.position === "top-left" ? " media-grid__image--top-left" : ""}`}
 										src={item.src}
 										alt={item.alt || ""}
 										loading="lazy"
