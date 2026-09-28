@@ -47,25 +47,18 @@ const media: {
 }[] = [
 	{
 		type: "video",
-		src: "/assets/Harley/MY24_Tier2_FLHX_Meta_InFeed_Video_1x1_15s_RequestQuote_USEN.mp4"
+		src: "/assets/Harley/MY24_Tier2_FLHX_Meta_InFeed_Video_1x1_15s_RequestQuote_USEN.mp4",
+		poster: "/assets/Harley/2024HDMY/1x1_Frame2_CA.jpg"
 	},
 	{
 		type: "video",
-		src: "assets/Harley/MY24_Tier2_RA1250SE_Meta_InFeed_Video_1x1_15s_TestRide_USEN.mp4"
+		src: "/assets/Harley/MY24_Tier2_RA1250SE_Meta_InFeed_Video_1x1_15s_TestRide_USEN.mp4",
+		poster: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.57 PM.png"
 	},
 	{
 		type: "video",
-		src: "assets/Harley/MY24_Tier2_RH975S_Meta_InFeed_Video_1x1_15s_TestRide_USEN.mp4"
-	},
-	{
-		type: "image",
-		src: "assets/Harley/2024HDMY/1x1_Frame2_CA.jpg",
-		alt: "Harley 2024 Launch"
-	},
-	{
-		type: "image",
-		src: "assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.25.52 PM.png",
-		alt: "Bike detail"
+		src: "/assets/Harley/MY24_Tier2_RH975S_Meta_InFeed_Video_1x1_15s_TestRide_USEN.mp4",
+		poster: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.22.20 PM.png"
 	},
 	{
 		type: "image",
@@ -96,7 +89,23 @@ const HarleyDavidson: React.FC = () => {
 			<NumberedContentSection
 				title="Model Year 2024 Launch: Ride Into a New Era"
 				content={sectionContent}
-				images={[{ src: "/assets/Harley/2024HDMY/1x1_Frame3_CA.jpg" }]}
+				images={[
+					{
+						src: "/assets/Harley/2024HDMY/1x1_Frame3_CA.jpg",
+						alt: "Harley-Davidson 2024 Street Glide launch",
+						background: "#000"
+					},
+					{
+						src: "/assets/Harley/2024HDMY/1x1_Frame2_CA.jpg",
+						alt: "Harley 2024 Launch",
+						background: "#000"
+					},
+					{
+						src: "/assets/Harley/2024HDMY/Screenshot 2024-05-30 at 2.25.52 PM.png",
+						alt: "Bike detail",
+						background: "#000"
+					}
+				]}
 			/>
 			<MediaGrid media={media} />
 			<NumberedContentSection

@@ -7,10 +7,13 @@ const Grid = styled.div`
 	grid-template-columns: repeat(12, minmax(0, 1fr));
 	grid-auto-rows: 100px;
 	gap: 1.25rem;
+	max-width: 1420px;
+	margin: 30px auto 80px;
 
 	@media (max-width: 900px) {
 		grid-template-columns: 1fr;
 		grid-auto-rows: 280px;
+		margin-top: 24px;
 	}
 `;
 
@@ -61,7 +64,7 @@ export default function Home() {
 		},
 		{
 			client: "Thunder Valley",
-			link: "/assets/thunder-valley",
+			link: "/thunder-valley",
 			imageUrl: "/assets/TVCR cover photo logo.png",
 			colStart: 5,
 			colEnd: 8,

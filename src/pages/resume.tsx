@@ -2,16 +2,16 @@ import React from "react";
 import styled from "@emotion/styled";
 
 const ResumeCont = styled.div`
-	width: 70%;
+	width: min(86%, 1100px);
 	margin: 0 auto;
-	padding: 6rem 2rem;
+	padding: clamp(3rem, 5vw, 4.5rem) 1.5rem;
 	position: relative;
 
 	&::before {
 		content: "";
 		position: absolute;
 		left: 0;
-		top: 125px;
+		top: 96px;
 		bottom: 0;
 		width: 2px;
 		background: linear-gradient(
@@ -23,37 +23,27 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__heading {
-		font-size: clamp(3rem, 6vw, 5rem);
+		font-size: clamp(2.5rem, 4.5vw, 4rem);
 		font-weight: 900;
 		letter-spacing: -0.04em;
 		color: var(--neutral-1000);
-		margin-bottom: 4rem;
+		margin-bottom: 2.75rem;
 	}
 
 	.resume__item {
 		position: relative;
 		display: grid;
-		gap: 1.5rem;
+		gap: 1rem;
 
 		margin-left: 3rem;
-		margin-bottom: 2rem;
-		padding: 2rem;
+		margin-bottom: 1.25rem;
+		padding: 1.5rem;
 
 		background: var(--neutral-100);
-		border-radius: 24px;
-		border-left: 8px solid var(--primary-500);
+		border-radius: 16px;
+		border-left: 6px solid var(--primary-500);
 
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-
-		transition:
-			transform 0.2s ease,
-			box-shadow 0.2s ease;
-	}
-
-	.resume__item:hover {
-		transform: translateY(-4px);
-
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+		box-shadow: 0 5px 18px rgba(0, 0, 0, 0.055);
 	}
 
 	.resume__item::before {
@@ -112,7 +102,7 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__company {
-		font-size: clamp(1.75rem, 3vw, 2.5rem);
+		font-size: clamp(1.5rem, 2.5vw, 2.1rem);
 		font-weight: 900;
 		line-height: 1;
 		color: var(--neutral-1000);
@@ -164,21 +154,21 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__text {
-		line-height: 1.7;
+		line-height: 1.6;
 		color: var(--neutral-900);
 	}
 
 	.resume__background {
-		margin-top: 5rem;
-		padding-top: 5rem;
+		margin-top: 3.5rem;
+		padding-top: 3.5rem;
 
 		border-top: 1px solid var(--neutral-300);
 	}
 
 	.resume__backgroundHeading {
-		font-size: clamp(2rem, 4vw, 3rem);
+		font-size: clamp(1.75rem, 3vw, 2.5rem);
 		font-weight: 900;
-		margin-bottom: 3rem;
+		margin-bottom: 2rem;
 
 		color: var(--neutral-1000);
 	}
@@ -186,16 +176,16 @@ const ResumeCont = styled.div`
 	.resume__infoGrid {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 2rem;
-		margin-bottom: 4rem;
+		gap: 1rem;
+		margin-bottom: 2.75rem;
 	}
 
 	.resume__infoCard {
-		padding: 2rem;
+		padding: 1.5rem;
 
 		background: var(--neutral-100);
 
-		border-radius: 24px;
+		border-radius: 16px;
 
 		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 	}
@@ -212,7 +202,7 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__infoContent {
-		line-height: 1.8;
+		line-height: 1.6;
 		color: var(--neutral-900);
 	}
 
@@ -239,13 +229,6 @@ const ResumeCont = styled.div`
 
 		color: var(--primary-900);
 
-		transition: all 0.2s ease;
-	}
-
-	.resume__skill:hover {
-		transform: translateY(-2px);
-
-		background: var(--primary-200);
 	}
 
 	.resume__skillList {
@@ -255,7 +238,8 @@ const ResumeCont = styled.div`
 	}
 
 	@media (max-width: 768px) {
-		padding: 4rem 1.25rem;
+		width: 100%;
+		padding: 3rem 0;
 
 		&::before {
 			left: 18px;
@@ -273,6 +257,10 @@ const ResumeCont = styled.div`
 		.resume__date {
 			width: 100%;
 			margin-left: 0;
+		}
+
+		.resume__infoGrid {
+			grid-template-columns: 1fr;
 		}
 	}
 `;

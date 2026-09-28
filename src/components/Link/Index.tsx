@@ -18,6 +18,7 @@ const LinkCont = styled(NextLink)`
 	text-decoration: none;
 	transition: color 0.2s ease;
 	position: relative;
+	white-space: nowrap;
 
 	&::after {
 		content: "";
@@ -38,6 +39,10 @@ const LinkCont = styled(NextLink)`
 
 	&[aria-current="page"]::after {
 		width: 100%;
+	}
+
+	@media (max-width: 600px) {
+		font-size: 0.95rem;
 	}
 `;
 

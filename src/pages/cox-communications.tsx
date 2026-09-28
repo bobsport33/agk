@@ -41,7 +41,8 @@ const media: {
 }[] = [
 	{
 		type: "video",
-		src: "/assets/cox/cox-video.mp4"
+		src: "/assets/cox/cox-video.mp4",
+		poster: "/assets/cox/cox-bilboard.png"
 	}
 
 	// {
@@ -63,7 +64,8 @@ const media2: {
 	},
 	{
 		type: "video",
-		src: "/assets/cox/cox-video-2.mp4"
+		src: "/assets/cox/cox-video-2.mp4",
+		poster: "/assets/cox/cox-lamb.png"
 	}
 ];
 
@@ -74,7 +76,15 @@ const CoxCommunications = () => {
 			<NumberedContentSection
 				title={"'A Step Ahead' Brand Evolution"}
 				content={sectionContent}
-				images={[{ src: "/assets/cox/cox-bilboard.png" }]}
+				images={[
+					{
+						src: "/assets/cox/cox-bilboard.png",
+						alt: "Cox billboard",
+						fit: "contain"
+					},
+					{ src: "/assets/cox/Cox_edited.jpg", alt: "Cox connected home experience" },
+					{ src: "/assets/cox/IMG_186C83E7901C-1_edited.jpg", alt: "Cox connected home interface" }
+				]}
 			/>
 			<MediaGrid media={media} />
 			<NumberedContentSection

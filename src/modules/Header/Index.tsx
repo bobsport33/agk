@@ -24,6 +24,21 @@ const HeaderCont = styled.div`
 			align-items: flex-end;
 		}
 	}
+
+	@media (max-width: 600px) {
+		height: 58px;
+
+		.header {
+			&__logo {
+				height: 42px;
+			}
+
+			&__links {
+				gap: 14px;
+				align-items: center;
+			}
+		}
+	}
 `;
 
 const Header = () => {

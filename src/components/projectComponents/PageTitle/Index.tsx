@@ -13,8 +13,8 @@ const PageTitleStyled = styled.section`
 	align-items: center;
 	text-align: center;
 
-	gap: 0.75rem;
-	margin-bottom: 3rem;
+	gap: 0.9rem;
+	margin: clamp(1.5rem, 3vw, 3rem) 0 0;
 
 	.page-title {
 		&__slot {
@@ -27,26 +27,23 @@ const PageTitleStyled = styled.section`
 		&__title {
 			margin: 0;
 
-			font-size: clamp(2.5rem, 5vw, 4rem);
+			font-size: clamp(2.25rem, 4vw, 3.75rem);
 			font-weight: 800;
 			letter-spacing: -0.03em;
-			line-height: 1.05;
+			line-height: 1.04;
 
 			color: var(--neutral-1000);
 
-			display: inline-block;
-			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 		}
 
-		/* 🔥 underline that matches TEXT width */
 		&__title::after {
 			content: "";
-			position: absolute;
-			left: 0;
-			bottom: -0.5rem;
-
-			width: 100%;
-			height: 4px;
+			width: clamp(6rem, 16vw, 11rem);
+			height: 3px;
+			margin-top: 0.65rem;
 
 			border-radius: 999px;
 
@@ -60,8 +57,8 @@ const PageTitleStyled = styled.section`
 		&__subtitle {
 			margin: 0;
 
-			font-size: 1.15rem;
-			line-height: 1.6;
+			font-size: 1.05rem;
+			line-height: 1.55;
 			color: var(--neutral-700);
 
 			max-width: 65ch;
@@ -71,7 +68,7 @@ const PageTitleStyled = styled.section`
 	@media (max-width: 768px) {
 		.page-title {
 			&__title {
-				font-size: 2.2rem;
+				font-size: 2rem;
 			}
 
 			&__subtitle {

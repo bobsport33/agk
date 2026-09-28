@@ -42,8 +42,17 @@
 	--accent-800: #573247;
 	--accent-900: #3d2232;
 	--accent-1000: #24131d;
+	--shadow-soft: 0 8px 30px rgba(31, 27, 27, 0.06);
+	--shadow-lift: 0 18px 44px rgba(31, 27, 27, 0.12);
+	--media-radius: 12px;
 
 	--padding: 0 36px;
+}
+
+@media (max-width: 640px) {
+	:root {
+		--padding: 0 18px;
+	}
 }
 
 html,

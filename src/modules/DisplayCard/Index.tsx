@@ -26,11 +26,17 @@ const Card = styled(Link)`
 	box-shadow: var(--shadow-soft);
 
 	transition:
-		DisplayCard transform 200ms ease,
+		transform 200ms ease,
 		box-shadow 200ms ease;
 
 	&:hover {
 		box-shadow: var(--shadow-lift);
+		transform: translateY(-2px);
+	}
+
+	&:focus-visible {
+		outline: 3px solid var(--primary-500);
+		outline-offset: 3px;
 	}
 
 	&:hover .card__image {
