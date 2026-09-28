@@ -6,15 +6,19 @@ const ResumeCont = styled.div`
 	width: min(86%, 1100px);
 	margin: 0 auto;
 	padding: clamp(3rem, 5vw, 4.5rem) 1.5rem;
-	position: relative;
 
-	&::before {
+	.resume__timeline {
+		position: relative;
+	}
+
+	.resume__timeline::before {
 		content: "";
 		position: absolute;
 		left: 0;
 		top: 96px;
 		bottom: 0;
 		width: 2px;
+		pointer-events: none;
 		background: linear-gradient(
 			to bottom,
 			var(--primary-500),
@@ -246,7 +250,7 @@ const ResumeCont = styled.div`
 		width: 100%;
 		padding: 2.25rem 0;
 
-		&::before {
+		.resume__timeline::before {
 			left: 18px;
 		}
 
@@ -293,9 +297,10 @@ const ResumeCont = styled.div`
 const Resume = () => {
 	return (
 		<ResumeCont>
-			<h1 className="resume__heading">Experience</h1>
+			<div className="resume__timeline">
+				<h1 className="resume__heading">Experience</h1>
 
-			<div className="resume__item">
+				<div className="resume__item">
 				<div className="resume__header">
 					<div className="resume__company">FCB Chicago</div>
 					<div className="resume__role">
@@ -337,9 +342,9 @@ const Resume = () => {
 						residents.
 					</div>
 				</div>
-			</div>
+				</div>
 
-			<div className="resume__item resume__item--rise">
+				<div className="resume__item resume__item--rise">
 				<div className="resume__header">
 					<div className="resume__company">Rise Interactive</div>
 					<div className="resume__role">
@@ -391,9 +396,9 @@ const Resume = () => {
 						NicklausChildrens.org
 					</div>
 				</div>
-			</div>
+				</div>
 
-			<div className="resume__item resume__item--rpm">
+				<div className="resume__item resume__item--rpm">
 				<div className="resume__header">
 					<div className="resume__company">RPM Advertising</div>
 					<div className="resume__role">Sr. Copywriter</div>
@@ -441,9 +446,9 @@ const Resume = () => {
 						2015 Davey Awards, “Hollywood Casino, All That Glitters”
 					</div>
 				</div>
-			</div>
+				</div>
 
-			<div className="resume__item resume__item--walgreens">
+				<div className="resume__item resume__item--walgreens">
 				<div className="resume__header">
 					<div className="resume__company">Walgreens Co.</div>
 					<div className="resume__role">
@@ -492,9 +497,9 @@ const Resume = () => {
 						Delish, Celebrity Apprentice”
 					</div>
 				</div>
-			</div>
+				</div>
 
-			<div className="resume__item resume__item--early">
+				<div className="resume__item resume__item--early">
 				<div className="resume__header">
 					<div className="resume__company">
 						Copywriting From Way Back
@@ -509,6 +514,7 @@ const Resume = () => {
 						ChiCitySports.com, Second City Training Center, Arc
 						Worldwide, Illini Athletics
 					</div>
+				</div>
 				</div>
 			</div>
 			<div className="resume__infoGrid">

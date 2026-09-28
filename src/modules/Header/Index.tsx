@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
+import NextLink from "next/link";
 
 import Link from "@/components/Link/Index";
 import { media } from "@/styles/breakpoints";
@@ -9,10 +10,13 @@ const HeaderCont = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	position: relative;
+	z-index: 100;
 
 	.header {
 		&__logo {
 			height: 55px;
+			display: block;
 
 			& svg {
 				height: 100%;
@@ -24,11 +28,88 @@ const HeaderCont = styled.div`
 			gap: 30px;
 			align-items: flex-end;
 		}
+
+		&__menu-button {
+			display: none;
+			width: 44px;
+			height: 44px;
+			padding: 10px;
+			flex-direction: column;
+			justify-content: center;
+			gap: 5px;
+			border: 1px solid var(--neutral-400);
+			border-radius: 50%;
+			background: var(--neutral-100);
+			cursor: pointer;
+		}
+
+		&__menu-line {
+			display: block;
+			width: 100%;
+			height: 2px;
+			border-radius: 2px;
+			background: var(--neutral-1000);
+			transition: opacity 160ms ease, transform 160ms ease;
+		}
+
 	}
 
 	${media.tablet} {
-		.header__links {
-			gap: 20px;
+		.header {
+			&__menu-button {
+				display: flex;
+			}
+
+			&__menu-button[aria-expanded="true"] .header__menu-line:first-of-type {
+				transform: translateY(7px) rotate(45deg);
+			}
+
+			&__menu-button[aria-expanded="true"] .header__menu-line:nth-of-type(2) {
+				opacity: 0;
+			}
+
+			&__menu-button[aria-expanded="true"] .header__menu-line:last-of-type {
+				transform: translateY(-7px) rotate(-45deg);
+			}
+
+			&__links {
+				position: absolute;
+				top: calc(100% + 0.5rem);
+				right: 0;
+				display: flex;
+				min-width: 190px;
+				padding: 0.65rem;
+				gap: 0;
+				flex-direction: column;
+				align-items: stretch;
+				border: 1px solid var(--neutral-300);
+				border-radius: 14px;
+				background: var(--neutral-100);
+				box-shadow: var(--shadow-lift);
+				opacity: 0;
+				visibility: hidden;
+				pointer-events: none;
+				transform: translateY(-0.5rem);
+				transition: opacity 160ms ease, transform 160ms ease,
+					visibility 160ms ease;
+
+				a {
+					padding: 0.75rem 0.85rem;
+					border-radius: 8px;
+				}
+
+				a:hover,
+				a:focus-visible {
+					background: var(--neutral-200);
+				}
+			}
+
+			&__links--open {
+				opacity: 1;
+				visibility: visible;
+				pointer-events: auto;
+				transform: translateY(0);
+			}
 		}
 	}
 
@@ -39,19 +120,43 @@ const HeaderCont = styled.div`
 			&__logo {
 				height: 42px;
 			}
-
-			&__links {
-				gap: 12px;
-				align-items: center;
-			}
 		}
 	}
 `;
 
 const Header = () => {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const headerRef = useRef<HTMLDivElement>(null);
+	const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+	useEffect(() => {
+		if (!isMenuOpen) return;
+
+		const closeFromOutside = (event: PointerEvent) => {
+			if (!headerRef.current?.contains(event.target as Node)) {
+				setIsMenuOpen(false);
+			}
+		};
+
+		const closeFromKeyboard = (event: KeyboardEvent) => {
+			if (event.key === "Escape") {
+				setIsMenuOpen(false);
+				menuButtonRef.current?.focus();
+			}
+		};
+
+		document.addEventListener("pointerdown", closeFromOutside);
+		document.addEventListener("keydown", closeFromKeyboard);
+
+		return () => {
+			document.removeEventListener("pointerdown", closeFromOutside);
+			document.removeEventListener("keydown", closeFromKeyboard);
+		};
+	}, [isMenuOpen]);
+
 	return (
-		<HeaderCont>
-			<div className="header__logo">
+		<HeaderCont ref={headerRef}>
+			<NextLink className="header__logo" href="/" aria-label="Home">
 				<svg
 					viewBox="0 0 334 176"
 					fill="none"
@@ -83,12 +188,28 @@ const Header = () => {
 						<clipPath></clipPath>
 					</defs>
 				</svg>
-			</div>
-			<div className="header__links">
-				<Link text="My Work" href="/" />
-				<Link text="Resume" href="/resume" />
-				<Link text="Contact" href="/contact" />
-			</div>
+			</NextLink>
+			<button
+				ref={menuButtonRef}
+				className="header__menu-button"
+				type="button"
+				aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+				aria-controls="primary-navigation"
+				aria-expanded={isMenuOpen}
+				onClick={() => setIsMenuOpen((open) => !open)}
+			>
+				<span className="header__menu-line" />
+				<span className="header__menu-line" />
+				<span className="header__menu-line" />
+			</button>
+			<nav
+				id="primary-navigation"
+				className={`header__links${isMenuOpen ? " header__links--open" : ""}`}
+				aria-label="Primary navigation"
+			>
+				<Link text="Resume" href="/resume" onClick={() => setIsMenuOpen(false)} />
+				<Link text="Contact" href="/contact" onClick={() => setIsMenuOpen(false)} />
+			</nav>
 		</HeaderCont>
 	);
 };

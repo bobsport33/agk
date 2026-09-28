@@ -10,6 +10,7 @@ interface LinkProps {
 	href: string;
 	target?: string;
 	color?: string;
+	onClick?: () => void;
 }
 
 const LinkCont = styled(NextLink)`
@@ -51,7 +52,7 @@ const LinkCont = styled(NextLink)`
 	}
 `;
 
-const Link = ({ text, href, color }: LinkProps) => {
+const Link = ({ text, href, color, onClick }: LinkProps) => {
 	const isExternal = href.startsWith("http");
 
 	const pathname = usePathname();
@@ -70,6 +71,7 @@ const Link = ({ text, href, color }: LinkProps) => {
 				rel="noopener noreferrer"
 				aria-current={isActive ? "page" : undefined}
 				style={style}
+				onClick={onClick}
 			>
 				{text}
 			</LinkCont>
@@ -81,6 +83,7 @@ const Link = ({ text, href, color }: LinkProps) => {
 			href={href}
 			aria-current={isActive ? "page" : undefined}
 			style={style}
+			onClick={onClick}
 		>
 			{text}
 		</LinkCont>
