@@ -34,8 +34,9 @@ const MediaGridStyled = styled.section`
 
 		&__title {
 			margin: 0;
-			font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-			font-weight: 700;
+			font-family: var(--font-display);
+			font-size: clamp(20px, 2.5vw, 28px);
+			font-weight: 400;
 			color: var(--neutral-1000);
 		}
 

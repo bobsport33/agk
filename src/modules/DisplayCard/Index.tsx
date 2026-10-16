@@ -82,9 +82,9 @@ const Overlay = styled.div`
 
 const Title = styled.div`
 	color: white;
-	font-size: clamp(1rem, 1.5vw, 1.35rem);
-	font-weight: 700;
-	letter-spacing: -0.02em;
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0;
 
 	transition: transform 200ms ease;
 `;

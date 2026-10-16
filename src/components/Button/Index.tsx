@@ -13,8 +13,10 @@ interface ButtonProps {
 const StyledButton = styled.button<ButtonProps>`
 	padding: 10px 16px;
 	border-radius: 8px;
-	font-size: 14px;
-	font-weight: 600;
+	font-family: var(--font-body);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.08em;
 	cursor: pointer;
 	border: none;
 	transition: all 0.2s ease;

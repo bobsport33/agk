@@ -28,10 +28,11 @@ const PageTitleStyled = styled.section`
 		&__title {
 			margin: 0;
 
-			font-size: clamp(2.25rem, 4vw, 3.75rem);
-			font-weight: 800;
-			letter-spacing: -0.03em;
-			line-height: 1.04;
+			font-family: var(--font-display);
+			font-size: clamp(32px, 4.4vw, 52px);
+			font-weight: 700;
+			letter-spacing: 0;
+			line-height: 1.1;
 
 			color: var(--neutral-1000);
 
@@ -58,8 +59,9 @@ const PageTitleStyled = styled.section`
 		&__subtitle {
 			margin: 0;
 
-			font-size: 1.05rem;
-			line-height: 1.55;
+			font-size: 16px;
+			font-weight: 300;
+			line-height: 1.7;
 			color: var(--neutral-700);
 
 			max-width: 65ch;
@@ -70,7 +72,7 @@ const PageTitleStyled = styled.section`
 		margin-top: 1.5rem;
 
 		.page-title__title {
-			font-size: clamp(2.1rem, 6vw, 3rem);
+			font-size: clamp(32px, 4.4vw, 52px);
 		}
 	}
 
@@ -80,13 +82,13 @@ const PageTitleStyled = styled.section`
 
 		.page-title {
 			&__title {
-				font-size: clamp(1.85rem, 9vw, 2.35rem);
-				line-height: 1.08;
+				font-size: 32px;
+				line-height: 1.1;
 			}
 
 			&__subtitle {
-				font-size: 0.95rem;
-				line-height: 1.5;
+				font-size: 16px;
+				line-height: 1.7;
 			}
 		}
 	}

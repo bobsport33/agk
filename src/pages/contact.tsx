@@ -58,25 +58,27 @@ const ContactWrapper = styled.section`
 	}
 
 	& .contact__heading {
-		font-size: clamp(1.75rem, 3vw, 2.5rem);
+		font-family: var(--font-display);
+		font-size: clamp(28px, 4vw, 48px);
+		font-weight: 700;
 		color: var(--neutral-1000);
-		line-height: 1.2;
+		line-height: 1.1;
 		text-transform: uppercase;
-		letter-spacing: 0.04em;
+		letter-spacing: 0;
 	}
 
 	& .contact__intro {
-		font-family: "Montserrat", sans-serif;
+		font-family: var(--font-body);
 		font-size: 1rem;
-		line-height: 1.75;
+		line-height: 1.7;
 		color: var(--neutral-800);
 		font-style: italic;
 	}
 
 	& .contact__body {
-		font-family: "Montserrat", sans-serif;
-		font-size: 0.95rem;
-		line-height: 1.75;
+		font-family: var(--font-body);
+		font-size: 16px;
+		line-height: 1.7;
 		color: var(--neutral-700);
 	}
 
@@ -108,9 +110,10 @@ const ContactWrapper = styled.section`
 
 	/* ── Label ── */
 	& .contact__label {
-		font-family: "Gotu", sans-serif;
-		font-size: 0.85rem;
-		letter-spacing: 0.05em;
+		font-family: var(--font-body);
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.1em;
 		color: var(--neutral-900);
 		text-transform: uppercase;
 	}
@@ -120,7 +123,7 @@ const ContactWrapper = styled.section`
 	}
 
 	& .contact__optional {
-		font-family: "Montserrat", sans-serif;
+		font-family: var(--font-body);
 		font-size: 0.75rem;
 		color: var(--neutral-600);
 		text-transform: none;
@@ -130,8 +133,8 @@ const ContactWrapper = styled.section`
 	/* ── Input & Textarea ── */
 	& .contact__input,
 	& .contact__textarea {
-		font-family: "Montserrat", sans-serif;
-		font-size: 0.9rem;
+		font-family: var(--font-body);
+		font-size: 16px;
 		color: var(--neutral-900);
 		background-color: var(--neutral-200);
 		border: 1px solid var(--neutral-400);
@@ -170,7 +173,7 @@ const ContactWrapper = styled.section`
 	}
 
 	& .contact__errorMessage {
-		font-family: "Montserrat", sans-serif;
+		font-family: var(--font-body);
 		font-size: 0.78rem;
 		color: var(--accent-600);
 		margin-top: 0.15rem;
@@ -200,15 +203,17 @@ const ContactWrapper = styled.section`
 	}
 
 	& .contact__successHeading {
-		font-size: 1.5rem;
+		font-family: var(--font-display);
+		font-size: clamp(20px, 2.5vw, 28px);
+		font-weight: 400;
 		color: var(--neutral-1000);
-		letter-spacing: 0.03em;
+		letter-spacing: 0;
 	}
 
 	& .contact__successBody {
-		font-family: "Montserrat", sans-serif;
-		font-size: 0.95rem;
-		line-height: 1.75;
+		font-family: var(--font-body);
+		font-size: 16px;
+		line-height: 1.7;
 		color: var(--neutral-700);
 		max-width: 320px;
 	}

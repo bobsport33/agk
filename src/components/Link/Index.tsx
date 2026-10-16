@@ -15,7 +15,9 @@ interface LinkProps {
 
 const LinkCont = styled(NextLink)`
 	--link-color: var(--secondary);
-	font-size: 1.5rem;
+	font-size: 13px;
+	font-weight: 400;
+	letter-spacing: 0.06em;
 	color: var(--link-color);
 	text-decoration: none;
 	transition: color 0.2s ease;
@@ -44,11 +46,11 @@ const LinkCont = styled(NextLink)`
 	}
 
 	${media.tablet} {
-		font-size: 1.2rem;
+		font-size: 13px;
 	}
 
 	${media.mobile} {
-		font-size: 0.95rem;
+		font-size: 13px;
 	}
 `;
 

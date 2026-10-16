@@ -40,9 +40,10 @@ const NumberedContentStyled = styled.section`
 
 		&__title {
 			margin: 0;
-			font-size: clamp(1.6rem, 3vw, 2.35rem);
+			font-family: var(--font-display);
+			font-size: clamp(24px, 3.85vw, 44px);
 			font-weight: 700;
-			line-height: 1.1;
+			line-height: 1.15;
 			color: var(--neutral-1000);
 			text-align: center;
 		}
@@ -118,9 +119,10 @@ const NumberedContentStyled = styled.section`
 		}
 
 		&__number {
-			font-size: clamp(2rem, 3vw, 2.8rem);
-			font-weight: 800;
-			line-height: 0.9;
+			font-family: var(--font-display);
+			font-size: 42px;
+			font-weight: 900;
+			line-height: 1;
 
 			color: var(--primary-500);
 
@@ -136,11 +138,11 @@ const NumberedContentStyled = styled.section`
 
 		&__label {
 			display: inline-block;
-			font-size: 0.7rem;
-			font-weight: 700;
+			font-size: 11px;
+			font-weight: 500;
 
 			text-transform: uppercase;
-			letter-spacing: 0.18em;
+			letter-spacing: 0.1em;
 
 			color: var(--secondary-700);
 		}
@@ -148,8 +150,9 @@ const NumberedContentStyled = styled.section`
 		&__body {
 			margin: 0;
 
-			font-size: clamp(1rem, 1.2vw, 1.12rem);
-			line-height: 1.6;
+			font-size: 15px;
+			font-weight: 300;
+			line-height: 1.65;
 
 			color: var(--neutral-900);
 
@@ -190,7 +193,7 @@ const NumberedContentStyled = styled.section`
 			}
 
 			&__number {
-				font-size: 2.6rem;
+				font-size: 42px;
 			}
 
 			&__body {
@@ -211,11 +214,11 @@ const NumberedContentStyled = styled.section`
 		}
 
 		.numbered-content__number {
-			font-size: 2.2rem;
+			font-size: 42px;
 		}
 
 		.numbered-content__title {
-			font-size: clamp(1.45rem, 7vw, 1.85rem);
+			font-size: clamp(24px, 3.85vw, 44px);
 		}
 	}
 `;

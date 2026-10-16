@@ -1,0 +1,592 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>AGK Visual Direction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap">
+
+<style>
+  /* =====================================================
+     AGK PORTFOLIO — VISUAL DIRECTION BOARD
+     Layout: full-bleed sections, left-aligned, editorial
+     Bold move: oversized Playfair italic as identity anchor
+  ===================================================== */
+
+  /* TOKENS */
+  :root {
+    --bg:          #FAFAF8;   /* warm white */
+    --bg-2:        #F0EFEC;   /* slightly deeper warm white */
+    --fg:          #1A1714;   /* warm near-black */
+    --fg-2:        #6B6157;   /* secondary text, warm grey */
+    --orange:      #FF8C61;   /* primary — warm coral-orange */
+    --orange-mid:  #FFA07A;   /* hover / softer orange */
+    --teal:        #00B4C6;   /* secondary — bright cyan-teal */
+    --teal-mid:    #00CFDF;   /* teal hover */
+    --teal-soft:   #D6F4F7;   /* teal tint for backgrounds */
+
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', system-ui, sans-serif;
+
+    --space-xs: 8px;
+    --space-s:  16px;
+    --space-m:  32px;
+    --space-l:  64px;
+    --space-xl: 96px;
+
+    --radius: 4px;
+    --max-w: 1100px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:          #1C1814;
+      --bg-2:        #272218;
+      --fg:          #F0EBE2;
+      --fg-2:        #9A9188;
+      --orange:      #FF9A72;
+      --orange-mid:  #FF8A55;
+      --teal:        #00C8DC;
+      --teal-mid:    #00DFEF;
+      --teal-soft:   #0D2E32;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:          #1C1814;
+    --bg-2:        #272218;
+    --fg:          #F0EBE2;
+    --fg-2:        #9A9188;
+    --orange:      #FF6E33;
+    --orange-mid:  #FF8A55;
+    --teal:        #00C8DC;
+    --teal-mid:    #00DFEF;
+    --teal-soft:   #0D2E32;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    padding-inline: var(--space-s);
+  }
+
+  /* ---- LAYOUT ---- */
+  .wrapper {
+    max-width: var(--max-w);
+    margin-inline: auto;
+    padding-block: var(--space-l);
+  }
+
+  .section {
+    margin-block-end: var(--space-xl);
+  }
+
+  .section-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-block-end: var(--space-m);
+    padding-block-end: var(--space-xs);
+    border-bottom: 1px solid var(--sage);
+    display: block;
+  }
+
+  /* ---- TYPOGRAPHY SHOWCASE ---- */
+  .type-hero {
+    font-family: var(--font-display);
+    font-size: clamp(52px, 9vw, 120px);
+    font-style: italic;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 0.95;
+    text-wrap: balance;
+    margin-block-end: var(--space-m);
+  }
+
+  .type-tagline {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.8vw, 18px);
+    font-weight: 300;
+    color: var(--fg-2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .type-h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 700;
+    color: var(--fg);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .type-h3 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--orange);
+  }
+
+  .type-body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--fg);
+    max-width: 60ch;
+  }
+
+  /* ---- COLOR PALETTE ---- */
+  .palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 120px;
+    flex: 1 1 120px;
+  }
+
+  .swatch-color {
+    height: 80px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .swatch-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--fg);
+  }
+
+  .swatch-hex {
+    font-size: 11px;
+    color: var(--fg-2);
+    font-family: monospace;
+  }
+
+  /* ---- CASE STUDY TREATMENT ---- */
+  .case-study-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: block;
+    margin-block-end: var(--space-xs);
+  }
+
+  .case-title {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 3.5vw, 40px);
+    font-weight: 700;
+    color: var(--fg);
+    margin-block-end: var(--space-m);
+    line-height: 1.15;
+  }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-m);
+  }
+
+  @media (max-width: 680px) {
+    .case-grid { grid-template-columns: 1fr; }
+  }
+
+  .case-block {
+    padding-block-start: var(--space-s);
+    border-top: 2px solid var(--orange);
+  }
+
+  .case-num {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-style: italic;
+    font-weight: 900;
+    color: var(--bg-2);
+    line-height: 1;
+    margin-block-end: 4px;
+    /* decorative ghost number */
+    -webkit-text-stroke: 1px var(--teal);
+    color: transparent;
+  }
+
+  .case-section-name {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal);   /* teal does its job here as the supporting accent */
+    margin-block-end: var(--space-s);
+  }
+
+  .case-body {
+    font-family: var(--font-body);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--fg);
+  }
+
+  /* ---- NAV TREATMENT ---- */
+  .nav-demo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--space-s);
+    border-bottom: 1px solid var(--bg-2);
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--orange);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--space-m);
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  /* ---- HOMEPAGE CARD GRID ---- */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: var(--bg-2);
+  }
+
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--bg);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-s);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .card-mock-img {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--bg-2);
+    border: 2px dashed var(--bg-2);
+    transition: background 0.3s;
+  }
+
+  .card:hover .card-mock-img { background: rgba(28,58,63,0.05); }
+
+  .card-label {
+    position: relative;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--orange);
+    background: var(--bg);
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
+
+  /* ---- BUTTON ---- */
+  .btn {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--orange);
+    padding: 12px 28px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn:hover { background: var(--orange-mid); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--teal);
+    border: 1.5px solid var(--teal);
+  }
+
+  .btn-outline:hover {
+    background: var(--teal);
+    color: var(--bg);
+  }
+
+  /* ---- DIVIDER ---- */
+  hr {
+    border: none;
+    border-top: 1px solid var(--bg-2);
+    margin-block: var(--space-l);
+  }
+
+  /* ---- THEME TOGGLE ---- */
+  .theme-bar {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+    z-index: 100;
+  }
+
+  .theme-btn {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--bg);
+    color: var(--fg-2);
+    border: 1px solid var(--bg-2);
+    padding: 6px 12px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .theme-btn:hover { color: var(--teal); border-color: var(--teal); }
+
+  /* ---- FOUND FABLE BLEND NOTE ---- */
+  .found-fable-strip {
+    background: var(--orange);
+    color: var(--bg);
+    padding: var(--space-m);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    flex-wrap: wrap;
+  }
+
+  .ff-label {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0.4;
+  }
+
+  .ff-body {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+</style>
+
+<!-- THEME CONTROLS -->
+<div class="theme-bar">
+  <button class="theme-btn" onclick="document.documentElement.removeAttribute('data-theme')">System</button>
+  <button class="theme-btn" onclick="document.documentElement.setAttribute('data-theme','light')">Light</button>
+  <button class="theme-btn" onclick="document.documentElement.setAttribute('data-theme','dark')">Dark</button>
+</div>
+
+<div class="wrapper">
+
+  <!-- NAV -->
+  <span class="section-label">Navigation</span>
+  <nav class="nav-demo section">
+    <a href="#" class="nav-logo">Anastasia Guletsky Kelly</a>
+    <ul class="nav-links">
+      <li><a href="#">Work</a></li>
+      <li><a href="#">Resume</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO TYPE -->
+  <div class="section">
+    <span class="section-label">Hero — Homepage</span>
+    <p class="type-hero" style="margin-block-end: 16px;">AGK</p>
+    <p class="type-tagline">Creative Director &nbsp;·&nbsp; Writer &nbsp;·&nbsp; Friend</p>
+  </div>
+
+  <hr>
+
+  <!-- COLOR PALETTE -->
+  <div class="section">
+    <span class="section-label">Color Palette</span>
+    <div class="palette">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FF8C61"></div>
+        <div class="swatch-name">Coral Orange (Primary)</div>
+        <div class="swatch-hex">#FF8C61</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#00B4C6"></div>
+        <div class="swatch-name">Cyan Teal (Secondary)</div>
+        <div class="swatch-hex">#00B4C6</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FAFAF8; border:1px solid #eee"></div>
+        <div class="swatch-name">Warm White</div>
+        <div class="swatch-hex">#FAFAF8</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A1714; border:1px solid #eee"></div>
+        <div class="swatch-name">Warm Near-Black</div>
+        <div class="swatch-hex">#1A1714</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#D6F4F7"></div>
+        <div class="swatch-name">Teal Tint</div>
+        <div class="swatch-hex">#D6F4F7</div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- TYPE SCALE -->
+  <div class="section">
+    <span class="section-label">Typography</span>
+    <div style="display:flex;flex-direction:column;gap:var(--space-m)">
+      <div>
+        <p style="font-size:11px;color:var(--fg-2);letter-spacing:.1em;text-transform:uppercase;margin-block-end:8px">Display / H1 — Playfair Display Italic</p>
+        <p class="type-h2" style="font-style:italic">Creative Director.<br>Writer. Friend.</p>
+      </div>
+      <div>
+        <p style="font-size:11px;color:var(--fg-2);letter-spacing:.1em;text-transform:uppercase;margin-block-end:8px">H2 — Playfair Display Bold</p>
+        <p class="type-h2">Harley-Davidson</p>
+      </div>
+      <div>
+        <p style="font-size:11px;color:var(--fg-2);letter-spacing:.1em;text-transform:uppercase;margin-block-end:8px">H3 — Playfair Display Italic Regular</p>
+        <p class="type-h3">Model Year 2024 Launch</p>
+      </div>
+      <div>
+        <p style="font-size:11px;color:var(--fg-2);letter-spacing:.1em;text-transform:uppercase;margin-block-end:8px">Body — DM Sans Light</p>
+        <p class="type-body">"Ride Into a New Era" worked on two levels: the product evolution riders could see in the specs, and the personal one they'd feel on the road. Each execution was tuned to its bike's personality while staying anchored to the same idea.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- CASE STUDY TREATMENT -->
+  <div class="section">
+    <span class="section-label">Case Study Page Layout</span>
+    <span class="case-study-label">Harley-Davidson</span>
+    <h2 class="case-title">Model Year 2024 Launch:<br><em>Ride Into a New Era</em></h2>
+    <div class="case-grid">
+      <div class="case-block">
+        <div class="case-num">01</div>
+        <div class="case-section-name">The Brief</div>
+        <p class="case-body">Harley's 2024 lineup brought real innovation — new tech, new specs, 12+ bikes. We needed one unifying platform that could scale across all of them without flattening what made each model distinct.</p>
+      </div>
+      <div class="case-block">
+        <div class="case-num">02</div>
+        <div class="case-section-name">The Approach</div>
+        <p class="case-body">"Ride Into a New Era" worked on two levels: the product evolution riders could see in the specs, and the personal one they'd feel on the road. Each execution was tuned to its bike's personality.</p>
+      </div>
+      <div class="case-block">
+        <div class="case-num">03</div>
+        <div class="case-section-name">The Wins</div>
+        <p class="case-body">The campaign scaled seamlessly from launch through programmatic display across the full lineup. One platform. Twelve bikes. Zero identity crises.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- HOME GRID -->
+  <div class="section">
+    <span class="section-label">Portfolio Grid (Homepage)</span>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-mock-img">HD</div>
+        <span class="card-label">Harley-Davidson</span>
+      </div>
+      <div class="card">
+        <div class="card-mock-img">COX</div>
+        <span class="card-label">Cox Communications</span>
+      </div>
+      <div class="card">
+        <div class="card-mock-img">CHI</div>
+        <span class="card-label">City of Chicago</span>
+      </div>
+      <div class="card">
+        <div class="card-mock-img">TV</div>
+        <span class="card-label">Thunder Valley</span>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- BUTTONS -->
+  <div class="section">
+    <span class="section-label">Buttons & Controls</span>
+    <div style="display:flex;gap:var(--space-s);flex-wrap:wrap;align-items:center">
+      <a href="#" class="btn">View Work</a>
+      <a href="#" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- FOUND FABLE BLEND -->
+  <div class="section">
+    <span class="section-label">Found Fable Bridge</span>
+    <div class="found-fable-strip">
+      <div class="ff-label">Found Fable</div>
+      <p class="ff-body">The sage and warm off-white pull from Found Fable's warmer, storytelling-forward palette — so both brands feel like they come from the same person, without looking identical. The deep teal anchors AGK as the portfolio, while Found Fable keeps its own lighter energy.</p>
+    </div>
+  </div>
+
+</div>
+
+</body></html>

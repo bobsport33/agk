@@ -89,8 +89,10 @@ const Radio = styled.section`
 	border-bottom: 1px solid var(--neutral-400);
 
 	h2 {
-		font-size: 1.1rem;
-		line-height: 1.4;
+		font-family: var(--font-display);
+		font-size: clamp(20px, 2.5vw, 28px);
+		font-weight: 400;
+		line-height: 1.2;
 	}
 
 	audio {

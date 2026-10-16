@@ -43,14 +43,16 @@ const ProjectList = styled.section`
 
 		&__title {
 			margin-bottom: 1rem;
-			font-size: clamp(1.55rem, 2.75vw, 2.4rem);
-			line-height: 1.05;
+			font-family: var(--font-display);
+			font-size: clamp(24px, 3.85vw, 44px);
+			font-weight: 700;
+			line-height: 1.15;
 			color: var(--neutral-1000);
 		}
 
 		&__body {
 			font-size: 1rem;
-			line-height: 1.75;
+			line-height: 1.7;
 			color: var(--neutral-900);
 		}
 
@@ -84,11 +86,11 @@ const ProjectList = styled.section`
 
 			&__title {
 				margin-bottom: 0.75rem;
-				font-size: 1.5rem;
+				font-size: 24px;
 			}
 
 			&__body {
-				line-height: 1.65;
+				line-height: 1.7;
 			}
 		}
 	}

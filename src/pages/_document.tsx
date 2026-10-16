@@ -20,7 +20,7 @@ export default function Document() {
 					crossOrigin="anonymous"
 				/>
 				<link
-					href="https://fonts.googleapis.com/css2?family=Michroma&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
 					rel="stylesheet"
 				/>
 			</Head>

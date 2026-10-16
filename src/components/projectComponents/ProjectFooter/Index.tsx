@@ -29,8 +29,9 @@ const Footer = styled.nav`
 		border: 1px solid var(--neutral-400);
 		border-radius: 999px;
 		background: transparent;
-		font-size: 0.9rem;
-		font-weight: 700;
+		font-size: 13px;
+		font-weight: 500;
+		letter-spacing: 0.08em;
 		transition: background 160ms ease, border-color 160ms ease;
 
 		&:hover,

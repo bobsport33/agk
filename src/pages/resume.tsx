@@ -28,9 +28,11 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__heading {
-		font-size: clamp(2.5rem, 4.5vw, 4rem);
-		font-weight: 900;
-		letter-spacing: -0.04em;
+		font-family: var(--font-display);
+		font-size: clamp(28px, 4vw, 48px);
+		font-weight: 700;
+		letter-spacing: 0;
+		line-height: 1.1;
 		color: var(--neutral-1000);
 		margin-bottom: 2.75rem;
 	}
@@ -107,15 +109,16 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__company {
-		font-size: clamp(1.5rem, 2.5vw, 2.1rem);
-		font-weight: 900;
-		line-height: 1;
+		font-family: var(--font-display);
+		font-size: clamp(22px, 3.5vw, 40px);
+		font-weight: 700;
+		line-height: 1.15;
 		color: var(--neutral-1000);
 	}
 
 	.resume__role {
 		font-size: 1rem;
-		font-weight: 700;
+		font-weight: 500;
 		color: var(--primary-700);
 	}
 
@@ -123,7 +126,7 @@ const ResumeCont = styled.div`
 		margin-left: auto;
 
 		font-size: 0.85rem;
-		font-weight: 700;
+		font-weight: 500;
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 
@@ -136,9 +139,9 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__label {
-		font-size: 0.75rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
 	}
 
@@ -159,7 +162,7 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__text {
-		line-height: 1.6;
+		line-height: 1.7;
 		color: var(--neutral-900);
 	}
 
@@ -171,8 +174,9 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__backgroundHeading {
-		font-size: clamp(1.75rem, 3vw, 2.5rem);
-		font-weight: 900;
+		font-family: var(--font-display);
+		font-size: clamp(28px, 4vw, 48px);
+		font-weight: 700;
 		margin-bottom: 2rem;
 
 		color: var(--neutral-1000);
@@ -196,9 +200,9 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__infoTitle {
-		font-size: 0.85rem;
-		font-weight: 800;
-		letter-spacing: 0.08em;
+		font-size: 11px;
+		font-weight: 500;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
 
 		color: var(--primary-700);
@@ -207,7 +211,7 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__infoContent {
-		line-height: 1.6;
+		line-height: 1.7;
 		color: var(--neutral-900);
 	}
 
@@ -218,7 +222,9 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__skillTitle {
-		font-size: 1.5rem;
+		font-family: var(--font-display);
+		font-size: clamp(20px, 2.5vw, 28px);
+		font-weight: 400;
 	}
 
 	.resume__skill {
@@ -230,7 +236,7 @@ const ResumeCont = styled.div`
 
 		border-radius: 999px;
 
-		font-weight: 700;
+		font-weight: 500;
 
 		color: var(--primary-900);
 
@@ -277,7 +283,7 @@ const ResumeCont = styled.div`
 		}
 
 		.resume__company {
-			font-size: 1.4rem;
+			font-size: 22px;
 		}
 
 		.resume__infoCard {
