@@ -5,10 +5,6 @@ export default function Document() {
 		<Html lang="en">
 			<Head>
 				<meta
-					name="description"
-					content="Anastasia is a creative director specializing in brand strategy, visual storytelling, and design leadership. Explore selected work, creative direction, and collaborations."
-				/>
-				<meta
 					name="viewport"
 					content="width=device-width, initial-scale=1"
 				/>

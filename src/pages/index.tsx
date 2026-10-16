@@ -3,15 +3,46 @@ import styled from "@emotion/styled";
 import DisplayCards from "@/modules/DisplayCard/Index";
 import { media } from "@/styles/breakpoints";
 
+const Introduction = styled.header`
+	width: min(100%, calc((100svh - 188px) * 1.85));
+	max-width: 1420px;
+	margin: 8px auto 0;
+
+	h1 {
+		font-family: var(--font-display);
+		font-size: clamp(28px, 3.5vw, 44px);
+		font-weight: 700;
+		line-height: 1.15;
+	}
+
+	p {
+		margin-top: 4px;
+		font-size: clamp(14px, 1.3vw, 16px);
+		font-weight: 300;
+		line-height: 1.6;
+		letter-spacing: 0.06em;
+	}
+
+	${media.tablet} {
+		width: 100%;
+		margin-top: 24px;
+
+		p {
+			margin-top: 8px;
+		}
+	}
+`;
+
 const Grid = styled.div`
 	display: grid;
 	grid-template-columns: repeat(12, minmax(0, 1fr));
 	grid-template-rows: repeat(7, minmax(0, 1fr));
 	gap: clamp(0.875rem, 1.4vw, 1.25rem);
-	width: min(100%, calc((100vh - 125px) * 1.732));
+	/* Reserve space for the header, introduction, and vertical margins. */
+	width: min(100%, calc((100svh - 188px) * 1.85));
 	max-width: 1420px;
-	aspect-ratio: 1.732;
-	margin: 30px auto 18px;
+	aspect-ratio: 1.85;
+	margin: 16px auto 12px;
 
 	${media.tablet} {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -111,10 +142,11 @@ export default function Home() {
 		<>
 			{/* Page specific SEO */}
 			<Head>
-				<title>Anastasia Guletsky Kelly</title>
+				<title>Anastasia Guletsky Kelly | Creative Director &amp; Writer Portfolio</title>
 				<meta
+					key="description"
 					name="description"
-					content="Anastasia is a creative director specializing in brand strategy, visual storytelling, and design leadership. Explore selected work, creative direction, and collaborations."
+					content="The portfolio of Anastasia Guletsky Kelly, creative director and writer specializing in brand strategy, visual storytelling, and design leadership. Explore selected work and collaborations."
 				/>
 				<meta
 					name="viewport"
@@ -122,7 +154,11 @@ export default function Home() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main>
+			<main aria-label="Anastasia Guletsky Kelly's portfolio">
+				<Introduction>
+					<h1>Anastasia Guletsky Kelly</h1>
+					<p>CREATIVE DIRECTOR • WRITER • FRIEND</p>
+				</Introduction>
 				<Grid>
 					{cards.map((card, index) => (
 						<GridItem
