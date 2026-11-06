@@ -8,6 +8,9 @@ interface CardProps {
 	imageUrl: string;
 	link: string;
 	priority?: boolean;
+	imageAlt?: string;
+	objectFit?: "cover" | "contain";
+	objectPosition?: string;
 }
 
 const Card = styled(Link)`
@@ -16,28 +19,28 @@ const Card = styled(Link)`
 	width: 100%;
 	height: 100%;
 
-	padding: 0.5rem;
+	padding: var(--space-2);
 
-	background: var(--neutral-100);
-	border: 1px solid var(--neutral-300);
-	border-radius: 24px;
+	background: var(--surface-page, #f7ebdd);
+	border: 1px solid var(--border-subtle, #1a1a1a33);
+	border-radius: var(--radius-mosaic);
 
 	overflow: hidden;
 	text-decoration: none;
 
-	box-shadow: var(--shadow-soft);
+	box-shadow: 0 3px 12px rgba(26, 26, 26, 0.08);
 
 	transition:
 		transform 200ms ease,
 		box-shadow 200ms ease;
 
 	&:hover {
-		box-shadow: var(--shadow-lift);
+		box-shadow: 0 8px 20px rgba(26, 26, 26, 0.14);
 		transform: translateY(-2px);
 	}
 
 	&:focus-visible {
-		outline: 3px solid var(--primary-500);
+		outline: 3px solid var(--focus-color, currentColor);
 		outline-offset: 3px;
 	}
 
@@ -50,7 +53,7 @@ const ImageContainer = styled.div`
 	position: relative;
 	width: 100%;
 	height: 100%;
-	border-radius: 18px;
+	border-radius: var(--radius-mosaic);
 	overflow: hidden;
 `;
 
@@ -68,7 +71,7 @@ const Overlay = styled.div`
 	display: flex;
 	align-items: flex-end;
 
-	padding: 1.25rem;
+	padding: var(--space-5);
 
 	background: linear-gradient(
 		to top,
@@ -82,24 +85,25 @@ const Overlay = styled.div`
 
 const Title = styled.div`
 	color: white;
-	font-size: 13px;
-	font-weight: 500;
+	font-size: var(--font-size-small);
+	font-weight: var(--weight-medium);
 	letter-spacing: 0;
 
 	transition: transform 200ms ease;
 `;
 
-const DisplayCard = ({ client, imageUrl, link, priority = false }: CardProps) => {
+const DisplayCard = ({ client, imageUrl, link, priority = false, imageAlt = client, objectFit = "cover", objectPosition = "center" }: CardProps) => {
 	return (
 		<Card href={link}>
 			<ImageContainer>
 				<CardImage
 					className="card__image"
 					src={imageUrl}
-					alt={client}
+					alt={imageAlt}
+					style={{ objectFit, objectPosition }}
 					fill
 					priority={priority}
-					sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 1024px) calc(50vw - 34px), 42vw"
+					sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 42px), 42vw"
 				/>
 
 				<Overlay>

@@ -1,0 +1,251 @@
+:root {
+  --color-coral: #efa17f;
+  --color-coral-hover: #e58d68;
+  --color-coral-active: #d97850;
+  --color-coral-disabled: #dfc5b8;
+  --color-teal: #99c2bf;
+  --color-teal-hover: #7bafab;
+  --color-teal-active: #639b97;
+  --color-teal-disabled: #c0ceca;
+  --color-sand: #f0debc;
+  --color-sand-hover: #e6cfa6;
+  --color-sand-active: #d8bc8c;
+  --color-sand-disabled: #e5ddd0;
+  --color-soft: #f0e7dc;
+  --color-soft-hover: #e4d7c7;
+  --color-soft-active: #d7c5af;
+  --color-soft-disabled: #e9e4dd;
+  --color-fable: #243d3c;
+  --color-fable-hover: #2b4946;
+  --color-fable-active: #192e2c;
+  --color-fable-disabled: #6c7773;
+  --color-paper: #f7ebdd;
+  --color-ink: #1a1a1a;
+
+  /* Stable text and section roles */
+  --text-body: var(--color-ink);
+  --text-heading: var(--color-ink);
+  --text-inverse: var(--color-paper);
+  --text-muted: #49433e;
+  --surface-page: var(--color-paper);
+  --surface-hero: var(--color-coral);
+  --surface-books: var(--color-teal);
+  --surface-reading: var(--color-soft);
+  --surface-studio: var(--color-fable);
+  --surface-inverse: var(--color-ink);
+
+  /* Colored text/link roles: primary is dark teal for legibility */
+  --text-primary: var(--color-fable);
+  --text-primary-hover: var(--color-fable-hover);
+  --text-primary-active: var(--color-fable-active);
+  --text-primary-disabled: var(--color-fable-disabled);
+  --text-secondary: var(--color-fable);
+  --text-secondary-hover: var(--color-fable-hover);
+  --text-secondary-active: var(--color-fable-active);
+  --text-secondary-disabled: var(--color-fable-disabled);
+
+  /* Brand control roles: foreground and background stay paired */
+  --background-primary: var(--color-coral);
+  --background-primary-hover: var(--color-coral-hover);
+  --background-primary-active: var(--color-coral-active);
+  --background-primary-disabled: var(--color-coral-disabled);
+  --background-secondary: var(--color-teal);
+  --background-secondary-hover: var(--color-teal-hover);
+  --background-secondary-active: var(--color-teal-active);
+  --background-secondary-disabled: var(--color-teal-disabled);
+  --on-primary: var(--color-ink);
+  --on-secondary: var(--color-ink);
+  --on-disabled: #514b46;
+  --border-subtle: #1a1a1a33;
+  --border-inverse: #f7ebdd55;
+  --border-strong: var(--color-ink);
+  --focus-color: currentColor;
+  --status-error: #7a1818;
+  --status-success: #244d3b;
+}
+
+/* Desktop defaults, inherited until overridden below. Sizes use rem for user scaling. */
+:root {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --weight-body: 400;
+  --weight-medium: 500;
+  --weight-heading: 600;
+  --weight-display: 800;
+
+  --font-size-small: 0.875rem;
+  --font-size-body: 1rem;
+  --font-size-lead: 1.1875rem;
+  --font-size-h1: 6rem;
+  --font-size-project-title: var(--font-size-h1);
+  --font-size-project-section: 3.25rem;
+  --font-size-h2: 4.25rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.5rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+  --font-size-home-hero: clamp(5.75rem, 8.9vw, 8.4375rem);
+  --font-size-creative-hero: clamp(6rem, 11vw, 10.625rem);
+  --font-size-book: 3.375rem;
+  --font-size-service: 2.125rem;
+  --book-badge-size: 130px;
+  --font-size-contact-hero: clamp(6rem, 14vw, 12.5rem);
+  --leading-display: 0.93;
+  --leading-heading: 1.05;
+  --leading-body: 1.6;
+  --tracking-display: -0.04em;
+  --measure-body: 65ch;
+  --measure-preview: 39ch;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 5rem;
+  --space-10: 5.625rem;
+  --page-gutter: clamp(2.5rem, 4vw, 4rem);
+  --content-max: 1420px;
+  --section-space: 5.625rem;
+  --section-gap: 2.75rem;
+  --layout-gap: 4rem;
+  --grid-gap: 1.25rem;
+  --heading-gap: 1.5rem;
+  --paragraph-gap: 1.5rem;
+  --panel-padding: 4.5rem;
+  --control-padding-block: 0.875rem;
+  --control-padding-inline: 1.375rem;
+  --header-height: 90px;
+  --control-height: 56px;
+  --frame-portrait: 12px;
+  --frame-book: 18px;
+
+  --border-width: 1px;
+  --radius-control: 0;
+  --radius-media: 0;
+  --radius-mosaic: 4px;
+  --radius-round: 50%;
+  --shadow-plate: 0 16px 35px #1a1a1a26;
+  --shadow-art: 0 8px 22px #1a1a1a12;
+  --focus-width: 3px;
+  --focus-offset: 5px;
+  --tap-target: 44px;
+  --duration-fast: 160ms;
+  --duration-base: 250ms;
+  --duration-media: 400ms;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --layer-art: 1;
+  --layer-art-front: 3;
+  --layer-header: 20;
+  --layer-skip: 100;
+  --layer-modal: 1000;
+}
+
+/* Tablet: 641–1024px. Mobile intentionally inherits then overrides this block. */
+@media (max-width: 1024px) {
+  :root {
+    --font-size-small: 0.875rem;
+    --font-size-body: 1rem;
+    --font-size-lead: 1.125rem;
+    --font-size-h1: 4.5rem;
+    --font-size-project-title: clamp(2.5rem, 6vw, 4.5rem);
+    --font-size-project-section: 2.75rem;
+    --font-size-h2: 3.5rem;
+    --font-size-h3: 1.875rem;
+    --font-size-h4: 1.375rem;
+    --font-size-h5: 1.125rem;
+    --font-size-h6: 1rem;
+    --font-size-home-hero: clamp(4.5rem, 9vw, 5.75rem);
+    --font-size-creative-hero: clamp(4.5rem, 10vw, 6rem);
+    --font-size-book: 3rem;
+    --font-size-service: 1.875rem;
+    --book-badge-size: 110px;
+    --font-size-contact-hero: 6rem;
+    --leading-display: 0.98;
+    --leading-heading: 1.08;
+    --leading-body: 1.6;
+    --tracking-display: -0.035em;
+    --measure-body: 60ch;
+    --measure-preview: 45ch;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.75rem;
+    --space-7: 2.5rem;
+    --space-8: 3rem;
+    --space-9: 4rem;
+    --space-10: 4.5rem;
+    --page-gutter: 2rem;
+    --section-space: 4rem;
+    --section-gap: 2rem;
+    --layout-gap: 2.5rem;
+    --grid-gap: 1.25rem;
+    --heading-gap: 1.25rem;
+    --paragraph-gap: 1.25rem;
+    --panel-padding: 2.5rem;
+    --control-padding-block: 0.875rem;
+    --control-padding-inline: 1.25rem;
+    --header-height: 76px;
+    --control-height: 56px;
+    --frame-portrait: 10px;
+    --frame-book: 14px;
+  }
+}
+
+/* Mobile: ≤640px. */
+@media (max-width: 640px) {
+  :root {
+    --font-size-small: 0.875rem;
+    --font-size-body: 1rem;
+    --font-size-lead: 1.0625rem;
+    --font-size-h1: 3rem;
+    --font-size-project-title: clamp(1.75rem, 8.5vw, 2.5rem);
+    --font-size-project-section: clamp(1.5rem, 7vw, 2rem);
+    --font-size-h2: 2.875rem;
+    --font-size-h3: 1.875rem;
+    --font-size-h4: 1.25rem;
+    --font-size-h5: 1.125rem;
+    --font-size-h6: 1rem;
+    --font-size-home-hero: clamp(3rem, 15vw, 4.5rem);
+    --font-size-creative-hero: clamp(3rem, 12vw, 4.5rem);
+    --font-size-book: 2.25rem;
+    --font-size-service: 1.5625rem;
+    --book-badge-size: 100px;
+    --font-size-contact-hero: clamp(3.5rem, 14vw, 5.5rem);
+    --leading-display: 1;
+    --leading-heading: 1.1;
+    --leading-body: 1.6;
+    --tracking-display: -0.03em;
+    --measure-body: 100%;
+    --measure-preview: 100%;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 2rem;
+    --space-8: 2.5rem;
+    --space-9: 3rem;
+    --space-10: 3.5rem;
+    --page-gutter: 1.5rem;
+    --section-space: 3rem;
+    --section-gap: 1.5rem;
+    --layout-gap: 1.875rem;
+    --grid-gap: 1rem;
+    --heading-gap: 1rem;
+    --paragraph-gap: 1rem;
+    --panel-padding: 1.75rem;
+    --control-padding-block: 0.875rem;
+    --control-padding-inline: 1rem;
+    --header-height: 76px;
+    --control-height: 56px;
+    --frame-portrait: 8px;
+    --frame-book: 12px;
+  }
+}

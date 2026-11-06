@@ -1,0 +1,21 @@
+public\assets\Harley\2024HDMY\1x1_Frame2_CA.webp
+public\assets\Harley\2024HDMY\1x1_Frame3_CA.webp
+public\assets\Harley\2024HDMY\HD_Carryover_RA1250S_TouDet_RAQ_STA_1200x1200.webp
+public\assets\Harley\2024HDMY\HD_Carryover_RA1250S_TouDet_RAQ_STA_300x600.webp
+public\assets\Harley\2024HDMY\HD_Carryover_RA1250S_TouDet_RAQ_STA_728x90.webp
+public\assets\Harley\2024HDMY\HD_Carryover_RH975S_EscOrd_RAQ_STA_300x600.webp
+public\assets\Harley\2024HDMY\MY24_T2New_FLHX_Programmatic_Static_1200x1200_TestRide_USEN_V2.webp
+public\assets\Harley\2024HDMY\MY24_T2New_FLHX_Programmatic_Static_160x600_TestRide_USEN_V2.webp
+public\assets\Harley\2024HDMY\MY24_T2New_FLHX_Programmatic_Static_300x600_TestRide_USEN_V2.webp
+public\assets\Harley\2024HDMY\MY24_T2New_FLTRXSTSE_Programmatic_Static_160x600_TestRide_USEN_V2.webp
+public\assets\Harley\2024HDMY\MY24_T2New_FLTRXSTSE_Programmatic_Static_300x600_TestRide_USEN_V2.webp
+public\assets\Harley\2024HDMY\MY24_T2New_FLTRX_Programmatic_Static_160x600_TestRide_USEN_V2.webp
+public\assets\Harley\2024HDMY\MY24_T2New_FLTRX_Programmatic_Static_300x600_TestRide_USEN_V2.webp
+public\assets\Harley\2024HDMY\MY24_T2New_FLTRX_Programmatic_Static_728x90_TestRide_USEN_V2.webp
+public\assets\Harley\2024HDMY\MY24_T2New_RA1250SE_Programmatic_Static_1200x1200_TestRide_USEN.webp
+public\assets\Harley\2024HDMY\MY24_T2New_RA1250SE_Programmatic_Static_160x600_TestRide_USEN.webp
+public\assets\Harley\2024HDMY\MY24_T2New_RA1250SE_Programmatic_Static_300x600_TestRide_USEN.webp
+public\assets\Harley\2024HDMY\Screenshot 2024-05-30 at 2.21.44 PM.webp
+public\assets\Harley\2024HDMY\Screenshot 2024-05-30 at 2.22.20 PM.webp
+public\assets\Harley\2024HDMY\Screenshot 2024-05-30 at 2.22.57 PM.webp
+public\assets\Harley\2024HDMY\Screenshot 2024-05-30 at 2.25.52 PM.webp

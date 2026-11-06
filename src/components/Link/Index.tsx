@@ -1,95 +1,10 @@
-"use client";
-import React from "react";
-import styled from "@emotion/styled";
+import type { CSSProperties, MouseEventHandler } from "react";
 import NextLink from "next/link";
-import { usePathname } from "next/navigation";
-import { media } from "@/styles/breakpoints";
-
-interface LinkProps {
-	text: string;
-	href: string;
-	target?: string;
-	color?: string;
-	onClick?: () => void;
+import { useRouter } from "next/router";
+interface LinkProps { text: string; href: string; target?: string; color?: string; onClick?: MouseEventHandler<HTMLAnchorElement>; }
+export default function Link({ text, href, target, color, onClick }: LinkProps) {
+  const { pathname } = useRouter();
+  const active = pathname === href || (href === "/creative-work" && pathname.startsWith("/creative-work/"));
+  const external = /^https?:/.test(href);
+  return <NextLink className="text-link" href={href} target={target || (external ? "_blank" : undefined)} rel={external ? "noopener noreferrer" : undefined} aria-current={active ? "page" : undefined} style={color ? { "--text-primary": color } as CSSProperties : undefined} onClick={onClick}>{text}</NextLink>;
 }
-
-const LinkCont = styled(NextLink)`
-	--link-color: var(--secondary);
-	font-size: 13px;
-	font-weight: 400;
-	letter-spacing: 0.06em;
-	color: var(--link-color);
-	text-decoration: none;
-	transition: color 0.2s ease;
-	position: relative;
-	white-space: nowrap;
-
-	&::after {
-		content: "";
-		position: absolute;
-		left: 0;
-		bottom: -2px;
-		height: 2px;
-		width: 0;
-		background-color: var(--link-color);
-		transition: width 0.3s;
-	}
-
-	&:hover {
-		&::after {
-			width: 100%;
-		}
-	}
-
-	&[aria-current="page"]::after {
-		width: 100%;
-	}
-
-	${media.tablet} {
-		font-size: 13px;
-	}
-
-	${media.mobile} {
-		font-size: 13px;
-	}
-`;
-
-const Link = ({ text, href, color, onClick }: LinkProps) => {
-	const isExternal = href.startsWith("http");
-
-	const pathname = usePathname();
-
-	const isActive = pathname === href;
-
-	const style = {
-		...(color && { "--link-color": color })
-	} as React.CSSProperties;
-
-	if (isExternal) {
-		return (
-			<LinkCont
-				href={href}
-				target="_blank"
-				rel="noopener noreferrer"
-				aria-current={isActive ? "page" : undefined}
-				style={style}
-				onClick={onClick}
-			>
-				{text}
-			</LinkCont>
-		);
-	}
-
-	return (
-		<LinkCont
-			href={href}
-			aria-current={isActive ? "page" : undefined}
-			style={style}
-			onClick={onClick}
-		>
-			{text}
-		</LinkCont>
-	);
-};
-
-export default Link;

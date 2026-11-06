@@ -1,40 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# AGK portfolio
 
-## Getting Started
+Next.js Pages Router portfolio based on the approved `mockups/06-playbook.html` direction. Creative Work retains the original six-project mosaic.
 
-First, run the development server:
+## Local development
 
-```bash
+With dependencies installed:
+
+```sh
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run typecheck
+npm run lint
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Development and production builds use webpack to avoid the Windows/Turbopack junction failure observed in this checkout. Production route types are checked; `tsconfig.json` excludes duplicate generated development route validators when both build directories exist.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Design system
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- `src/styles/tokens.css`: palette, hover/active/disabled colors, semantic foreground/background pairs, type sizes, spacing, and layout variables.
+- `src/styles/globals.css`: local font faces, global h1–h6/body typography, named hero variants, links, controls, focus, and reduced motion.
+- Desktop: 1025px and up. Tablet: 641–1024px. Mobile: 640px and below. The same variable names are overridden per tier; layout queries use matching thresholds in `src/styles/breakpoints.ts`.
+- Keep natural artwork proportions in homepage previews. The mosaic has its own preserved 12-column desktop geometry, two-column tablet fallback, and one-column mobile fallback.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Content and routes
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Overview routes: `/`, `/creative-work`, `/books`, `/contact`, `/resume`.
+- Case studies: `/creative-work/harley-davidson`, `/creative-work/city-of-chicago`, `/creative-work/cox-communications`, `/creative-work/converse`, `/creative-work/thunder-valley`, `/creative-work/recent-web-projects`.
+- The six former root-level project URLs permanently redirect to their nested equivalents.
+- `src/data/projects.ts` owns mosaic placements and local case-study destinations.
+- `src/content/site.ts` and `src/content/books.ts` own preview and book details; overview placeholder prose is intentional pending final copy.
+- `src/content/playbook-assets.ts` records mockup asset provenance. Fonts and images are served locally.
 
-## Learn More
+## Contact integration
 
-To learn more about Next.js, take a look at the following resources:
+`/contact?topic=creative` and `/contact?topic=books` initialize the corresponding inquiry type. The form posts JSON, including `topic`, to the existing `/.netlify/functions/contact` endpoint. This repository does not contain that handler. Confirm the deployed handler accepts the added field and verify actual delivery before release. Local verification intercepts requests; it does not send messages.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Handoff
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+See `docs/playbook-migration-plan.md` for the approved plan and `docs/playbook-implementation.md` for implementation, review, verification, and release dependencies.

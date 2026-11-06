@@ -1,29 +1,10 @@
 import { Html, Head, Main, NextScript } from "next/document";
-
 export default function Document() {
-	return (
-		<Html lang="en">
-			<Head>
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1"
-				/>
-				<link rel="icon" href="/favicon.ico" />
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link
-					rel="preconnect"
-					href="https://fonts.gstatic.com"
-					crossOrigin="anonymous"
-				/>
-				<link
-					href="https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap"
-					rel="stylesheet"
-				/>
-			</Head>
-			<body>
-				<Main />
-				<NextScript />
-			</body>
-		</Html>
-	);
+  return <Html lang="en" data-type="service"><Head>
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="page-type" content="service" />
+    <meta name="site-kind" content="other" />
+    <link rel="preload" href="/fonts/bricolage-800.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+    <link rel="preload" href="/fonts/dm-sans-400.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+  </Head><body><Main /><NextScript /></body></Html>;
 }

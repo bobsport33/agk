@@ -9,7 +9,7 @@ import { media } from "@/styles/breakpoints";
 const ProjectList = styled.section`
 	display: flex;
 	flex-direction: column;
-	border-top: 1px solid var(--neutral-400);
+	border-top: 1px solid var(--border-subtle);
 
 	.web-project {
 		display: grid;
@@ -17,7 +17,7 @@ const ProjectList = styled.section`
 		gap: clamp(1.5rem, 4vw, 3.5rem);
 		align-items: center;
 		padding: clamp(1.75rem, 3.5vw, 3.25rem) 0;
-		border-bottom: 1px solid var(--neutral-400);
+		border-bottom: 1px solid var(--border-subtle);
 
 		&:nth-of-type(even) {
 			grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
@@ -30,10 +30,10 @@ const ProjectList = styled.section`
 		&__media {
 			position: relative;
 			aspect-ratio: 16 / 10;
-			border-radius: var(--media-radius);
+			border-radius: var(--radius-media);
 			overflow: hidden;
-			background: var(--neutral-200);
-			border: 1px solid var(--neutral-300);
+			background: var(--surface-reading);
+			border: 1px solid var(--border-subtle);
 		}
 
 		&__image {
@@ -44,23 +44,23 @@ const ProjectList = styled.section`
 		&__title {
 			margin-bottom: 1rem;
 			font-family: var(--font-display);
-			font-size: clamp(24px, 3.85vw, 44px);
-			font-weight: 700;
+			font-size: var(--font-size-h2);
+			font-weight: var(--weight-heading);
 			line-height: 1.15;
-			color: var(--neutral-1000);
+			color: var(--text-heading);
 		}
 
 		&__body {
-			font-size: 1rem;
-			line-height: 1.7;
-			color: var(--neutral-900);
+			font-size: var(--font-size-body);
+			line-height: var(--leading-body);
+			color: var(--text-body);
 		}
 
 		&__credit {
 			margin-top: 1rem;
-			font-size: 0.85rem;
+			font-size: var(--font-size-small);
 			line-height: 1.6;
-			color: var(--neutral-700);
+			color: var(--text-muted);
 		}
 	}
 
@@ -86,7 +86,7 @@ const ProjectList = styled.section`
 
 			&__title {
 				margin-bottom: 0.75rem;
-				font-size: 24px;
+				font-size: var(--font-size-h3);
 			}
 
 			&__body {

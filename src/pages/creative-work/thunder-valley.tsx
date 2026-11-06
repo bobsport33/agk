@@ -86,12 +86,12 @@ const Radio = styled.section`
 	gap: 1.5rem;
 	align-items: center;
 	padding: 1rem 0;
-	border-bottom: 1px solid var(--neutral-400);
+	border-bottom: 1px solid var(--border-subtle);
 
 	h2 {
 		font-family: var(--font-display);
-		font-size: clamp(20px, 2.5vw, 28px);
-		font-weight: 400;
+		font-size: var(--font-size-h3);
+		font-weight: var(--weight-heading);
 		line-height: 1.2;
 	}
 
@@ -130,7 +130,7 @@ const CampaignGallery = styled.section`
 			display: block;
 			width: 100%;
 			height: auto;
-			border-radius: var(--media-radius);
+			border-radius: var(--radius-media);
 		}
 	}
 

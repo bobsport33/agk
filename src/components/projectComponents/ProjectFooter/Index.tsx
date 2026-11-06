@@ -4,12 +4,12 @@ import styled from "@emotion/styled";
 import { media } from "@/styles/breakpoints";
 
 const projectOrder = [
-	{ href: "/harley-davidson", name: "Harley-Davidson" },
-	{ href: "/city-of-chicago", name: "City of Chicago" },
-	{ href: "/cox-communications", name: "Cox Communications" },
-	{ href: "/converse", name: "Converse" },
-	{ href: "/thunder-valley", name: "Thunder Valley" },
-	{ href: "/recent-web-projects", name: "Recent Web Projects" }
+	{ href: "/creative-work/harley-davidson", name: "Harley-Davidson" },
+	{ href: "/creative-work/city-of-chicago", name: "City of Chicago" },
+	{ href: "/creative-work/cox-communications", name: "Cox Communications" },
+	{ href: "/creative-work/converse", name: "Converse" },
+	{ href: "/creative-work/thunder-valley", name: "Thunder Valley" },
+	{ href: "/creative-work/recent-web-projects", name: "Recent Web Projects" }
 ];
 
 const Footer = styled.nav`
@@ -17,7 +17,7 @@ const Footer = styled.nav`
 	justify-content: space-between;
 	gap: 1rem;
 	padding-top: 1.5rem;
-	border-top: 1px solid var(--neutral-400);
+	border-top: 1px solid var(--border-subtle, #1a1a1a33);
 
 	a {
 		display: inline-flex;
@@ -26,22 +26,22 @@ const Footer = styled.nav`
 		gap: 0.65rem;
 		min-height: 46px;
 		padding: 0.75rem 1.1rem;
-		border: 1px solid var(--neutral-400);
+		border: 1px solid var(--border-subtle, #1a1a1a33);
 		border-radius: 999px;
 		background: transparent;
-		font-size: 13px;
-		font-weight: 500;
+		font-size: var(--font-size-small);
+		font-weight: var(--weight-medium);
 		letter-spacing: 0.08em;
 		transition: background 160ms ease, border-color 160ms ease;
 
 		&:hover,
 		&:focus-visible {
-			background: var(--neutral-200);
-			border-color: var(--primary-400);
+			background: var(--surface-reading, #f0e7dc);
+			border-color: var(--color-coral-hover, #e58d68);
 		}
 
 		&:focus-visible {
-			outline: 2px solid var(--secondary-500);
+		outline: var(--focus-width) solid var(--focus-color);
 			outline-offset: 3px;
 		}
 	}
@@ -67,7 +67,7 @@ export default function ProjectFooter() {
 
 	return (
 		<Footer aria-label="Project navigation">
-			<NextLink href="/">
+			<NextLink href="/creative-work">
 				<span aria-hidden="true">←</span>
 				Back to all projects
 			</NextLink>

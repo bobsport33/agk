@@ -35,9 +35,9 @@ const MediaGridStyled = styled.section`
 		&__title {
 			margin: 0;
 			font-family: var(--font-display);
-			font-size: clamp(20px, 2.5vw, 28px);
-			font-weight: 400;
-			color: var(--neutral-1000);
+			font-size: var(--font-size-h3);
+			font-weight: var(--weight-heading);
+			color: var(--text-heading, var(--color-ink, #1a1a1a));
 		}
 
 		&__grid {
@@ -74,9 +74,9 @@ const MediaGridStyled = styled.section`
 			position: relative;
 			aspect-ratio: 1 / 1;
 			overflow: hidden;
-			border-radius: var(--media-radius);
-			background: var(--neutral-200);
-			border: 1px solid var(--neutral-300);
+			border-radius: var(--radius-media);
+			background: var(--surface-reading, #f0e7dc);
+			border: 1px solid var(--border-subtle, #1a1a1a33);
 		}
 
 		/* Single featured item */

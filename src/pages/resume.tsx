@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 import { media } from "@/styles/breakpoints";
 
 const ResumeCont = styled.div`
-	width: min(86%, 1100px);
+	width: min(100%, 1100px);
 	margin: 0 auto;
-	padding: clamp(3rem, 5vw, 4.5rem) 1.5rem;
+	padding: clamp(3rem, 5vw, 4.5rem) var(--page-gutter);
 
 	.resume__timeline {
 		position: relative;
@@ -19,21 +19,16 @@ const ResumeCont = styled.div`
 		bottom: 0;
 		width: 2px;
 		pointer-events: none;
-		background: linear-gradient(
-			to bottom,
-			var(--primary-500),
-			var(--secondary-500),
-			var(--accent-500)
-		);
+		background: var(--border-strong);
 	}
 
 	.resume__heading {
 		font-family: var(--font-display);
-		font-size: clamp(28px, 4vw, 48px);
-		font-weight: 700;
+		font-size: var(--font-size-h1);
+		font-weight: var(--weight-display);
 		letter-spacing: 0;
-		line-height: 1.1;
-		color: var(--neutral-1000);
+		line-height: var(--leading-heading);
+		color: var(--text-heading, var(--color-ink, #1a1a1a));
 		margin-bottom: 2.75rem;
 	}
 
@@ -46,9 +41,9 @@ const ResumeCont = styled.div`
 		margin-bottom: 1.25rem;
 		padding: 1.5rem;
 
-		background: var(--neutral-100);
+		background: var(--surface-page, #f7ebdd);
 		border-radius: 16px;
-		border-left: 6px solid var(--primary-500);
+		border-left: 6px solid var(--color-coral, #efa17f);
 
 		box-shadow: 0 5px 18px rgba(0, 0, 0, 0.055);
 	}
@@ -65,40 +60,40 @@ const ResumeCont = styled.div`
 
 		border-radius: 50%;
 
-		background: var(--neutral-100);
-		border: 4px solid var(--primary-500);
+		background: var(--surface-page, #f7ebdd);
+		border: 4px solid var(--color-coral, #efa17f);
 	}
 
 	.resume__item--rise {
-		border-left-color: var(--secondary-500);
+		border-left-color: var(--color-teal, #99c2bf);
 	}
 
 	.resume__item--rise::before {
-		border-color: var(--secondary-500);
+		border-color: var(--color-teal, #99c2bf);
 	}
 
 	.resume__item--rpm {
-		border-left-color: var(--accent-500);
+		border-left-color: var(--color-sand, #f0debc);
 	}
 
 	.resume__item--rpm::before {
-		border-color: var(--accent-500);
+		border-color: var(--color-sand, #f0debc);
 	}
 
 	.resume__item--walgreens {
-		border-left-color: var(--primary-700);
+		border-left-color: var(--text-primary, #243d3c);
 	}
 
 	.resume__item--walgreens::before {
-		border-color: var(--primary-700);
+		border-color: var(--text-primary, #243d3c);
 	}
 
 	.resume__item--early {
-		border-left-color: var(--neutral-600);
+		border-left-color: var(--text-muted, #514b46);
 	}
 
 	.resume__item--early::before {
-		border-color: var(--neutral-600);
+		border-color: var(--text-muted, #514b46);
 	}
 
 	.resume__header {
@@ -110,27 +105,27 @@ const ResumeCont = styled.div`
 
 	.resume__company {
 		font-family: var(--font-display);
-		font-size: clamp(22px, 3.5vw, 40px);
-		font-weight: 700;
+		font-size: var(--font-size-h3);
+		font-weight: var(--weight-heading);
 		line-height: 1.15;
-		color: var(--neutral-1000);
+		color: var(--text-heading, var(--color-ink, #1a1a1a));
 	}
 
 	.resume__role {
-		font-size: 1rem;
-		font-weight: 500;
-		color: var(--primary-700);
+		font-size: var(--font-size-body);
+		font-weight: var(--weight-medium);
+		color: var(--text-primary, #243d3c);
 	}
 
 	.resume__date {
 		margin-left: auto;
 
-		font-size: 0.85rem;
-		font-weight: 500;
+		font-size: var(--font-size-small);
+		font-weight: var(--weight-medium);
 		letter-spacing: 0.08em;
 		text-transform: uppercase;
 
-		color: var(--neutral-700);
+		color: var(--text-muted, #514b46);
 	}
 
 	.resume__section {
@@ -139,47 +134,48 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__label {
-		font-size: 11px;
-		font-weight: 500;
+		font-size: var(--font-size-small);
+		font-weight: var(--weight-medium);
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 	}
 
 	.resume__label--clients {
-		color: var(--secondary-700);
+		color: var(--text-secondary, #243d3c);
 	}
 
 	.resume__label--work {
-		color: var(--primary-700);
+		color: var(--text-primary, #243d3c);
 	}
 
 	.resume__label--win {
-		color: var(--accent-700);
+		color: var(--text-primary, #243d3c);
 	}
 
 	.resume__label--awards {
-		color: var(--primary-800);
+		color: var(--text-primary, #243d3c);
 	}
 
 	.resume__text {
-		line-height: 1.7;
-		color: var(--neutral-900);
+		font-size: var(--font-size-body);
+		line-height: var(--leading-body);
+		color: var(--text-body, var(--color-ink, #1a1a1a));
 	}
 
 	.resume__background {
 		margin-top: 3.5rem;
 		padding-top: 3.5rem;
 
-		border-top: 1px solid var(--neutral-300);
+		border-top: 1px solid var(--border-subtle, #1a1a1a33);
 	}
 
 	.resume__backgroundHeading {
 		font-family: var(--font-display);
-		font-size: clamp(28px, 4vw, 48px);
-		font-weight: 700;
+		font-size: var(--font-size-h2);
+		font-weight: var(--weight-display);
 		margin-bottom: 2rem;
 
-		color: var(--neutral-1000);
+		color: var(--text-heading, var(--color-ink, #1a1a1a));
 	}
 
 	.resume__infoGrid {
@@ -192,7 +188,7 @@ const ResumeCont = styled.div`
 	.resume__infoCard {
 		padding: 1.5rem;
 
-		background: var(--neutral-100);
+		background: var(--surface-page, #f7ebdd);
 
 		border-radius: 16px;
 
@@ -200,19 +196,20 @@ const ResumeCont = styled.div`
 	}
 
 	.resume__infoTitle {
-		font-size: 11px;
-		font-weight: 500;
+		font-size: var(--font-size-small);
+		font-weight: var(--weight-medium);
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 
-		color: var(--primary-700);
+		color: var(--text-primary, #243d3c);
 
 		margin-bottom: 1rem;
 	}
 
 	.resume__infoContent {
-		line-height: 1.7;
-		color: var(--neutral-900);
+		font-size: var(--font-size-body);
+		line-height: var(--leading-body);
+		color: var(--text-body, var(--color-ink, #1a1a1a));
 	}
 
 	.resume__skills {
@@ -223,22 +220,22 @@ const ResumeCont = styled.div`
 
 	.resume__skillTitle {
 		font-family: var(--font-display);
-		font-size: clamp(20px, 2.5vw, 28px);
-		font-weight: 400;
+		font-size: var(--font-size-h4);
+		font-weight: var(--weight-heading);
 	}
 
 	.resume__skill {
 		padding: 0.85rem 1.25rem;
 
-		background: var(--primary-100);
+		background: var(--surface-hero, #efa17f);
 
-		border: 1px solid var(--primary-300);
+		border: 1px solid var(--color-coral-disabled, #dfc5b8);
 
 		border-radius: 999px;
 
-		font-weight: 500;
+		font-weight: var(--weight-medium);
 
-		color: var(--primary-900);
+		color: var(--text-primary, #243d3c);
 
 	}
 
@@ -249,12 +246,12 @@ const ResumeCont = styled.div`
 	}
 
 	${media.tablet} {
-		width: min(94%, 900px);
+	width: min(100%, 900px);
 	}
 
 	${media.mobile} {
 		width: 100%;
-		padding: 2.25rem 0;
+		padding: 2.25rem var(--page-gutter);
 
 		.resume__timeline::before {
 			left: 18px;
@@ -282,9 +279,7 @@ const ResumeCont = styled.div`
 			margin-bottom: 2rem;
 		}
 
-		.resume__company {
-			font-size: 22px;
-		}
+		.resume__company { font-size: var(--font-size-h3); }
 
 		.resume__infoCard {
 			padding: 1.15rem;

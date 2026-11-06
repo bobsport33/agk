@@ -25,9 +25,9 @@ const FeaturedMediaStyled = styled.div`
 	.featured-media {
 		&__item {
 			overflow: hidden;
-			border: 1px solid var(--neutral-300);
-			border-radius: var(--media-radius);
-			background: var(--neutral-200);
+			border: 1px solid var(--border-subtle, #1a1a1a33);
+			border-radius: var(--radius-media);
+			background: var(--surface-reading, #f0e7dc);
 		}
 
 		&__image {

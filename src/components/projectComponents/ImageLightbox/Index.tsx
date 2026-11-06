@@ -58,7 +58,7 @@ const Overlay = styled.div`
 			max-width: calc(100vw - 3rem);
 			max-height: calc(100vh - 7rem);
 			object-fit: contain;
-			border-radius: var(--media-radius);
+			border-radius: var(--radius-media);
 			box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
 		}
 
@@ -179,6 +179,7 @@ export default function ImageLightbox({
 	const triggerRef = useRef<HTMLButtonElement>(null);
 	const closeRef = useRef<HTMLButtonElement>(null);
 	const viewportRef = useRef<HTMLDivElement>(null);
+	const overlayRef = useRef<HTMLDivElement>(null);
 
 	const changeZoom = (nextZoom: number) => {
 		const clampedZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, nextZoom));
@@ -216,11 +217,22 @@ export default function ImageLightbox({
 
 		const trigger = triggerRef.current;
 		const previousOverflow = document.body.style.overflow;
+		const inertTargets = Array.from(document.body.children).filter((node) => node !== overlayRef.current) as HTMLElement[];
+		const previousInert = inertTargets.map((node) => node.inert);
+		inertTargets.forEach((node) => { node.inert = true; });
 		document.body.style.overflow = "hidden";
-		closeRef.current?.focus();
+		requestAnimationFrame(() => closeRef.current?.focus());
 
 		const handleKeyDown = (event: KeyboardEvent) => {
 			if (event.key === "Escape") setIsOpen(false);
+			if (event.key === "Tab") {
+				const focusable = overlayRef.current?.querySelectorAll<HTMLElement>('button:not(:disabled), [href], input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [tabindex]:not([tabindex="-1"])');
+				if (!focusable?.length) { event.preventDefault(); return; }
+				const first = focusable[0];
+				const last = focusable[focusable.length - 1];
+				if (event.shiftKey && (document.activeElement === first || !overlayRef.current?.contains(document.activeElement))) { event.preventDefault(); last.focus(); }
+				else if (!event.shiftKey && (document.activeElement === last || !overlayRef.current?.contains(document.activeElement))) { event.preventDefault(); first.focus(); }
+			}
 			if (event.key === "+" || event.key === "=") {
 				event.preventDefault();
 				setZoom((currentZoom) => Math.min(MAX_ZOOM, currentZoom * 2));
@@ -239,8 +251,9 @@ export default function ImageLightbox({
 
 		return () => {
 			document.body.style.overflow = previousOverflow;
+			inertTargets.forEach((node, index) => { node.inert = previousInert[index]; });
 			document.removeEventListener("keydown", handleKeyDown);
-			trigger?.focus();
+			requestAnimationFrame(() => trigger?.focus());
 		};
 	}, [isOpen]);
 
@@ -264,6 +277,7 @@ export default function ImageLightbox({
 				typeof document !== "undefined" &&
 				createPortal(
 					<Overlay
+						ref={overlayRef}
 						role="dialog"
 						aria-modal="true"
 						aria-label={alt || "Image preview"}
