@@ -24,14 +24,41 @@ const HeaderFrame = styled.header`
     nav[data-open="true"] { display: flex; }
     nav a { font-size: var(--font-size-lead); }
   }
+  &[data-homepage="true"] {
+    background: var(--color-paper);
+    border-bottom: 0;
+    .header-inner { width: min(calc(100% - clamp(24px, 4vw, 64px) * 2), 1420px); max-width: none; margin-inline: auto; padding-inline: 0; height: 90px; gap: 32px; }
+    .brand { width: 92px; }
+    .brand img { display: block; width: 100%; height: 48px; object-fit: cover; object-position: 50% 47%; }
+    .menu-button { display: none; }
+    nav { display: flex; position: static; inset: auto; padding: 0; background: transparent; color: inherit; border: 0; flex-direction: row; align-items: center; gap: 40px; }
+    nav a { gap: 10px; min-height: 44px; font-size: 14px; }
+    .arrow { display: block; flex-shrink: 0; width: 18px; height: 18px; }
+    @media (max-width: 900px) {
+      .header-inner { height: 76px; }
+      .brand { width: 80px; }
+      .menu-button { display: block; min-height: 44px; padding: 8px 16px; }
+      nav { display: none; position: absolute; inset: 76px 0 auto; padding: 24px clamp(24px, 4vw, 64px); background: var(--color-ink); color: var(--color-paper); border-bottom: 0; flex-direction: column; align-items: stretch; gap: 8px; }
+      nav[data-open="true"] { display: flex; }
+      nav a { font-size: 18px; }
+    }
+  }
 `;
-const destinations = [
+type NavigationDestination = { href: string; label: string; arrow?: boolean };
+const destinations: NavigationDestination[] = [
   { href: "/", label: "Home" },
   { href: "/creative-work", label: "Creative work" },
   { href: "/books", label: "Books" },
   { href: "/contact", label: "Contact ↗" }
 ];
-export default function Header() {
+const homepageDestinations: NavigationDestination[] = [
+  { href: "/", label: "Home" },
+  { href: "/creative-work", label: "Portfolio" },
+  { href: "/books", label: "Books" },
+  { href: "/#about", label: "About" },
+  { href: "/contact", label: "Contact", arrow: true }
+];
+export default function Header({ homepage = false }: { homepage?: boolean }) {
   const [open, setOpen] = useState(false);
   const frame = useRef<HTMLElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -49,12 +76,13 @@ export default function Header() {
     document.addEventListener("keydown", keyboard);
     return () => { document.removeEventListener("pointerdown", outside); document.removeEventListener("keydown", keyboard); };
   }, [open]);
-  return <HeaderFrame ref={frame}>
+  const links = homepage ? homepageDestinations : destinations;
+  return <HeaderFrame ref={frame} data-homepage={homepage ? "true" : undefined}>
     <div className="container header-inner">
       <NextLink className="brand" href="/" aria-label="AGK home"><Image src="/assets/playbook/logo.png" alt="AGK" width={92} height={49} priority /></NextLink>
       <button ref={toggle} className="menu-button" type="button" aria-expanded={open} aria-controls="primary-navigation" onClick={() => setOpen(value => !value)}>{open ? "Close" : "Menu"}</button>
       <nav id="primary-navigation" aria-label="Primary navigation" data-open={open}>
-        {destinations.map(({ href, label }) => <NextLink key={href} href={href} aria-current={router.pathname === href || (href === "/creative-work" && router.pathname.startsWith("/creative-work/")) ? "page" : undefined} onClick={() => setOpen(false)}>{label}</NextLink>)}
+        {links.map(({ href, label, arrow }) => <NextLink key={href} href={href} aria-current={router.pathname === href || (href === "/creative-work" && router.pathname.startsWith("/creative-work/")) ? "page" : undefined} onClick={() => setOpen(false)}>{label}{arrow && <svg className="arrow" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 26 26 6M6 6h20v20" stroke="currentColor" strokeWidth="2.4"/></svg>}</NextLink>)}
       </nav>
     </div>
   </HeaderFrame>;

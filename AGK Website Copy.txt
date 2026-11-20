@@ -1,0 +1,79 @@
+﻿HERO: MODULE 1
+
+
+EYEBROW: ANASTASIA GULETSKY KELLY
+HEADLINE: creative director • author • friend
+COPY: Hello! I’m Anastasia, and I’m obsessed with a good story.
+
+
+SUBCOPY1: I’ve told them for many brands.
+CTA: → Check out my portfolio
+
+
+SUBCOPY 2: And now, I write them for kids. 
+CTA: → Browse the bookshelf
+
+
+FRAMED PICS:
+  
+  
+
+--
+
+
+MODULE 2
+
+
+HEADLINE: my creative work
+COPY: From starting as a humble copy scribe to becoming a creative leader who can still get you 50 taglines by noon, I’ve become the voice of many of the brands we all know. And bonus: I run my own creative studio now too. Check out my favorite campaigns from Harley-Davidson, Converse, the City of Chicago and more.
+CTA: View portfolio
+
+
+--
+
+
+MODULE 3
+
+
+HEADLINE: my books
+COPY: Same storyteller, but now I have a new client: kids. 
+CTA: Learn more
+
+
+--
+
+
+MODULE 4
+
+
+HEADLINE: i’m anastasia
+COPY: But you know that by now. What you probably don’t know is that I know how to make deep dish pizza. Or that the word “synergy” makes me die a little inside. I really can’t get into my life story in one web module, because who wants to read that much (“...said the writer”). So here are five more fun facts to hold you over: 
+
+
+LINE1: 15+ years of advertising world, or something ad-like
+
+
+LINE2: I started my own business this year
+
+
+LINE3: 
+
+
+LINE4: I’m obsessed with dachshunds. Especially mine, Benny. 
+
+
+LINE5: When I was in 2nd grade, I wrote the original Star Wars Episode 7: “R2-D2 Strikes Back.”
+
+
+COPY: But the best way to get to know me is to get in touch! Which is extra convenient because we’re at the end of the page where you’ll find…
+
+
+--
+
+
+MODULE 4
+
+
+HEADLINE: get in touch
+COPY: About teaming up on a creative gig, learning about my next book project, or sharing your favorite intro at a cocktail party. I’m all ears!
+CTA: contact me

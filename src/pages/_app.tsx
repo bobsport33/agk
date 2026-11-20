@@ -32,8 +32,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <meta property="og:image" content="https://www.anastasiaguletsky.com/logo/AGK-logo-25.png" />
     </Head>
     <a className="skip-link" href="#main-content">Skip to content</a>
-    <Header />
+    <Header homepage={router.pathname === "/"} />
     <main id="main-content" tabIndex={-1}><Component {...pageProps} /></main>
-    <SiteFooter />
+    <SiteFooter homepage={router.pathname === "/"} />
   </>;
 }

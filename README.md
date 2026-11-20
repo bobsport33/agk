@@ -1,6 +1,6 @@
 # AGK portfolio
 
-Next.js Pages Router portfolio based on the approved `mockups/06-playbook.html` direction. Creative Work retains the original six-project mosaic.
+Next.js Pages Router portfolio based on the approved Playbook direction. The homepage follows `mockups/homepage-copy-review.html`; the other pages retain the `mockups/06-playbook.html` implementation. Creative Work retains the original six-project mosaic.
 
 ## Local development
 
@@ -29,7 +29,7 @@ Development and production builds use webpack to avoid the Windows/Turbopack jun
 - Case studies: `/creative-work/harley-davidson`, `/creative-work/city-of-chicago`, `/creative-work/cox-communications`, `/creative-work/converse`, `/creative-work/thunder-valley`, `/creative-work/recent-web-projects`.
 - The six former root-level project URLs permanently redirect to their nested equivalents.
 - `src/data/projects.ts` owns mosaic placements and local case-study destinations.
-- `src/content/site.ts` and `src/content/books.ts` own preview and book details; overview placeholder prose is intentional pending final copy.
+- `src/content/home.ts` owns the approved homepage copy, including the requested third-fact placeholder. `src/content/site.ts` and `src/content/books.ts` own campaign media and book details; placeholder prose on other overview pages remains pending final copy.
 - `src/content/playbook-assets.ts` records mockup asset provenance. Fonts and images are served locally.
 
 ## Contact integration
@@ -39,3 +39,5 @@ Development and production builds use webpack to avoid the Windows/Turbopack jun
 ## Handoff
 
 See `docs/playbook-migration-plan.md` for the approved plan and `docs/playbook-implementation.md` for implementation, review, verification, and release dependencies.
+
+The November 20 homepage update is documented in `docs/homepage-implementation.md`.
