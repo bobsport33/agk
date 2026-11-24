@@ -10,7 +10,7 @@ const legacyHashes: Record<string, string> = { "#creative": "/creative-work", "#
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const route = router.asPath.split(/[?#]/)[0];
-  const editorial = router.pathname === "/" || router.pathname === "/creative-work";
+  const editorial = router.pathname === "/" || router.pathname === "/creative-work" || router.pathname === "/books";
   const title = `${pageNames[route] || route.split("/").pop()?.split("-").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(" ") || "Portfolio"} | Anastasia Guletsky Kelly`;
   const canonical = `https://www.anastasiaguletsky.com${route === "/" ? "" : route}`;
   useEffect(() => {

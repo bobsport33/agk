@@ -9,7 +9,7 @@ const Panel = styled.section`
   p { font-size: 18px; margin-top: 24px; max-width: 42ch; }
   .studio-services { display: grid; gap: 8px; list-style: none; padding: 0; margin: 0 0 24px; font-size: 20px; line-height: 1.4; }
   .studio-link { display: inline-flex; align-items: center; gap: 20px; min-height: 64px; text-decoration: none; font-weight: 500; }
-  .studio-link > span:first-child { text-decoration: underline; text-underline-offset: .3em; }
+  .studio-link > span:first-of-type { text-decoration: underline; text-underline-offset: .3em; }
   .arrow-orb { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--color-paper); transition: background 240ms var(--portfolio-ease), color 240ms var(--portfolio-ease), transform 240ms var(--portfolio-ease); }
   .arrow { width: 32px; height: 32px; }
   .studio-link:hover .arrow-orb { background: var(--color-ink); color: var(--color-paper); transform: translateY(-2px); }

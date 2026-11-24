@@ -1,6 +1,7 @@
 import NextLink from "next/link";
 import Image from "next/image";
 import styled from "@emotion/styled";
+import type { ReactNode } from "react";
 const FooterFrame = styled.footer`
   background: var(--surface-page);
   border-top: 1px solid var(--border-subtle);
@@ -34,7 +35,7 @@ const FooterFrame = styled.footer`
     }
   }
 `;
-export default function SiteFooter({ editorial = false }: { editorial?: boolean }) {
+export default function SiteFooter({ editorial = false, children }: { editorial?: boolean; children?: ReactNode }) {
   if (editorial) return <FooterFrame data-editorial="true"><div className="container footer-inner">
     <div className="footer-top">
       <NextLink className="footer-brand" href="/" aria-label="AGK home"><Image src="/assets/playbook/logo.png" alt="AGK" width={136} height={64} /></NextLink>
@@ -47,6 +48,7 @@ export default function SiteFooter({ editorial = false }: { editorial?: boolean 
       <span className="copyright">© 2026 Anastasia Guletsky Kelly. All rights reserved.</span>
       <div className="footer-social" aria-label="Social links"><a href="https://www.linkedin.com/in/anastasiaguletsky" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://www.facebook.com/stasiamarie" target="_blank" rel="noopener noreferrer">Facebook</a></div>
     </div>
+    {children}
   </div></FooterFrame>;
   return <FooterFrame><div className="container footer-inner">
     <span className="identity">Anastasia Guletsky Kelly</span>

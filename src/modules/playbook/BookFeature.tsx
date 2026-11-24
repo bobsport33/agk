@@ -1,21 +1,70 @@
 import Image from "next/image";
-import Link from "next/link";
-import styled from "@emotion/styled";
 import { bookContent } from "@/content/books";
-const Band=styled.section`
-  background:var(--surface-books);padding-block:var(--section-space);color:var(--text-heading);
-  --text-body:var(--color-ink);--text-heading:var(--color-ink);
-`;
-const Inner=styled.div`
-  display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:var(--layout-gap);
-  .visual{position:relative;width:min(calc(100% - 24px),520px);margin:auto;transform:rotate(-3deg);background:var(--color-paper);padding:var(--frame-book);box-shadow:var(--shadow-plate)}
-  .visual img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;display:block}
-  .date{position:absolute;right:-18px;bottom:-12px;width:var(--book-badge-size);height:var(--book-badge-size);border-radius:var(--radius-round);display:grid;place-content:center;text-align:center;background:var(--color-paper);font-size:var(--font-size-small);line-height:1.1}.date strong{font-size:var(--font-size-h3);font-family:var(--font-display);font-weight:var(--weight-display)}
-  h2{font-size:var(--font-size-book);font-weight:var(--weight-display);line-height:var(--leading-heading);letter-spacing:var(--tracking-display);margin-bottom:var(--space-4)}
-  p{margin-block:var(--space-3)}.publisher{text-decoration:underline;text-underline-offset:.3em;color:var(--text-primary)}
-  .publisher:hover{color:var(--text-primary-hover)}.publisher:active{color:var(--text-primary-active)}
-  .cta{margin-top:var(--space-4)}
-  @media(max-width:1024px){grid-template-columns:1fr;}
+import { BooksContainer, BookInquiryLink } from "@/modules/books/shared";
 
-`;
-export function BookFeature(){return <Band><div className="container"><Inner><div className="visual"><Image src={bookContent.archivalImage} alt={bookContent.archivalImageAlt} width={820} height={580} sizes="(max-width: 640px) calc(100vw - 72px), 520px"/><span className="date"><span>{bookContent.dateBadge[0]}</span><strong>{bookContent.dateBadge[1]}</strong></span></div><div><h2 className="type-book">BERTHA &amp;<br/>THE VERY FIRST<br/>BROWNIE</h2><p>{bookContent.summary}</p><p>Published by <a className="publisher" href={bookContent.publisherUrl} target="_blank" rel="noreferrer">{bookContent.publisher}</a></p><Link className="cta" href="/contact?topic=books">{bookContent.inquiryLabel} <span aria-hidden="true">↗</span></Link></div></Inner></div></Band>}
+export function BookFeature() {
+  return (
+    <section className="book-launch" aria-labelledby="book-title">
+      <BooksContainer className="launch-layout">
+        <div
+          className="book-gallery"
+          role="group"
+          aria-label="Historical photographs related to the book"
+        >
+          <figure className="archive-photo ferris-photo">
+            <div className="archive-image">
+              <Image
+                src={bookContent.archivalImage}
+                alt={bookContent.archivalImageAlt}
+                fill
+                sizes="(max-width: 600px) 80vw, (max-width: 900px) 521px, 42vw"
+                style={{ objectFit: "cover", objectPosition: "55% 45%" }}
+              />
+            </div>
+            <span className="book-date" aria-label={bookContent.publicationDate}>
+              <span>{bookContent.dateBadge[0]}</span>
+              <strong>{bookContent.dateBadge[1]}</strong>
+            </span>
+          </figure>
+          <figure className="archive-photo bertha-photo">
+            <div className="archive-image">
+              <Image
+                src="/assets/books/bertha-palmer.webp"
+                alt="Historical portrait of Bertha Palmer, published by 1896"
+                fill
+                sizes="(max-width: 600px) 30vw, (max-width: 900px) 193px, 16vw"
+                style={{ objectFit: "cover", objectPosition: "50% 32%" }}
+              />
+            </div>
+          </figure>
+          <figure className="archive-photo fair-photo">
+            <div className="archive-image">
+              <Image
+                src="/assets/books/worlds-fair.webp"
+                alt="The Court of Honor at the 1893 World's Columbian Exposition, photographed by E. R. Walker"
+                fill
+                sizes="(max-width: 600px) 57vw, (max-width: 900px) 397px, 32vw"
+                style={{ objectFit: "cover", objectPosition: "50% 66%" }}
+              />
+            </div>
+          </figure>
+        </div>
+        <div className="launch-copy">
+          <h2 id="book-title">
+            <span>BERTHA &amp;</span>{" "}
+            <span>THE VERY FIRST</span>{" "}
+            <span>BROWNIE</span>
+          </h2>
+          <p className="book-summary">{bookContent.summary}</p>
+          <p className="publisher">
+            Published by{" "}
+            <a href={bookContent.publisherUrl} target="_blank" rel="noopener noreferrer">
+              {bookContent.publisher}
+            </a>
+          </p>
+          <BookInquiryLink />
+        </div>
+      </BooksContainer>
+    </section>
+  );
+}
