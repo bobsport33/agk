@@ -24,7 +24,7 @@ const HeaderFrame = styled.header`
     nav[data-open="true"] { display: flex; }
     nav a { font-size: var(--font-size-lead); }
   }
-  &[data-homepage="true"] {
+  &[data-editorial="true"] {
     background: var(--color-paper);
     border-bottom: 0;
     .header-inner { width: min(calc(100% - clamp(24px, 4vw, 64px) * 2), 1420px); max-width: none; margin-inline: auto; padding-inline: 0; height: 90px; gap: 32px; }
@@ -47,18 +47,18 @@ const HeaderFrame = styled.header`
 type NavigationDestination = { href: string; label: string; arrow?: boolean };
 const destinations: NavigationDestination[] = [
   { href: "/", label: "Home" },
-  { href: "/creative-work", label: "Creative work" },
+  { href: "/creative-work", label: "Creative portfolio" },
   { href: "/books", label: "Books" },
   { href: "/contact", label: "Contact ↗" }
 ];
-const homepageDestinations: NavigationDestination[] = [
+const editorialDestinations: NavigationDestination[] = [
   { href: "/", label: "Home" },
   { href: "/creative-work", label: "Portfolio" },
   { href: "/books", label: "Books" },
   { href: "/#about", label: "About" },
   { href: "/contact", label: "Contact", arrow: true }
 ];
-export default function Header({ homepage = false }: { homepage?: boolean }) {
+export default function Header({ editorial = false }: { editorial?: boolean }) {
   const [open, setOpen] = useState(false);
   const frame = useRef<HTMLElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -76,8 +76,8 @@ export default function Header({ homepage = false }: { homepage?: boolean }) {
     document.addEventListener("keydown", keyboard);
     return () => { document.removeEventListener("pointerdown", outside); document.removeEventListener("keydown", keyboard); };
   }, [open]);
-  const links = homepage ? homepageDestinations : destinations;
-  return <HeaderFrame ref={frame} data-homepage={homepage ? "true" : undefined}>
+  const links = editorial ? editorialDestinations : destinations;
+  return <HeaderFrame ref={frame} data-editorial={editorial ? "true" : undefined}>
     <div className="container header-inner">
       <NextLink className="brand" href="/" aria-label="AGK home"><Image src="/assets/playbook/logo.png" alt="AGK" width={92} height={49} priority /></NextLink>
       <button ref={toggle} className="menu-button" type="button" aria-expanded={open} aria-controls="primary-navigation" onClick={() => setOpen(value => !value)}>{open ? "Close" : "Menu"}</button>

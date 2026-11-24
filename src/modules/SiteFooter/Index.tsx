@@ -8,7 +8,7 @@ const FooterFrame = styled.footer`
   .identity { margin-right: auto; }
   a { min-height: var(--tap-target); display: inline-flex; align-items: center; }
   @media (max-width: 640px) { .identity { flex-basis: 100%; } }
-  &[data-homepage="true"] {
+  &[data-editorial="true"] {
     background: var(--color-paper);
     color: var(--color-ink);
     border-top: 0;
@@ -34,12 +34,12 @@ const FooterFrame = styled.footer`
     }
   }
 `;
-export default function SiteFooter({ homepage = false }: { homepage?: boolean }) {
-  if (homepage) return <FooterFrame data-homepage="true"><div className="container footer-inner">
+export default function SiteFooter({ editorial = false }: { editorial?: boolean }) {
+  if (editorial) return <FooterFrame data-editorial="true"><div className="container footer-inner">
     <div className="footer-top">
       <NextLink className="footer-brand" href="/" aria-label="AGK home"><Image src="/assets/playbook/logo.png" alt="AGK" width={136} height={64} /></NextLink>
       <nav className="footer-nav" aria-label="Footer navigation">
-        <NextLink href="/contact">Contact</NextLink><NextLink href="/creative-work">Creative work</NextLink><NextLink href="/books">Books</NextLink><NextLink href="/resume">Resume</NextLink>
+        <NextLink href="/contact">Contact</NextLink><NextLink href="/creative-work">Creative portfolio</NextLink><NextLink href="/books">Books</NextLink><NextLink href="/resume">Resume</NextLink>
         <a href="https://foundfablecreative.com/" target="_blank" rel="noopener noreferrer">Found Fable</a>
       </nav>
     </div>
@@ -50,7 +50,7 @@ export default function SiteFooter({ homepage = false }: { homepage?: boolean })
   </div></FooterFrame>;
   return <FooterFrame><div className="container footer-inner">
     <span className="identity">Anastasia Guletsky Kelly</span>
-    <NextLink href="/contact">Contact</NextLink><NextLink href="/creative-work">Creative work</NextLink><NextLink href="/books">Books</NextLink><NextLink href="/resume">Resume</NextLink>
+    <NextLink href="/contact">Contact</NextLink><NextLink href="/creative-work">Creative portfolio</NextLink><NextLink href="/books">Books</NextLink><NextLink href="/resume">Resume</NextLink>
     <a href="https://foundfablecreative.com/" target="_blank" rel="noopener noreferrer">Found Fable</a>
     <a href="https://www.linkedin.com/in/anastasiaguletsky" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     <a href="https://www.facebook.com/stasiamarie" target="_blank" rel="noopener noreferrer">Facebook</a>

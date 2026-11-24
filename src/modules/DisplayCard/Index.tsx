@@ -1,117 +1,80 @@
-import React from "react";
 import styled from "@emotion/styled";
 import Link from "next/link";
-import NextImage from "next/image";
-
-interface CardProps {
-	client: string;
-	imageUrl: string;
-	link: string;
-	priority?: boolean;
-	imageAlt?: string;
-	objectFit?: "cover" | "contain";
-	objectPosition?: string;
-}
+import Image from "next/image";
+import { PortfolioArrow } from "@/modules/portfolio/shared";
+import type { PortfolioProject } from "@/data/projects";
 
 const Card = styled(Link)`
-	position: relative;
-	display: block;
-	width: 100%;
-	height: 100%;
-
-	padding: var(--space-2);
-
-	background: var(--surface-page, #f7ebdd);
-	border: 1px solid var(--border-subtle, #1a1a1a33);
-	border-radius: var(--radius-mosaic);
-
-	overflow: hidden;
-	text-decoration: none;
-
-	box-shadow: 0 3px 12px rgba(26, 26, 26, 0.08);
-
-	transition:
-		transform 200ms ease,
-		box-shadow 200ms ease;
-
-	&:hover {
-		box-shadow: 0 8px 20px rgba(26, 26, 26, 0.14);
-		transform: translateY(-2px);
-	}
-
-	&:focus-visible {
-		outline: 3px solid var(--focus-color, currentColor);
-		outline-offset: 3px;
-	}
-
-	&:hover .card__image {
-		transform: scale(1.03);
-	}
+  position: relative; display: block; width: 100%; height: 100%; min-width: 0; min-height: 0;
+  padding: 8px; border: 1px solid var(--border-subtle); border-radius: 4px;
+  background: var(--color-paper); text-decoration: none;
+  box-shadow: 0 3px 12px #1a1a1a14;
+  transition: transform 240ms var(--portfolio-ease), box-shadow 240ms var(--portfolio-ease);
+  .project-visual { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: 4px; background: var(--color-ink); }
+  .project-image { object-fit: cover; transition: transform 450ms var(--portfolio-ease); }
+  .project-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 24px; background: var(--color-soft); color: var(--color-ink); }
+  .project-placeholder strong { font: 600 clamp(28px, 2.6vw, 36px)/1.1 var(--font-display); letter-spacing: -.03em; text-align: center; text-wrap: balance; }
+  .project-placeholder small { margin-top: 12px; font-size: 13px; }
+  .project-rest { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 20px; color: var(--color-paper); background: linear-gradient(0deg, #1a1a1af2, #1a1a1a80 38%, transparent 72%); transition: opacity 220ms var(--portfolio-ease); }
+  .project-rest strong { font-size: 16px; font-weight: 500; line-height: 1.3; }
+  .project-rest .arrow { width: 22px; height: 22px; }
+  .project-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 24px; background: #1a1a1af2; color: var(--color-paper); clip-path: inset(100% 0 0); transition: clip-path 330ms var(--portfolio-ease); }
+  .project-overlay h2 { color: inherit; font-size: clamp(22px, 2vw, 28px); font-weight: 600; line-height: 1.02; letter-spacing: -.03em; }
+  .project-overlay p { max-width: 48ch; font-size: 16px; line-height: 1.45; }
+  .project-action { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 2px; font-size: 14px; font-weight: 500; }
+  .project-action .arrow { width: 24px; height: 24px; color: var(--color-coral); }
+  .project-image-note { font-size: 13px; line-height: 1.4; }
+  &[data-image-pending=true] .project-rest { background: none; color: var(--color-ink); justify-content: flex-end; }
+  &[data-image-pending=true] .project-rest strong { display: none; }
+  &[data-image-pending=true] .project-overlay { background: var(--color-soft); color: var(--color-ink); }
+  &[data-image-pending=true] .project-action .arrow { color: inherit; }
+  &:hover, &:focus-visible { box-shadow: 0 12px 28px #1a1a1a26; transform: translateY(-2px); }
+  &:hover .project-overlay, &:focus-visible .project-overlay { clip-path: inset(0); }
+  &:hover .project-rest, &:focus-visible .project-rest { opacity: 0; }
+  &:hover .project-image, &:focus-visible .project-image { transform: scale(1.025); }
+  &:active { transform: translateY(0); }
+  @media (min-width: 1025px) and (max-width: 1350px) {
+    .project-rest, .project-overlay { padding: 18px; }
+    .project-overlay { gap: 10px; }
+    .project-overlay h2 { font-size: 22px; }
+    .project-overlay p { font-size: 15px; line-height: 1.4; }
+  }
+  @media (min-width: 1025px) {
+    &[data-compact=true] .project-overlay { padding: 18px; gap: 10px; }
+    &[data-compact=true] .project-overlay h2 { font-size: 22px; }
+    &[data-compact=true] .project-overlay p { font-size: 15px; line-height: 1.4; }
+  }
+  @media (max-width: 1024px) {
+    .project-overlay h2 { font-size: 28px; }
+    .project-overlay p { font-size: 16px; line-height: 1.5; }
+  }
+  @media (max-width: 640px) {
+    .project-rest { display: none; }
+    .project-overlay { clip-path: none; background: linear-gradient(0deg, #1a1a1af2 0%, #1a1a1ad9 35%, #1a1a1a40 75%, transparent); gap: 12px; }
+    .project-overlay h2 { font-size: 26px; }
+    .project-overlay p { font-size: 15px; line-height: 1.4; }
+    .project-overlay h2, .project-overlay p { text-wrap: pretty; }
+    .project-action { margin-top: 4px; }
+  }
+  @media (max-width: 360px) {
+    /* Long titles reach the light upper artwork in the smallest square tiles. */
+    .project-overlay { background: linear-gradient(0deg, #1a1a1af2 0%, #1a1a1ad9 45%, #1a1a1ab3 100%); }
+  }
+  @media (hover: none) and (min-width: 641px) {
+    .project-rest { display: none; }
+    .project-overlay { clip-path: none; background: linear-gradient(0deg, #1a1a1af2 0%, #1a1a1ad9 35%, #1a1a1a40 75%, transparent); }
+  }
 `;
 
-const ImageContainer = styled.div`
-	position: relative;
-	width: 100%;
-	height: 100%;
-	border-radius: var(--radius-mosaic);
-	overflow: hidden;
-`;
-
-const CardImage = styled(NextImage)`
-	object-fit: cover;
-	display: block;
-
-	transition: transform 300ms ease;
-`;
-
-const Overlay = styled.div`
-	position: absolute;
-	inset: 0;
-
-	display: flex;
-	align-items: flex-end;
-
-	padding: var(--space-5);
-
-	background: linear-gradient(
-		to top,
-		rgba(0, 0, 0, 0.75),
-		rgba(0, 0, 0, 0.25) 35%,
-		transparent 65%
-	);
-
-	pointer-events: none;
-`;
-
-const Title = styled.div`
-	color: white;
-	font-size: var(--font-size-small);
-	font-weight: var(--weight-medium);
-	letter-spacing: 0;
-
-	transition: transform 200ms ease;
-`;
-
-const DisplayCard = ({ client, imageUrl, link, priority = false, imageAlt = client, objectFit = "cover", objectPosition = "center" }: CardProps) => {
-	return (
-		<Card href={link}>
-			<ImageContainer>
-				<CardImage
-					className="card__image"
-					src={imageUrl}
-					alt={imageAlt}
-					style={{ objectFit, objectPosition }}
-					fill
-					priority={priority}
-					sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 42px), 42vw"
-				/>
-
-				<Overlay>
-					<Title className="card__title">{client}</Title>
-				</Overlay>
-			</ImageContainer>
-		</Card>
-	);
-};
-
-export default DisplayCard;
+export default function DisplayCard({ project, priority = false }: { project: PortfolioProject; priority?: boolean }) {
+  const titleId = `project-title-${project.id}`;
+  const descriptionId = `project-description-${project.id}`;
+  const imageNoteId = `project-image-note-${project.id}`;
+  return <Card className="project" data-project={project.id} data-compact={project.compact ? "true" : undefined} data-image-pending={!project.imageUrl ? "true" : undefined} href={project.href} target={project.external ? "_blank" : undefined} rel={project.external ? "noopener noreferrer" : undefined} aria-labelledby={titleId} aria-describedby={project.imageUrl ? descriptionId : `${descriptionId} ${imageNoteId}`}>
+    <div className="project-visual">
+      {project.imageUrl ? <Image className="project-image" src={project.imageUrl} alt={project.alt} fill priority={priority} style={{ objectFit: project.objectFit ?? "cover", objectPosition: project.objectPosition ?? "center" }} sizes={`(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) ${project.id === "recent-web-projects" ? 92 : 46}vw, (max-width: 1548px) 31vw, 460px`} /> : <div className="project-placeholder" aria-hidden="true"><strong>{project.client}</strong><small>Image coming soon</small></div>}
+      <div className="project-rest" aria-hidden="true"><strong>{project.client}</strong><PortfolioArrow /></div>
+      <div className="project-overlay"><h2 id={titleId}>{project.client}</h2><p id={descriptionId}>{project.description}</p>{!project.imageUrl && <small className="project-image-note" id={imageNoteId}>Image coming soon</small>}<span className="project-action">{project.actionLabel ?? "View project"}<PortfolioArrow /></span></div>
+    </div>
+  </Card>;
+}
