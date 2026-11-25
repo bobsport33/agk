@@ -49,13 +49,14 @@ const destinations: NavigationDestination[] = [
   { href: "/", label: "Home" },
   { href: "/creative-work", label: "Creative portfolio" },
   { href: "/books", label: "Books" },
+  { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact ↗" }
 ];
 const editorialDestinations: NavigationDestination[] = [
   { href: "/", label: "Home" },
   { href: "/creative-work", label: "Portfolio" },
   { href: "/books", label: "Books" },
-  { href: "/#about", label: "About" },
+  { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact", arrow: true }
 ];
 export default function Header({ editorial = false }: { editorial?: boolean }) {

@@ -29,6 +29,7 @@ const Hero = styled.section`
   .portrait { position: absolute; right: 5%; top: 16px; width: 70%; height: 82%; border: 12px solid var(--color-paper); object-fit: cover; object-position: 50% 24%; transform: rotate(7deg); box-shadow: 0 16px 35px #1a1a1a26; }
   .city { position: absolute; left: -5%; bottom: 0; width: 52%; height: auto; aspect-ratio: 1; object-fit: cover; border: 12px solid var(--color-paper); transform: rotate(-9deg); box-shadow: 0 16px 35px #1a1a1a26; transition: opacity 140ms var(--home-ease); }
   .city.is-swapping { opacity: 0; }
+  .city.is-logo { object-fit: contain; background: #fff; }
   .asterisk { position: absolute; right: 0; bottom: 0; width: 104px; height: 104px; fill: var(--color-ink); }
   .hero-paths { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
   .path { display: grid; grid-template-columns: minmax(0, 1fr) 28px; column-gap: 12px; row-gap: 16px; align-items: center; padding: 20px; background: var(--color-paper); color: var(--color-ink); text-decoration: none; min-width: 0; transition: transform 240ms var(--home-ease), background 240ms var(--home-ease); }
@@ -93,7 +94,7 @@ const Hero = styled.section`
 `;
 
 const previews = {
-  original: { src: "/assets/playbook/hero-city.webp", alt: "City of Chicago campaign" },
+  original: { src: "/assets/playbook/logo.png", alt: "AGK – Anastasia Guletsky Kelly logo" },
   portfolio: { src: "/assets/playbook/harley-1.webp", alt: "Harley-Davidson campaign preview" },
   books: { src: "/assets/playbook/ferris.jpg", alt: "Archival Ferris wheel photograph for Bertha & the Very First Brownie" },
 };
@@ -160,12 +161,12 @@ export function HomeHero() {
             ))}
           </div>
         </div>
-        <div className="collage" role="group" aria-label="Portrait and City of Chicago campaign collage">
+        <div className="collage" role="group" aria-label="Portrait and AGK logo collage">
           <div className="plate" aria-hidden="true" />
           <Image className="portrait" src="/assets/playbook/portrait.png" alt="Anastasia Guletsky Kelly" width={718} height={983} sizes="(max-width: 600px) 58vw, (max-width: 900px) 333px, 35vw" priority />
           <Image
             key={preview}
-            className={`city${isSwapping ? " is-swapping" : ""}`}
+            className={`city${preview === "original" ? " is-logo" : ""}${isSwapping ? " is-swapping" : ""}`}
             src={previews[preview].src}
             alt={previews[preview].alt}
             width={1000}

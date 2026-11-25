@@ -24,6 +24,7 @@ const Card = styled(Link)`
   .project-action { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 2px; font-size: 14px; font-weight: 500; }
   .project-action .arrow { width: 24px; height: 24px; color: var(--color-coral); }
   .project-image-note { font-size: 13px; line-height: 1.4; }
+  &[data-contained=true] .project-rest { background: none; color: var(--color-ink); }
   &[data-image-pending=true] .project-rest { background: none; color: var(--color-ink); justify-content: flex-end; }
   &[data-image-pending=true] .project-rest strong { display: none; }
   &[data-image-pending=true] .project-overlay { background: var(--color-soft); color: var(--color-ink); }
@@ -66,13 +67,20 @@ const Card = styled(Link)`
   }
 `;
 
+/** Approximate rendered width from the tile's column spans (12 columns on desktop, 6 on tablet, max container 1420px). */
+function imageSizes({ layout }: PortfolioProject) {
+  const desktop = (layout.desktop.col[1] - layout.desktop.col[0]) / 12;
+  const tablet = (layout.tablet.col[1] - layout.tablet.col[0]) / 6;
+  return `(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) ${Math.round(tablet * 92)}vw, (max-width: 1548px) ${Math.round(desktop * 92)}vw, ${Math.round(desktop * 1420)}px`;
+}
+
 export default function DisplayCard({ project, priority = false }: { project: PortfolioProject; priority?: boolean }) {
   const titleId = `project-title-${project.id}`;
   const descriptionId = `project-description-${project.id}`;
   const imageNoteId = `project-image-note-${project.id}`;
-  return <Card className="project" data-project={project.id} data-compact={project.compact ? "true" : undefined} data-image-pending={!project.imageUrl ? "true" : undefined} href={project.href} target={project.external ? "_blank" : undefined} rel={project.external ? "noopener noreferrer" : undefined} aria-labelledby={titleId} aria-describedby={project.imageUrl ? descriptionId : `${descriptionId} ${imageNoteId}`}>
-    <div className="project-visual">
-      {project.imageUrl ? <Image className="project-image" src={project.imageUrl} alt={project.alt} fill priority={priority} style={{ objectFit: project.objectFit ?? "cover", objectPosition: project.objectPosition ?? "center" }} sizes={`(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) ${project.id === "recent-web-projects" ? 92 : 46}vw, (max-width: 1548px) 31vw, 460px`} /> : <div className="project-placeholder" aria-hidden="true"><strong>{project.client}</strong><small>Image coming soon</small></div>}
+  return <Card className="project" data-project={project.id} data-compact={project.compact ? "true" : undefined} data-contained={project.objectFit === "contain" ? "true" : undefined} data-image-pending={!project.imageUrl ? "true" : undefined} href={project.href} target={project.external ? "_blank" : undefined} rel={project.external ? "noopener noreferrer" : undefined} aria-labelledby={titleId} aria-describedby={project.imageUrl ? descriptionId : `${descriptionId} ${imageNoteId}`}>
+    <div className="project-visual" style={project.background ? { background: project.background } : undefined}>
+      {project.imageUrl ? <Image className="project-image" src={project.imageUrl} alt={project.alt} fill priority={priority} style={{ objectFit: project.objectFit ?? "cover", objectPosition: project.objectPosition ?? "center", padding: project.imagePadding, boxSizing: "border-box" }} sizes={imageSizes(project)} /> : <div className="project-placeholder" aria-hidden="true"><strong>{project.client}</strong><small>Image coming soon</small></div>}
       <div className="project-rest" aria-hidden="true"><strong>{project.client}</strong><PortfolioArrow /></div>
       <div className="project-overlay"><h2 id={titleId}>{project.client}</h2><p id={descriptionId}>{project.description}</p>{!project.imageUrl && <small className="project-image-note" id={imageNoteId}>Image coming soon</small>}<span className="project-action">{project.actionLabel ?? "View project"}<PortfolioArrow /></span></div>
     </div>
